@@ -26,7 +26,7 @@
   | cashInfo | 현금영수증 > 휴대번호| String | X |
   | cashInfo | 현금영수증 > 사업자번호| String | X |
   | buyerName | 구매자명 | String | X |
-  | buyerMail | 구매자이메일 | String | X |
+  | buyerEmail | 구매자이메일 | String | X |
   | buyerHhpNo | 구매자휴대번호 | String | X |
   | deliveryZip | 배송주소(우편번호) | String | O |
   | deliveryAddress1 | 배송주소(주소1) | String | O |
@@ -38,9 +38,9 @@
 
 * **Fail Response:**
 
-##### 3.2. 구매자 거래취소
+##### 3.2. 구매자 결제 취소
 ----
-구매자가 구매한 거래를 취소 요청하는 API입니다.
+구매자가 결제 취소를 요청하는 API입니다.
 
 ###### 구매요청이 가능한 거래상태
   | 상태 | 설명 |
@@ -59,13 +59,13 @@
 
 *  **URL Params**
 
-  | 파라메터 | 설명 | 타입 | 필수 |
-  |--|--|--|--|
-  | unicroUserNo |구매자 식별키 (유니크로 사용자 식별키로 유니크로 가입후 전달 한 값입니다.) | Integer | O |
-  | tradeNo|유니크로 거래번호 | String | O |
-  | aspTradeNo|제휴사 거래번호 | String | O |
-  | returnCd|거래취소사유코드 | String | X |
-  | returnMemo|거래취소사유(직접입력) | String | X |
+  | 파라메터        | 설명 | 타입 | 필수 |
+  |--               | --|--|--|
+  | unicroUserNo    | 구매자 식별키 (유니크로 사용자 식별키로 유니크로 가입후 전달 한 값입니다.) | Integer | O |
+  | unicroTradeNo   | 유니크로 거래번호 | String | O |
+  | partnerTradeNo  | 제휴사 거래번호 | String | O |
+  | returnCd        | 거래취소사유코드 | String | X |
+  | returnMemo      | 거래취소사유(직접입력) | String | X |
 
 * **Success Response:**
   
@@ -76,9 +76,9 @@
 구매자가 배송중인 거래를 반품요청하는 API입니다.
 
 ###### 반품요청이 가능한 거래상태
-  | 상태 | 설명 |
-  |--|--|
-  | DELIVERY_ING   | 요청 후 RETURN_REQ로 변경됨 |
+  | 상태          | 설명 |
+  |--             |--|
+  | DELIVERY_ING  | 요청 후 RETURN_REQ로 변경됨 |
 
 * **기능**
   구매자 반품 요청
@@ -104,7 +104,39 @@
   
 * **Fail Response:**
 
-##### 3.4. 거래 조회
+##### 3.4. 구매자 반품 배송정보 기입
+----
+구매자가 반품요청한 거래의 반품 배송정보를 기입하는 API입니다.
+
+###### 반품요청이 가능한 거래상태
+  | 상태          | 설명 |
+  |--             |--|
+  | RETURN_AGR  | 요청 후 RETURN_ING로 변경됨 |
+
+* **기능**
+  구매자 반품 배송정보 기입
+
+* **URI**
+  /buyer/returnDelivery
+
+* **Method:**
+  `POST`
+
+*  **URL Params**
+
+  | 파라메터        | 설명 | 타입 | 필수 |
+  |--               |--|--|--|
+  | unicroUserNo    | 구매자 식별키 (유니크로 사용자 식별키로 유니크로 가입후 전달한 값입니다.) | Integer | O |
+  | partnerUserId   | 구매자 제휴사 아이디 | String (4~50자) | O |
+  | partnerTradeNo  | 제휴사 거래고유식별번호 | String | O |
+  | deliveryCompCd  | 택배사 코드 | String | O |
+  | invoiceNo       | 송장번호 | String | O |
+
+* **Success Response:**
+  
+* **Fail Response:**
+
+##### 3.5. 거래 조회
 ----
 구매자가 거래를 조회하는 API입니다.
 
