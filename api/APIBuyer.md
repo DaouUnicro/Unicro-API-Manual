@@ -93,8 +93,8 @@
 
   | 파라메터                | 설명 | 타입 | 필수 |
   |--                       |--|--|--|
-  | unicroUserNo            | 판매자 식별키 (유니크로 사용자 식별키로 유니크로 가입후 전달한 값입니다.) | Integer | O |
-  | partnerUserId           | 판매자 제휴사 아이디 | String (4~50자) | O |
+  | unicroUserNo            | 구매자 식별키 (유니크로 사용자 식별키로 유니크로 가입후 전달한 값입니다.) | Integer | O |
+  | partnerUserId           | 구매자 제휴사 아이디 | String (4~50자) | O |
   | partnerTradeNo          | 제휴사 거래고유식별번호 | String | O |
   | returnDeliveryPayType   | 반품 배송비 부담 (CASH_ON_DELIVERY:착불(판매자부담), PRE_PAYMENT:선불(구매자부담)) | String | X |
   | returnCd                | 반품 사유코드 | String | X |
@@ -106,11 +106,11 @@
 
 ##### 3.4. 구매자 반품 배송정보 기입
 ----
-구매자가 반품요청한 거래의 반품 배송정보를 기입하는 API입니다.
+구매자가 판매자 반품 수락 후 반품 배송정보를 기입하는 API입니다.
 
 ###### 반품요청이 가능한 거래상태
-  | 상태          | 설명 |
-  |--             |--|
+  | 상태        | 설명 |
+  |--           |--|
   | RETURN_AGR  | 요청 후 RETURN_ING로 변경됨 |
 
 * **기능**
@@ -136,7 +136,38 @@
   
 * **Fail Response:**
 
-##### 3.5. 거래 조회
+##### 3.5. 거래 완료
+----
+구매자가 상품을 받고 거래 완료처리하는 API입니다.
+
+###### 거래 완료가 가능한 거래상태
+  | 상태            | 설명 |
+  |--               |--|
+  | DELIVERY_ING    | 요청 후 PAY_DONE으로 변경됨 |
+  | DELIVERY_DONE   | 요청 후 PAY_DONE으로 변경됨 |
+
+* **기능**
+  거래 완료
+
+* **URI**
+  /buyer/doneTrade
+
+* **Method:**
+  `POST`
+
+*  **URL Params**
+
+  | 파라메터                | 설명 | 타입 | 필수 |
+  |--                       |--|--|--|
+  | unicroUserNo            | 구매자 식별키 (유니크로 사용자 식별키로 유니크로 가입후 전달한 값입니다.) | Integer | O |
+  | partnerUserId           | 구매자 제휴사 아이디 | String (4~50자) | O |
+  | partnerTradeNo          | 제휴사 거래고유식별번호 | String | O |
+
+* **Success Response:**
+  
+* **Fail Response:**
+
+##### 3.6. 거래 조회
 ----
 구매자가 거래를 조회하는 API입니다.
 
@@ -154,7 +185,6 @@
   | 파라메터 | 설명 | 타입 | 필수 |
   |--|--|--|--|
   | unicroUserNo | 구매자 식별키 (유니크로 사용자 식별키로 유니크로 가입후 전달 한 값입니다.) | Integer | O |
-  | unicroTradeNo | 유니크로 거래고유식별번호 | String | O |
   | partnerTradeNo | 제휴사 거래고유식별번호 | String | O |
 
 * **Success Response:**
@@ -173,5 +203,10 @@
   | vaBankCd        | 무통장 은행코드 | String |
   | vaAccount       | 무통장 계좌번호 | String |
   | status          | 거래 상태 | String |
+  | deliveryCompCd  | 택배사 코드 | String |
+  | invoiceNo       | 송장번호 | String |
+  | unicroItemNo    | 유니크로 상품고유식별번호 | String |
+  | partnerItemNo   | 제휴사 상품고유식별번호 | String |
   
 * **Fail Response:**
+
