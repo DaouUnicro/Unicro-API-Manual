@@ -73,3 +73,41 @@
 * **Fail Response:**
 
 ##### 3.3. 거래 조회
+----
+구매자가 거래를 조회하는 API입니다.
+
+* **기능**
+  구매자 거래 조회
+
+* **URI**
+  /trades/buyer
+
+* **Method:**
+  `GET`
+
+*  **URL Params**
+
+  | 파라메터 | 설명 | 타입 | 필수 |
+  |--|--|--|--|
+  | unicroUserNo |유니크로 사용자 식별키로 유니크로 가입후 전달 한 값입니다.(구매자) | Integer | O |
+  | unicroTradeNo | 유니크로 거래고유식별번호 | String | O |
+  | partnerTradeNo | 제휴사 거래고유식별번호 | String | O |
+
+* **Success Response:**
+  | 파라메터 | 설명 | 타입 | 필수 |
+  |--|--|--|--|
+  | code | 응답코드 | String
+  | msg |	설명 메세지 | String
+  | data |		
+  | unicroTradeNo | 유니크로 거래고유식별번호	| String (12자)
+  | partnerTradeNo | 제휴사 거래고유식별번호	| String
+  | payway | 결제수단 | String
+  | buyAmt | 결제금액 | Integer
+  | sellerAmt | 판매자 정산금액 | Integer
+  | tradeDate | 결제일 | Date
+  | vaExpectDate | 무통장 입금기한 | Date
+  | vaBankCd | 무통장 은행코드	 | String
+  | vaAccount | 무통장 계좌번호 | String
+  | status | 거래 상태 | String
+  
+* **Fail Response:**
