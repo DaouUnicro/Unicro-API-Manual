@@ -9,7 +9,7 @@
 | DELIVERY_ING          | 32 | 배송중 |
 | DELIVERY_DONE         | 32 | 배송완료 |
 | PAY_DONE              | 33 | 거래완료 (미입금) |
-| PAY_SETTLE_DONE       | 33 | 거래완료 (판매자 대금입금) |
+| SETTLEMENT_DONE       | 33 | 거래완료 (판매자 대금입금) |
 | CANCEL_REQ            | 34 | 구매자 결제취소 요청 |
 | CANCEL_DONE_BUYER     | 35 | 구매자 요청 거래 취소 |
 | CANCEL_DONE_SELLER    | 36 | 판매자 요청 거래 취소 |
