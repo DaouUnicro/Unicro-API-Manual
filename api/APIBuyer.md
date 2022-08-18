@@ -39,7 +39,6 @@
 * **Fail Response:**
 
 ##### 3.2. 구매자 거래취소
-
 ----
 구매자가 구매한 거래를 취소 요청하는 API입니다.
 
@@ -72,7 +71,40 @@
   
 * **Fail Response:**
 
-##### 3.3. 거래 조회
+##### 3.3. 구매자 반품 요청
+----
+구매자가 배송중인 거래를 반품요청하는 API입니다.
+
+###### 반품요청이 가능한 거래상태
+  | 상태 | 설명 |
+  |--|--|
+  | DELIVERY_ING   | 요청 후 RETURN_REQ로 변경됨 |
+
+* **기능**
+  구매자 반품 요청
+
+* **URI**
+  /buyer/reqReturn
+
+* **Method:**
+  `POST`
+
+*  **URL Params**
+
+  | 파라메터                | 설명 | 타입 | 필수 |
+  |--                       |--|--|--|
+  | unicroUserNo            | 판매자 식별키 (유니크로 사용자 식별키로 유니크로 가입후 전달한 값입니다.) | Integer | O |
+  | partnerUserId           | 판매자 제휴사 아이디 | String (4~50자) | O |
+  | partnerTradeNo          | 제휴사 거래고유식별번호 | String | O |
+  | returnDeliveryPayType   | 반품 배송비 부담 (CASH_ON_DELIVERY:착불(판매자부담), PRE_PAYMENT:선불(구매자부담)) | String | X |
+  | returnCd                | 반품 사유코드 | String | X |
+  | returnMemo              | 반품 사유(직접입력) | String | X |
+
+* **Success Response:**
+  
+* **Fail Response:**
+
+##### 3.4. 거래 조회
 ----
 구매자가 거래를 조회하는 API입니다.
 
