@@ -249,10 +249,11 @@
     "vaExpectDate": "20220823171600",
     "vaBankCd": "008",
     "status": "PAY_APPROVED",
-    "deliveryCompCd" : "",
-    "invoiceNo" : "",
-    "unicroItemNo" : "220822121212",
-    "partnerItemNo" : "220822121212"
-
+    "deliveryCompCd": "",
+    "invoiceNo": "",
+    "unicroItemNo": "220822121212",
+    "partnerItemNo": "220822121212"
+  }
+}
 ```
 
