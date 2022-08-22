@@ -29,6 +29,9 @@
     | errorCd | 실패시 에러 코드 |
     | data | 전달 Data |
 
+- Content-Type
+    - application/json
+
 예시
 `{ "result" : "SUCCESS", "msg" : "토큰 발급을 성공했습니다.", data : {"unicroToken": "ABCDEFG"} }`
 
