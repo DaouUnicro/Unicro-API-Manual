@@ -32,8 +32,18 @@
 - Content-Type
     - application/json
 
-예시
-`{ "result" : "SUCCESS", "msg" : "토큰 발급을 성공했습니다.", data : {"unicroToken": "ABCDEFG"} }`
+- 예시
+```json
+{
+  "result": "SUCCESS",
+  "msg": "토큰 발급을 성공했습니다.",
+  "errorCd": "",
+  "data": {
+    "unicroToken": "ABCDEFG"
+  }
+}
+
+```
 
 ---
 
