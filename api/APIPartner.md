@@ -17,7 +17,7 @@
   | 파라메터        | 설명 | 타입 | 필수 |
   |--               |--|--|--|
   | tradeNo    | 유니크로 주문번호 | String | O |
-  | aspTradeNo    | 제휴사 주문번호 | String | O |
+  | partnerTradeNo    | 제휴사 주문번호 | String | O |
   | payType    | 결제수단 (CARD: 신용카드, BANK: 계좌이체, VIRTUAL_ACCOUNT: 가상계좌 무통장) | String | O |
   | vaDate   | 무통장입금 입금기한(결제일 + 24시간) | String(14자리) | X |
   | bankName  | 무통장입금 은행명 | String | X |
@@ -51,7 +51,7 @@
   | 파라메터        | 설명 | 타입 | 필수 |
   |--               |--|--|--|
   | tradeNo    | 유니크로 주문번호 | String | O |
-  | aspTradeNo    | 제휴사 주문번호 | String | O |
+  | partnerTradeNo    | 제휴사 주문번호 | String | O |
   | msg    | 결제실패 사유 | String | O |
   
 
@@ -77,7 +77,7 @@
   | 파라메터        | 설명 | 타입 | 필수 |
   |--               |--|--|--|
   | tradeNo    | 유니크로 주문번호 | String | O |
-  | aspTradeNo    | 제휴사 주문번호 | String | O |
+  | partnerTradeNo    | 제휴사 주문번호 | String | O |
   | msg    | 결제실패 사유 | String | O |
   
 
@@ -103,7 +103,7 @@
   | 파라메터        | 설명 | 타입 | 필수 |
   |--               |--|--|--|
   | tradeNo    | 유니크로 주문번호 | String | O |
-  | aspTradeNo    | 제휴사 주문번호 | String | O |
+  | partnerTradeNo    | 제휴사 주문번호 | String | O |
   | saleReservationDate    | 판매대금예정일 | String | O |
   | saleCompleteDate    | 판매대금완료일 | String | O |
     
@@ -128,7 +128,7 @@
   | 파라메터        | 설명 | 타입 | 필수 |
   |--               |--|--|--|
   | tradeNo    | 유니크로 주문번호 | String | O |
-  | aspTradeNo    | 제휴사 주문번호 | String | O |
+  | partnerTradeNo    | 제휴사 주문번호 | String | O |
   | returnCd   | 취소코드 | String | O |
   | returnMemo    | 취소사유 | String | O |
     
@@ -153,7 +153,7 @@
   | 파라메터        | 설명 | 타입 | 필수 |
   |--               |--|--|--|
   | tradeNo    | 유니크로 주문번호 | String | O |
-  | aspTradeNo    | 제휴사 주문번호 | String | O |
+  | partnerTradeNo    | 제휴사 주문번호 | String | O |
   | senderEmail   | 보내는 사람 이메일 | String | O |
   | receiverNam    | 받는사람 이름 | String | O |
   | receiverZip    | 받는사람 우편번호 | String | O |
