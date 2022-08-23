@@ -10,15 +10,7 @@ description: 유니크로는 개인간 거래 시 사고를 예방하기 위해 
 
 #### 유니크로 안전거래 프로세스
 
-* 유니크로 안전거래 프로세스\
-
-*
-
-    <figure><img src="https://www.unicro.co.kr/webasp_common/new_images/guide/g_q_img_flow.gif" alt=""><figcaption><p> 유니크로 안전거래 프로세스</p></figcaption></figure>
-
-
-
-* 유니크로 안전거래 거래 상별 상세 프로세스
+<figure><img src="https://www.unicro.co.kr/webasp_common/new_images/guide/g_q_img_flow.gif" alt=""><figcaption><p> 유니크로 안전거래 프로세스</p></figcaption></figure>
 
 <figure><img src=".gitbook/assets/[유니크로] 안전거래 프로세스.png" alt=""><figcaption><p>유니크로 안전거래 프로세스(거래 상태별 상세)</p></figcaption></figure>
 
