@@ -1,8 +1,9 @@
 # Table of contents
 
-* [유니크로 제휴사 API](README.md)
+* [유니크로 서비스 소개](README.md)
+* [유니크로 제휴사 API](<README (1).md>)
   * [소개](readme/intro.md)
-  * [Unicro \[주요 기능 설계\]](readme/mainbusinessdesign.md)
+  * [유니크로 기능 프로세스](readme/mainbusinessdesign.md)
   * [유니크로 제휴사 설정](readme/policy.md)
   * [API](readme/api/README.md)
     * [1. 인증](readme/api/apiauth.md)
