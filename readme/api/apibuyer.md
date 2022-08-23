@@ -33,10 +33,8 @@
   | deliveryAddress2 | 배송주소(주소2) | String | O |
   | appUrl | 앱 URI | String | X |
 
-* **Success Response:**
-      
+* **응답:**
 
-* **Fail Response:**
 
 ##### 3.2. 구매자 결제 취소
 ----
@@ -67,9 +65,19 @@
   | returnCd        | 거래취소사유코드 | String | X |
   | returnMemo      | 거래취소사유(직접입력) | String | X |
 
-* **Success Response:**
-  
-* **Fail Response:**
+* **응답:**
+```json
+{
+  "result": "SUCCESS",
+  "msg": "구매 취소 요청이 완료 되었습니다.",
+  "errorCd": "",
+  "data": {
+    "unicroTradeNo": "220822124545",
+    "partnerTradeNo": "ABCK554545454"
+  }
+}
+
+```
 
 ##### 3.3. 구매자 반품 요청
 ----
@@ -100,9 +108,19 @@
   | returnCd                | 반품 사유코드 | String | X |
   | returnMemo              | 반품 사유(직접입력) | String | X |
 
-* **Success Response:**
-  
-* **Fail Response:**
+* **응답:**
+```json
+{
+  "result": "SUCCESS",
+  "msg": "반품요청이 완료 되었습니다.",
+  "errorCd": "",
+  "data": {
+    "unicroTradeNo": "220822124545",
+    "partnerTradeNo": "ABCK554545454"
+  }
+}
+
+```
 
 ##### 3.4. 구매자 반품 배송정보 기입
 ----
@@ -132,9 +150,19 @@
   | deliveryCompCd  | 택배사 코드 | String | O |
   | invoiceNo       | 송장번호 | String | O |
 
-* **Success Response:**
-  
-* **Fail Response:**
+* **응답:**
+```json
+{
+  "result": "SUCCESS",
+  "msg": "배송정보 기입이 완료 되었습니다.",
+  "errorCd": "",
+  "data": {
+    "unicroTradeNo": "220822124545",
+    "partnerTradeNo": "ABCK554545454"
+  }
+}
+
+```
 
 ##### 3.5. 거래 완료
 ----
@@ -163,9 +191,27 @@
   | partnerUserId           | 구매자 제휴사 아이디 | String (4~50자) | O |
   | partnerTradeNo          | 제휴사 거래고유식별번호 | String | O |
 
-* **Success Response:**
-  
-* **Fail Response:**
+* **응답:**
+```json
+{
+  "result": "SUCCESS",
+  "msg": "반품요청이 완료 되었습니다.",
+  "errorCd": "",
+  "data": {
+    "unicroTradeNo": "220822124545",
+    "partnerTradeNo": "ABCK554545454"
+  }
+}
+
+```
+
+* **에러코드:**
+
+| 파라메터 | 설명 |
+|--|--|
+| AUTH_CREATE_ERROR | 토큰 발급 실패 |
+| VALID_ERROR | 필수 파라메터 없음 |
+
 
 ##### 3.6. 거래 조회
 ----
@@ -187,26 +233,27 @@
   | unicroUserNo | 구매자 식별키 (유니크로 사용자 식별키로 유니크로 가입후 전달 한 값입니다.) | Integer | O |
   | partnerTradeNo | 제휴사 거래고유식별번호 | String | O |
 
-* **Success Response:**
-  | 파라메터        | 설명 | 타입 |
-  |--               |-- | -- |
-  | code            | 응답코드 | String |
-  | msg             | 설명 메세지 | String |
-  | data            |		
-  | unicroTradeNo   | 유니크로 거래고유식별번호 | String (12자) |
-  | partnerTradeNo  | 제휴사 거래고유식별번호 | String |
-  | payway          | 결제수단 | String |
-  | buyAmt          | 결제금액 | Integer |
-  | sellerAmt       | 판매자 정산금액 | Integer |
-  | tradeDate       | 결제일 | Date |
-  | vaExpectDate    | 무통장 입금기한 | Date |
-  | vaBankCd        | 무통장 은행코드 | String |
-  | vaAccount       | 무통장 계좌번호 | String |
-  | status          | 거래 상태 | String |
-  | deliveryCompCd  | 택배사 코드 | String |
-  | invoiceNo       | 송장번호 | String |
-  | unicroItemNo    | 유니크로 상품고유식별번호 | String |
-  | partnerItemNo   | 제휴사 상품고유식별번호 | String |
-  
-* **Fail Response:**
+* **응답:**
+```json
+{
+  "result": "SUCCESS",
+  "msg": "반품요청이 완료 되었습니다.",
+  "errorCd": "",
+  "data": {
+    "unicroTradeNo": "220822124545",
+    "partnerTradeNo": "ABCK554545454",
+    "payway": "CARD",
+    "buyAmt": 5000,
+    "sellerAmt": 4500,
+    "tradeDate": "20220822171600",
+    "vaExpectDate": "20220823171600",
+    "vaBankCd": "008",
+    "status": "PAY_APPROVED",
+    "deliveryCompCd": "",
+    "invoiceNo": "",
+    "unicroItemNo": "220822121212",
+    "partnerItemNo": "220822121212"
+  }
+}
+```
 
