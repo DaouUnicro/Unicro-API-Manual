@@ -4,8 +4,8 @@
 
 **상세 링크**
 
-* 결제 개발 가이드 [이동](unicroAPIGuide/intro.md)
-* 시퀀스다이어그램 [이동](unicroAPIGuide/mainbusinessdesign.md)
-* API 목록 [이동](unicroAPIGuide/api/)
-* 제휴사 연동 시 정책 [이동](unicroAPIGuide/policy.md)
+* 결제 개발 가이드 [이동](unicro-api-guide/intro.md)
+* 시퀀스다이어그램 [이동](unicro-api-guide/mainbusinessdesign.md)
+* API 목록 [이동](unicro-api-guide/api/)
+* 제휴사 연동 시 정책 [이동](unicro-api-guide/policy.md)
 * 자주 묻는 질문
