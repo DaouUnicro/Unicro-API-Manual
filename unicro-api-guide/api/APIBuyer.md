@@ -35,6 +35,19 @@
 
 * **응답:**
 
+```json
+{
+  "result": "SUCCESS",
+  "msg": "구매 요청이 완료 되었습니다.",
+  "errorCd": "",
+  "data": {
+     "partnerTradeNo": "ABCK554545454"
+  }
+}
+
+```
+- result SUCCESS를 받으면 결제하기 Page를 
+
 
 ##### 3.2. 구매자 결제 취소
 ----
@@ -50,7 +63,7 @@
   구매 취소 요청
 
 * **URI**
-  /buyer/cancel
+  /buyer/traders/{tradeNo}/cancel
 
 * **Method:**
   `POST`
@@ -92,7 +105,7 @@
   구매자 반품 요청
 
 * **URI**
-  /buyer/reqReturn
+  /buyer/traders/{tradeNo}/return/create
 
 * **Method:**
   `POST`
@@ -134,8 +147,8 @@
 * **기능**
   구매자 반품 배송정보 기입
 
-* **URI**
-  /buyer/returnDelivery
+* **URI**  
+  /buyer/traders/{tradeNo}/return/delivery
 
 * **Method:**
   `POST`
@@ -177,8 +190,8 @@
 * **기능**
   거래 완료
 
-* **URI**
-  /buyer/doneTrade
+* **URI**  
+  /buyer/traders/{tradeNo}/done
 
 * **Method:**
   `POST`
@@ -221,7 +234,7 @@
   구매자 거래 조회
 
 * **URI**
-  /buyer/trades
+  /buyer/traders/{tradeNo}
 
 * **Method:**
   `GET`
@@ -231,13 +244,13 @@
   | 파라메터 | 설명 | 타입 | 필수 |
   |--|--|--|--|
   | unicroUserKey | 구매자 식별키 (유니크로 사용자 식별키로 유니크로 가입후 전달 한 값입니다.) | String | O |
-  | partnerTradeNo | 제휴사 거래고유식별번호 | String | O |
+  
 
 * **응답:**
 ```json
 {
   "result": "SUCCESS",
-  "msg": "반품요청이 완료 되었습니다.",
+  "msg": "",
   "errorCd": "",
   "data": {
     "unicroTradeNo": "220822124545",
