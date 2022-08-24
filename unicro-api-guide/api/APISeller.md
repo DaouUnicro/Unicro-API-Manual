@@ -121,7 +121,7 @@
 
   | 파라메터        | 설명 | 타입 | 필수 |
   |--               |--|--|--|
-  | unicroUserKey    | 판매자 식별키 (유니크로 사용자 식별키로 유니크로 가입후 전달한 값입니다.) | Integer | O |
+  | unicroUserKey    | 판매자 식별키 (유니크로 사용자 식별키로 유니크로 가입후 전달한 값입니다.) | String | O |
   | partnerUserId   | 판매자 제휴사 아이디 | String (4~50자) | O |
   | partnerTradeNo  | 제휴사 거래고유식별번호 | String | O |
   | senderName      | 판매자명 | String | O |
@@ -156,7 +156,7 @@
 
   | 파라메터        | 설명 | 타입 | 필수 |
   |--               |--|--|--|
-  | unicroUserKey    | 판매자 식별키 (유니크로 사용자 식별키로 유니크로 가입후 전달한 값입니다.) | Integer | O |
+  | unicroUserKey    | 판매자 식별키 (유니크로 사용자 식별키로 유니크로 가입후 전달한 값입니다.) | String | O |
   | partnerUserId   | 판매자 제휴사 아이디 | String (4~50자) | O |
   | partnerTradeNo  | 제휴사 거래고유식별번호 | String | O |
 
