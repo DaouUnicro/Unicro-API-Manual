@@ -15,7 +15,7 @@
 
   | 파라메터 | 설명 | 타입 | 필수 |
   |--|--|--|--|
-  | unicroUserNo | 구매자 식별키 (유니크로 사용자 식별키로 유니크로 가입후 전달 한 값입니다.) | Integer | O |
+  | unicroUserKey | 구매자 식별키 (유니크로 사용자 식별키로 유니크로 가입후 전달 한 값입니다.) | Integer | O |
   | partnerUserId | 구매자 제휴사 아이디 | String (4~75 byte 영문소문자, 숫자, @ _ . 만 가능, 공백 불가) | O |
   | unicroItemNo | 유니크로 상품코드 | String | O |
   | partnerTradeNo | 제휴사 거래번호 | String | O |
@@ -59,7 +59,7 @@
 
   | 파라메터        | 설명 | 타입 | 필수 |
   |--               | --|--|--|
-  | unicroUserNo    | 구매자 식별키 (유니크로 사용자 식별키로 유니크로 가입후 전달 한 값입니다.) | Integer | O |
+  | unicroUserKey    | 구매자 식별키 (유니크로 사용자 식별키로 유니크로 가입후 전달 한 값입니다.) | String | O |
   | unicroTradeNo   | 유니크로 거래번호 | String | O |
   | partnerTradeNo  | 제휴사 거래번호 | String | O |
   | returnCd        | 거래취소사유코드 | String | X |
@@ -101,7 +101,7 @@
 
   | 파라메터                | 설명 | 타입 | 필수 |
   |--                       |--|--|--|
-  | unicroUserNo            | 구매자 식별키 (유니크로 사용자 식별키로 유니크로 가입후 전달한 값입니다.) | Integer | O |
+  | unicroUserKey            | 구매자 식별키 (유니크로 사용자 식별키로 유니크로 가입후 전달한 값입니다.) | String | O |
   | partnerUserId           | 구매자 제휴사 아이디 | String (4~50자) | O |
   | partnerTradeNo          | 제휴사 거래고유식별번호 | String | O |
   | returnDeliveryPayType   | 반품 배송비 부담 (CASH_ON_DELIVERY:착불(판매자부담), PRE_PAYMENT:선불(구매자부담)) | String | X |
@@ -144,7 +144,7 @@
 
   | 파라메터        | 설명 | 타입 | 필수 |
   |--               |--|--|--|
-  | unicroUserNo    | 구매자 식별키 (유니크로 사용자 식별키로 유니크로 가입후 전달한 값입니다.) | Integer | O |
+  | unicroUserKey    | 구매자 식별키 (유니크로 사용자 식별키로 유니크로 가입후 전달한 값입니다.) | String | O |
   | partnerUserId   | 구매자 제휴사 아이디 | String (4~50자) | O |
   | partnerTradeNo  | 제휴사 거래고유식별번호 | String | O |
   | deliveryCompCd  | 택배사 코드 | String | O |
@@ -187,7 +187,7 @@
 
   | 파라메터                | 설명 | 타입 | 필수 |
   |--                       |--|--|--|
-  | unicroUserNo            | 구매자 식별키 (유니크로 사용자 식별키로 유니크로 가입후 전달한 값입니다.) | Integer | O |
+  | unicroUserKey            | 구매자 식별키 (유니크로 사용자 식별키로 유니크로 가입후 전달한 값입니다.) | String | O |
   | partnerUserId           | 구매자 제휴사 아이디 | String (4~50자) | O |
   | partnerTradeNo          | 제휴사 거래고유식별번호 | String | O |
 
@@ -230,7 +230,7 @@
 
   | 파라메터 | 설명 | 타입 | 필수 |
   |--|--|--|--|
-  | unicroUserNo | 구매자 식별키 (유니크로 사용자 식별키로 유니크로 가입후 전달 한 값입니다.) | Integer | O |
+  | unicroUserKey | 구매자 식별키 (유니크로 사용자 식별키로 유니크로 가입후 전달 한 값입니다.) | String | O |
   | partnerTradeNo | 제휴사 거래고유식별번호 | String | O |
 
 * **응답:**

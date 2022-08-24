@@ -25,7 +25,7 @@ itemNo가 있으면 해당 상품을 수정/ 없으면 요청한 내용으로 �
 | deliveryPayType | 배송비부담 - 판매자 (CASH_ON_DELIVERY:착불, PRE_PAYMENT:선불(무료배송/택배비포함))| String | O |
 | imgUrl | 이미지 경로 URI| String | X |
 | aspCateNo|제휴사카테고리번호 | String | X |
-| unicroUserNo | 유니크로 사용자 식별키로 유니크로 가입후 전달 한 값입니다.(판매자) | Integer | O |
+| unicroUserKey | 유니크로 사용자 식별키로 유니크로 가입후 전달 한 값입니다.(판매자) | String | O |
 | userId | 유니크로 아이디 | String (4~50자)(판매자) | O |
 
 * **Success Response:**
@@ -94,7 +94,7 @@ itemNo가 있으면 해당 상품을 수정/ 없으면 요청한 내용으로 �
 | itemNo | 유니크로 상품코드 | String | O |
 | aspItemNo | 제휴사 상품번호 | String | O |
 | status| 변경하고자 하는 상태 (USE: 판매가능 , DONE: 판매완료) | String | O |
-| unicroUserNo|유니크로 사용자 식별키로 유니크로 가입후 전달 한 값입니다.(판매자) | Integer | O |
+| unicroUserKey|유니크로 사용자 식별키로 유니크로 가입후 전달 한 값입니다.(판매자) | String | O |
 
 * **Success Response:**
 
