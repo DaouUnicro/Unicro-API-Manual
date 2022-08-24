@@ -142,7 +142,7 @@
   상품 판매가능 상태를 변경
 
 * **URI**
-  /items/{status}
+  /items/{itemNo}/status
 
 * **Method:**
   `POST`
