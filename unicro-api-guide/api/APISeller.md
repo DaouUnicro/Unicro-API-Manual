@@ -11,7 +11,7 @@
   판매자 결제취소 동의
 
 * **URI**
-  /seller/agreeCancel
+  /seller/traders/{tradeNo}/cancel/agree
 
 * **Method:**
   `POST`
@@ -21,7 +21,7 @@
   | 파라메터        | 설명 | 타입 | 필수 |
   |--               |--|--|--|
   | unicroUserKey    | 판매자 식별키 (유니크로 사용자 식별키로 유니크로 가입후 전달한 값입니다.) | String | O |
-  | partnerUserId   | 판매자 제휴사 아이디 | String (4~50자) | O |
+  | partnerUserId   | 판매자 제휴사 아이디 | String | O |
   | partnerTradeNo  | 제휴사 거래고유식별번호 | String | O |
 
 * **응답:**
@@ -50,8 +50,8 @@
 * **기능**
   판매자 거래 취소
 
-* **URI**
-  /seller/cancel
+* **URI**  
+  /seller/traders/{tradeNo}/cancel/done
 
 * **Method:**
   `POST`
@@ -93,7 +93,7 @@
   판매자 배송정보 기입
 
 * **URI**
-  /seller/delivery
+  /seller/traders/{tradeNo}/delivery
 
 * **Method:**
   `POST`
@@ -118,7 +118,7 @@
 ```json
 {
   "result": "SUCCESS",
-  "msg": "구매 취소 요청이 완료 되었습니다.",
+  "msg": "배송정보 기입이 완료 되었습니다.",
   "errorCd": "",
   "data": {
     "unicroTradeNo": "220822124545",
@@ -141,7 +141,7 @@
   반품 수락
 
 * **URI**
-  /seller/agreeReturn
+  /seller/traders/{tradeNo}/return/agree
 
 * **Method:**
   `POST`
@@ -185,7 +185,7 @@
   반품 완료
 
 * **URI**
-  /seller/doneReturn
+  /seller/traders/{tradeNo}/return/done
 
 * **Method:**
   `POST`
@@ -228,8 +228,8 @@
   제휴사 관리자 배송완료 처리
 
 * **URI**
-  /partner/doneDelivery
-
+  /partner/traders/{tradeNo}/delivery/done
+  
 * **Method:**
   `POST`
 
@@ -262,7 +262,7 @@
   판매자 거래 조회
 
 * **URI**
-  /seller/trades
+  /seller/traders/{tradeNo}
 
 * **Method:**
   `GET`
@@ -272,7 +272,7 @@
   | 파라메터        | 설명 | 타입 | 필수 |
   |--               |--|--|--|
   | unicroUserKey    | 판매자 식별키 (유니크로 사용자 식별키로 유니크로 가입후 전달 한 값입니다.) | String | O |
-  | partnerTradeNo  | 제휴사 거래고유식별번호 | String | O |
+  
 
 * **Success Response:**
   | 파라메터        | 설명 | 타입 |
