@@ -46,7 +46,8 @@
 }
 
 ```
-- result SUCCESS를 받으면 결제하기 Page를 
+- result SUCCESS를 받으면 결제하기 Page를 호출합니다. 
+
 
 
 ##### 3.2. 구매자 결제 취소
@@ -201,14 +202,14 @@
   | 파라메터                | 설명 | 타입 | 필수 |
   |--                       |--|--|--|
   | unicroUserKey            | 구매자 식별키 (유니크로 사용자 식별키로 유니크로 가입후 전달한 값입니다.) | String | O |
-  | partnerUserId           | 구매자 제휴사 아이디 | String (4~50자) | O |
+  | partnerUserId           | 구매자 제휴사 아이디 | String | O |
   | partnerTradeNo          | 제휴사 거래고유식별번호 | String | O |
 
 * **응답:**
 ```json
 {
   "result": "SUCCESS",
-  "msg": "반품요청이 완료 되었습니다.",
+  "msg": "거래가 완료 되었습니다.",
   "errorCd": "",
   "data": {
     "unicroTradeNo": "220822124545",
