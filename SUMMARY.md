@@ -4,7 +4,7 @@
 * [유니크로 제휴사 API](<README (1).md>)
   * [제휴사 API 소개](unicroAPIGuide/intro.md)
   * [유니크로 기능 프로세스](unicroAPIGuide/mainbusinessdesign.md)
-  * [유니크로 제휴사 설정](unicroAPIGuide/policy.md)
+  * [유니크로 제휴사 서비스 정책](unicroAPIGuide/policy.md)
   * [API](unicroAPIGuide/api/README.md)
     * [1. 인증](unicroAPIGuide/api/apiauth.md)
     * [2. 상품(판매자)](unicroAPIGuide/api/apiitem.md)
