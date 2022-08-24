@@ -15,7 +15,7 @@
 
   | 파라메터 | 설명 | 타입 | 필수 |
   |--|--|--|--|
-  | unicroUserKey | 구매자 식별키 (유니크로 사용자 식별키로 유니크로 가입후 전달 한 값입니다.) | Integer | O |
+  | unicroUserKey | 구매자 식별키 (유니크로 사용자 식별키로 유니크로 가입후 전달 한 값입니다.) | String | O |
   | partnerUserId | 구매자 제휴사 아이디 | String (4~75 byte 영문소문자, 숫자, @ _ . 만 가능, 공백 불가) | O |
   | unicroItemNo | 유니크로 상품코드 | String | O |
   | partnerTradeNo | 제휴사 거래번호 | String | O |
