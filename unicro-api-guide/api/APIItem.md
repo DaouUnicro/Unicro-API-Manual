@@ -28,20 +28,17 @@ itemNo가 있으면 해당 상품을 수정/ 없으면 요청한 내용으로 �
 | unicroUserKey | 유니크로 사용자 식별키로 유니크로 가입후 전달 한 값입니다.(판매자) | String | O |
 | userId | 유니크로 아이디 | String (4~50자)(판매자) | O |
 
-* **Success Response:**
+* **응답:**
+```json
+{
+  "result": "SUCCESS",
+  "msg": "정상적으로 등록되었습니다.",
+  "errorCd": "",
+  "data": {
+  }
+}
 
-| 파라메터 | 설명 |
-|--|--|
-| result | SUCCESS |
-| msg | 응답 메시지  |
-| data | 전달 Data |
-
-예시
-`{ "result" : "SUCCESS", "msg" : "상품등록을 완료했습니다.", data : {"aspItemNo": "22081812112" ...} }`
-
-
-* **Fail Response:**
-
+```
 
 | 파라메터 | 설명 |
 |--|--|
@@ -68,9 +65,7 @@ itemNo가 있으면 해당 상품을 수정/ 없으면 요청한 내용으로 �
 | CREATE_ERROR | 상품등록 실패  |
 | UPDATE_ERROR | 상품등록 실패  |
 
-
-예시
-`{ "result" : "FAIL", "errorCd": "AUTH_ERROR", "msg" : "토큰 유효성 체크 실패", data : {"aspItemNo": "22081812112" ...} }`
+ 
 
 ##### 2.2. 상품 판매 상태 변경
 
@@ -96,28 +91,18 @@ itemNo가 있으면 해당 상품을 수정/ 없으면 요청한 내용으로 �
 | status| 변경하고자 하는 상태 (USE: 판매가능 , DONE: 판매완료) | String | O |
 | unicroUserKey|유니크로 사용자 식별키로 유니크로 가입후 전달 한 값입니다.(판매자) | String | O |
 
-* **Success Response:**
 
-| 파라메터 | 설명 |
-|--|--|
-| result | SUCCESS |
-| msg | 응답 메시지  |
-| data | 전달 Data |
+* **응답:**
+```json
+{
+  "result": "SUCCESS",
+  "msg": "상품 상태 변경이 완료 되었습니다.",
+  "errorCd": "",
+  "data": {
+  }
+}
 
-
-
-예시
-`{ "result" : "SUCCESS", "msg" : "상품상태변경을 완료했습니다.", data : {"aspItemNo": "22081812112" ...} }`
-
-* **Fail Response:**
-
-
-| 파라메터 | 설명 |
-|--|--|
-| result | FAIL |
-| msg | 응답 메시지  |
-| errorCd | 에러코드  |
-| data | 전달 Data |
+```
 
 
 | 에러코드 | 메시지 |
@@ -130,6 +115,4 @@ itemNo가 있으면 해당 상품을 수정/ 없으면 요청한 내용으로 �
 | VALID_ERROR | 유효한 상태 변경아님 |
 | UPDATE_ERROR | 상태변경 실패  |
 
-
-예시
-`{ "result" : "FAIL", "errorCd": "AUTH_ERROR", "msg" : "토큰 유효성 체크 실패", data : {"aspItemNo": "22081812112" ...} }`
+ 
