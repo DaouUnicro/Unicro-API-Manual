@@ -11,7 +11,7 @@
   판매자 결제취소 동의
 
 * **URI**
-  /seller/agreeCancel
+  /seller/traders/{tradeNo}/cancel/agree
 
 * **Method:**
   `POST`
@@ -20,14 +20,23 @@
 
   | 파라메터        | 설명 | 타입 | 필수 |
   |--               |--|--|--|
-  | unicroUserNo    | 판매자 식별키 (유니크로 사용자 식별키로 유니크로 가입후 전달한 값입니다.) | Integer | O |
-  | partnerUserId   | 판매자 제휴사 아이디 | String (4~50자) | O |
+  | unicroUserKey    | 판매자 식별키 (유니크로 사용자 식별키로 유니크로 가입후 전달한 값입니다.) | String | O |
+  | partnerUserId   | 판매자 제휴사 아이디 | String | O |
   | partnerTradeNo  | 제휴사 거래고유식별번호 | String | O |
 
-* **Success Response:**
-      
+* **응답:**
+```json
+{
+  "result": "SUCCESS",
+  "msg": "구매 취소 요청이 완료 되었습니다.",
+  "errorCd": "",
+  "data": {
+    "unicroTradeNo": "220822124545",
+    "partnerTradeNo": "ABCK554545454"
+  }
+}
 
-* **Fail Response:**
+```
 
 ### 4.2. 판매자 거래 취소
 ----
@@ -41,8 +50,8 @@
 * **기능**
   판매자 거래 취소
 
-* **URI**
-  /seller/cancel
+* **URI**  
+  /seller/traders/{tradeNo}/cancel/done
 
 * **Method:**
   `POST`
@@ -51,15 +60,25 @@
 
   | 파라메터        | 설명 | 타입 | 필수 |
   |--               |--|--|--|
-  | unicroUserNo    | 판매자 식별키 (유니크로 사용자 식별키로 유니크로 가입후 전달한 값입니다.) | Integer | O |
+  | unicroUserKey    | 판매자 식별키 (유니크로 사용자 식별키로 유니크로 가입후 전달한 값입니다.) | String | O |
   | partnerUserId   | 판매자 제휴사 아이디 | String (4~50자) | O |
   | partnerTradeNo  | 제휴사 거래고유식별번호 | String | O |
   | cancelCd        | 판매취소 사유코드 | String | X |
   | cancelMemo      | 판매취소 사유(직접입력) | String | X |
 
-* **Success Response:**
-      
-* **Fail Response:**
+* **응답:**
+```json
+{
+  "result": "SUCCESS",
+  "msg": "구매 취소 요청이 완료 되었습니다.",
+  "errorCd": "",
+  "data": {
+    "unicroTradeNo": "220822124545",
+    "partnerTradeNo": "ABCK554545454"
+  }
+}
+
+```
 
 ### 4.3. 배송정보 기입
 ----
@@ -74,7 +93,7 @@
   판매자 배송정보 기입
 
 * **URI**
-  /seller/delivery
+  /seller/traders/{tradeNo}/delivery
 
 * **Method:**
   `POST`
@@ -83,7 +102,7 @@
 
   | 파라메터        | 설명 | 타입 | 필수 |
   |--               |--|--|--|
-  | unicroUserNo    | 판매자 식별키 (유니크로 사용자 식별키로 유니크로 가입후 전달한 값입니다.) | Integer | O |
+  | unicroUserKey    | 판매자 식별키 (유니크로 사용자 식별키로 유니크로 가입후 전달한 값입니다.) | String | O |
   | partnerUserId   | 판매자 제휴사 아이디 | String (4~50자) | O |
   | partnerTradeNo  | 제휴사 거래고유식별번호 | String | O |
   | deliveryPayType | 판매자 택배 (CASH_ON_DELIVERY:착불, PRE_PAYMENT:선불) | String | O |
@@ -95,9 +114,19 @@
   | senderAddress2  | 보내는 사람 주소2 | String | X |
   | senderHhpNo     | 보내는 사람 연락처 | String | X |
 
-* **Success Response:**
-      
-* **Fail Response:**
+* **응답:**
+```json
+{
+  "result": "SUCCESS",
+  "msg": "배송정보 기입이 완료 되었습니다.",
+  "errorCd": "",
+  "data": {
+    "unicroTradeNo": "220822124545",
+    "partnerTradeNo": "ABCK554545454"
+  }
+}
+
+```
 
 ### 4.4. 반품 수락
 ----
@@ -112,7 +141,7 @@
   반품 수락
 
 * **URI**
-  /seller/agreeReturn
+  /seller/traders/{tradeNo}/return/agree
 
 * **Method:**
   `POST`
@@ -121,7 +150,7 @@
 
   | 파라메터        | 설명 | 타입 | 필수 |
   |--               |--|--|--|
-  | unicroUserNo    | 판매자 식별키 (유니크로 사용자 식별키로 유니크로 가입후 전달한 값입니다.) | Integer | O |
+  | unicroUserKey    | 판매자 식별키 (유니크로 사용자 식별키로 유니크로 가입후 전달한 값입니다.) | String | O |
   | partnerUserId   | 판매자 제휴사 아이디 | String (4~50자) | O |
   | partnerTradeNo  | 제휴사 거래고유식별번호 | String | O |
   | senderName      | 판매자명 | String | O |
@@ -130,10 +159,19 @@
   | senderAddress1  | 판매자 주소1 | String | O |
   | senderAddress2  | 판매자 주소2 | String | O |
 
-* **Success Response:**
-      
-* **Fail Response:**
+* **응답:**
+```json
+{
+  "result": "SUCCESS",
+  "msg": "반품수락이 완료 되었습니다.",
+  "errorCd": "",
+  "data": {
+    "unicroTradeNo": "220822124545",
+    "partnerTradeNo": "ABCK554545454"
+  }
+}
 
+```
 ### 4.5. 반품 완료
 ----
 판매자가 반품 완료하는 API입니다. 
@@ -147,7 +185,7 @@
   반품 완료
 
 * **URI**
-  /seller/doneReturn
+  /seller/traders/{tradeNo}/return/done
 
 * **Method:**
   `POST`
@@ -156,13 +194,23 @@
 
   | 파라메터        | 설명 | 타입 | 필수 |
   |--               |--|--|--|
-  | unicroUserNo    | 판매자 식별키 (유니크로 사용자 식별키로 유니크로 가입후 전달한 값입니다.) | Integer | O |
+  | unicroUserKey    | 판매자 식별키 (유니크로 사용자 식별키로 유니크로 가입후 전달한 값입니다.) | String | O |
   | partnerUserId   | 판매자 제휴사 아이디 | String (4~50자) | O |
   | partnerTradeNo  | 제휴사 거래고유식별번호 | String | O |
 
-* **Success Response:**
-      
-* **Fail Response:**
+* **응답:**
+```json
+{
+  "result": "SUCCESS",
+  "msg": "구매 취소 요청이 완료 되었습니다.",
+  "errorCd": "",
+  "data": {
+    "unicroTradeNo": "220822124545",
+    "partnerTradeNo": "ABCK554545454"
+  }
+}
+
+```
 
 ### 4.6. 배송완료 처리 (제휴사 관리자)
 ----
@@ -180,8 +228,8 @@
   제휴사 관리자 배송완료 처리
 
 * **URI**
-  /partner/doneDelivery
-
+  /partner/traders/{tradeNo}/delivery/done
+  
 * **Method:**
   `POST`
 
@@ -189,12 +237,22 @@
 
   | 파라메터        | 설명 | 타입 | 필수 |
   |--               |--|--|--|
-  | unicroUserNo    | 판매자 식별키 (유니크로 사용자 식별키로 유니크로 가입후 전달한 값입니다.) | Integer | O |
+  | unicroUserKey    | 판매자 식별키 (유니크로 사용자 식별키로 유니크로 가입후 전달한 값입니다.) | String | O |
   | partnerTradeNo  | 제휴사 거래고유식별번호 | String | O |
 
-* **Success Response:**
-      
-* **Fail Response:**
+* **응답:**
+```json
+{
+  "result": "SUCCESS",
+  "msg": "배송완료 처리가 완료 되었습니다.",
+  "errorCd": "",
+  "data": {
+    "unicroTradeNo": "220822124545",
+    "partnerTradeNo": "ABCK554545454"
+  }
+}
+
+```
 
 ### 4.7. 판매자 거래 조회
 ----
@@ -204,7 +262,7 @@
   판매자 거래 조회
 
 * **URI**
-  /seller/trades
+  /seller/traders/{tradeNo}
 
 * **Method:**
   `GET`
@@ -213,8 +271,8 @@
 
   | 파라메터        | 설명 | 타입 | 필수 |
   |--               |--|--|--|
-  | unicroUserNo    | 판매자 식별키 (유니크로 사용자 식별키로 유니크로 가입후 전달 한 값입니다.) | Integer | O |
-  | partnerTradeNo  | 제휴사 거래고유식별번호 | String | O |
+  | unicroUserKey    | 판매자 식별키 (유니크로 사용자 식별키로 유니크로 가입후 전달 한 값입니다.) | String | O |
+  
 
 * **Success Response:**
   | 파라메터        | 설명 | 타입 |
@@ -233,5 +291,26 @@
   | invoiceNo       | 송장번호 | String |  
   | unicroItemNo    | 유니크로 상품고유식별번호 | String |
   | partnerItemNo   | 제휴사 상품고유식별번호 | String |
-  
-* **Fail Response:**
+
+* **응답:**
+```json
+{
+  "result": "SUCCESS",
+  "msg": "",
+  "errorCd": "",
+  "data": {
+    "unicroTradeNo": "220822124545",
+    "partnerTradeNo": "ABCK554545454",
+    "payway": "CARD",
+    "buyAmt" : 5000,
+    "sellerAmt" : 4500,
+    "tradeDate" : "20220824182002",
+    "status" : "DELIVERY_DONE",
+    "deliveryCompCd" : "002",
+    "invoiceNo" : "566128065454",
+    "unicroItemNo" : "220800609047",
+    "partnerItemNo": "ABC800609047"
+  }
+}
+
+```
