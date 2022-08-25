@@ -6,7 +6,7 @@
   * [유니크로 기능 프로세스](unicro-api-guide/MainBusinessDesign.md)
   * [유니크로 제휴사 서비스 정책](unicro-api-guide/Policy.md)
   * [API](unicro-api-guide/api/README.md)
-    * [1. 인증](unicro-api-guide/api/APIauth.md)
+    * [1. 인증](unicro-api-guide/api/APIAuth.md)
     * [2. 상품(판매자)](unicro-api-guide/api/APIItem.md)
     * [3. 거래(구매자)](unicro-api-guide/api/APIBuyer.md)
     * [4. 거래(판매자)](unicro-api-guide/api/APISeller.md)
