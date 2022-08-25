@@ -48,7 +48,7 @@
 
 **API목록**
 
-1. 인증 [상세API로 이동됩니다.](APIAuth.md)
+1. 인증 [상세API로 이동됩니다.](broken-reference)
    * 1.1. 인증발급
 2. 상품 (판매자) [상세API로 이동됩니다.](APIItem.md)
    * 2.1. 상품등록/수정

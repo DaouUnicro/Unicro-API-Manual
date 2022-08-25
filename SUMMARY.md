@@ -1,6 +1,6 @@
 # Table of contents
 
-* [유니크로 서비스 소개](UnicroIntro.md)
+* [유니크로 서비스 소개](README.md)
 * [유니크로 제휴사 API](UnicroAPIGuide.md)
   * [제휴사 API 소개](unicro-api-guide/APIIntro.md)
   * [유니크로 기능 프로세스](unicro-api-guide/MainBusinessDesign.md)
