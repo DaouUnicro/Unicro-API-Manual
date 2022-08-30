@@ -17,7 +17,7 @@
 
 | 파라메터 | 설명 | 타입 | 필수 |
 |--|--|--|--|
-| aspItemNo | 제휴사 상품번호 | String | O |
+| partnerItemNo | 제휴사 상품번호 | String | O |
 | itemName | 상품명 (200자 이하로 입력해주세요.)  | String | O |
 | itemPrice | 상품가격(3000원이상 상품가격최고가격 내부 협의 필요) | String | O |
 | itemCnt|판매 가능 수량(1~999) | Integer | O |
@@ -25,8 +25,7 @@
 | deliveryPayType | 배송비부담 - 판매자 (CASH_ON_DELIVERY:착불, PRE_PAYMENT:선불(무료배송/택배비포함))| String | O |
 | imgUrl | 이미지 경로 URI| String | X |
 | aspCateNo|제휴사카테고리번호 | String | X |
-| unicroUserKey | 유니크로 사용자 식별키로 유니크로 가입후 전달 한 값입니다.(판매자) | String | O |
-| userId | 유니크로 아이디 | String (4~50자)(판매자) | O |
+| sellerUnicroUserKey | 유니크로 사용자 식별키로 유니크로 가입후 전달 한 값입니다.(판매자) | String | O |
 
 * **응답:**
 ```json
@@ -85,7 +84,7 @@
 | 파라메터 | 설명 | 타입 | 필수 |
 |--|--|--|--|
 | itemNo | 유니크로 상품코드 | String | X |
-| aspItemNo | 제휴사 상품번호 | String | O |
+| partnerItemNo | 제휴사 상품번호 | String | O |
 | itemName | 상품명 (200자 이하로 입력해주세요.)  | String | O |
 | itemPrice | 상품가격(3000원이상 상품가격최고가격 내부 협의 필요) | String | O |
 | itemCnt|판매 가능 수량(1~999) | Integer | O |
@@ -93,8 +92,7 @@
 | deliveryPayType | 배송비부담 - 판매자 (CASH_ON_DELIVERY:착불, PRE_PAYMENT:선불(무료배송/택배비포함))| String | O |
 | imgUrl | 이미지 경로 URI| String | X |
 | aspCateNo|제휴사카테고리번호 | String | X |
-| unicroUserKey | 유니크로 사용자 식별키로 유니크로 가입후 전달 한 값입니다.(판매자) | String | O |
-| userId | 유니크로 아이디 | String (4~50자)(판매자) | O |
+| sellerUnicroUserKey | 유니크로 사용자 식별키로 유니크로 가입후 전달 한 값입니다.(판매자) | String | O |
 
 * **응답:**
 ```json
@@ -154,7 +152,7 @@
 | 파라메터 | 설명 | 타입 | 필수 |
 |--|--|--|--|
 | itemNo | 유니크로 상품코드 | String | O |
-| aspItemNo | 제휴사 상품번호 | String | O |
+| partnerItemNo | 제휴사 상품번호 | String | O |
 | status| 변경하고자 하는 상태 (USE: 판매가능 , DONE: 판매완료) | String | O |
 | unicroUserKey|유니크로 사용자 식별키로 유니크로 가입후 전달 한 값입니다.(판매자) | String | O |
 
