@@ -153,7 +153,7 @@
 |--|--|--|--|
 | itemNo | 유니크로 상품코드 | String | O |
 | partnerItemNo | 제휴사 상품번호 | String | O |
-| status| 변경하고자 하는 상태 (USE: 판매가능 , DONE: 판매완료) | String | O |
+| status| 변경하고자 하는 상태 (AVAILABLE_FOR_SALE: 판매가능 , SOLD_OUT: 판매완료, STOP_SELLING: 판매중지) | String | O |
 | unicroUserKey|유니크로 사용자 식별키로 유니크로 가입후 전달 한 값입니다.(판매자) | String | O |
 
 
