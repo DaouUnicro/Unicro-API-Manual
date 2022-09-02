@@ -21,7 +21,7 @@ description: 제휴사측 개발이 필요한 API
 
 | 파라메터 | 설명 | 타입 | 필수 |
 |--|--|--|--|
-| unicroUserKey|유니크로 사용자 식별키로 유니크로 가입후 전달 한 값입니다. | String | O |
+| unicroUserKey|유니크로 사용자 식별키로 유니크로 가입 후 전달한 값입니다. | String | O |
 | partnerUserId|유니크로 아이디| String (6~75 byte 영문소문자, 숫자,  만 가능(공백불가)) | O |
 
 

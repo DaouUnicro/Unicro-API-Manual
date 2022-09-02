@@ -13,7 +13,7 @@
   판매자 결제취소 동의
 
 * **URI**
-  /seller/traders/{tradeNo}/cancel/agree
+  /seller/traders/{unicroTradeNo}/cancel/agree
 
 * **Method:**
   `POST`
@@ -22,7 +22,7 @@
 
   | 파라메터        | 설명 | 타입 | 필수 |
   |--               |--|--|--|
-  | unicroUserKey    | 판매자 식별키 (유니크로 사용자 식별키로 유니크로 가입후 전달한 값입니다.) | String | O |
+  | sellerUnicroUserKey | 판매자 식별키 (유니크로 사용자 식별키로 유니크로 가입 후 전달한 판매자의 unicroUserKey 값입니다.) | String | O |
   | partnerUserId   | 판매자 제휴사 아이디 | String | O |
   | partnerTradeNo  | 제휴사 거래고유식별번호 | String | O |
 
@@ -53,7 +53,7 @@
   판매자 거래 취소
 
 * **URI**  
-  /seller/traders/{tradeNo}/cancel/done
+  /seller/traders/{unicroTradeNo}/cancel/done
 
 * **Method:**
   `POST`
@@ -62,7 +62,7 @@
 
   | 파라메터        | 설명 | 타입 | 필수 |
   |--               |--|--|--|
-  | unicroUserKey    | 판매자 식별키 (유니크로 사용자 식별키로 유니크로 가입후 전달한 값입니다.) | String | O |
+  | sellerUnicroUserKey | 판매자 식별키 (유니크로 사용자 식별키로 유니크로 가입 후 전달한 판매자의 unicroUserKey 값입니다.) | String | O |
   | partnerUserId   | 판매자 제휴사 아이디 | String (4~50자) | O |
   | partnerTradeNo  | 제휴사 거래고유식별번호 | String | O |
   | cancelCd        | 판매취소 사유코드 | String | X |
@@ -95,7 +95,7 @@
   판매자 배송정보 기입
 
 * **URI**
-  /seller/traders/{tradeNo}/delivery
+  /seller/traders/{unicroTradeNo}/delivery
 
 * **Method:**
   `POST`
@@ -104,7 +104,7 @@
 
   | 파라메터        | 설명 | 타입 | 필수 |
   |--               |--|--|--|
-  | unicroUserKey    | 판매자 식별키 (유니크로 사용자 식별키로 유니크로 가입후 전달한 값입니다.) | String | O |
+  | sellerUnicroUserKey | 판매자 식별키 (유니크로 사용자 식별키로 유니크로 가입 후 전달한 판매자의 unicroUserKey 값입니다.) | String | O |
   | partnerUserId   | 판매자 제휴사 아이디 | String (4~50자) | O |
   | partnerTradeNo  | 제휴사 거래고유식별번호 | String | O |
   | deliveryPayType | 판매자 택배 (CASH_ON_DELIVERY:착불, PRE_PAYMENT:선불) | String | O |
@@ -143,7 +143,7 @@
   반품 수락
 
 * **URI**
-  /seller/traders/{tradeNo}/return/agree
+  /seller/traders/{unicroTradeNo}/return/agree
 
 * **Method:**
   `POST`
@@ -152,7 +152,7 @@
 
   | 파라메터        | 설명 | 타입 | 필수 |
   |--               |--|--|--|
-  | unicroUserKey    | 판매자 식별키 (유니크로 사용자 식별키로 유니크로 가입후 전달한 값입니다.) | String | O |
+  |sellerUnicroUserKey | 판매자 식별키 (유니크로 사용자 식별키로 유니크로 가입 후 전달한 판매자의 unicroUserKey 값입니다.) | String | O |
   | partnerUserId   | 판매자 제휴사 아이디 | String (4~50자) | O |
   | partnerTradeNo  | 제휴사 거래고유식별번호 | String | O |
   | senderName      | 판매자명 | String | O |
@@ -187,7 +187,7 @@
   반품 완료
 
 * **URI**
-  /seller/traders/{tradeNo}/return/done
+  /seller/traders/{unicroTradeNo}/return/done
 
 * **Method:**
   `POST`
@@ -196,7 +196,7 @@
 
   | 파라메터        | 설명 | 타입 | 필수 |
   |--               |--|--|--|
-  | unicroUserKey    | 판매자 식별키 (유니크로 사용자 식별키로 유니크로 가입후 전달한 값입니다.) | String | O |
+  | sellerUnicroUserKey | 판매자 식별키 (유니크로 사용자 식별키로 유니크로 가입 후 전달한 판매자의 unicroUserKey 값입니다.) | String | O |
   | partnerUserId   | 판매자 제휴사 아이디 | String (4~50자) | O |
   | partnerTradeNo  | 제휴사 거래고유식별번호 | String | O |
 
@@ -230,7 +230,7 @@
   제휴사 관리자 배송완료 처리
 
 * **URI**
-  /partner/traders/{tradeNo}/delivery/done
+  /partner/traders/{unicroTradeNo}/delivery/done
   
 * **Method:**
   `POST`
@@ -239,7 +239,7 @@
 
   | 파라메터        | 설명 | 타입 | 필수 |
   |--               |--|--|--|
-  | unicroUserKey    | 판매자 식별키 (유니크로 사용자 식별키로 유니크로 가입후 전달한 값입니다.) | String | O |
+  | sellerUnicroUserKey | 판매자 식별키 (유니크로 사용자 식별키로 유니크로 가입 후 전달한 판매자의 unicroUserKey 값입니다.) | String | O |
   | partnerTradeNo  | 제휴사 거래고유식별번호 | String | O |
 
 * **응답:**
@@ -264,7 +264,7 @@
   판매자 거래 조회
 
 * **URI**
-  /seller/traders/{tradeNo}
+  /seller/traders/{unicroTradeNo}
 
 * **Method:**
   `GET`
@@ -273,7 +273,7 @@
 
   | 파라메터        | 설명 | 타입 | 필수 |
   |--               |--|--|--|
-  | unicroUserKey    | 판매자 식별키 (유니크로 사용자 식별키로 유니크로 가입후 전달 한 값입니다.) | String | O |
+  | sellerUnicroUserKey | 판매자 식별키 (유니크로 사용자 식별키로 유니크로 가입 후 전달한 판매자의 unicroUserKey 값입니다.) | String | O |
   
 
 * **Success Response:**
