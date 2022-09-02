@@ -22,7 +22,7 @@
   | partnerTradeNo | 제휴사 거래번호 | String | O |
   | payway | 결제수단 (CARD: 신용카드, BANK: 계좌이체, VIRTUAL_ACCOUNT: 가상계좌 무통장) | String | O |
   | returnUrl | 결제 완료 후 URI | String | O |
-  | deliveryPayType | 배송비부담 - 판매자 (CASH_ON_DELIVERY:착불, PRE_PAYMENT:선불(무료배송/택배비포함)) | String | O |
+  | deliveryPayCd | 배송비부담 - 판매자 (CASH_ON_DELIVERY:착불, PRE_PAYMENT:선불(무료배송/택배비포함)) | String | O |
   | trCodeOpt | 현금영수증 (PERSON: 개인, BUSINESS: 사업자) | String | X |
   | cashInfo | 현금영수증 > 휴대번호| String | X |
   | cashInfo | 현금영수증 > 사업자번호| String | X |
@@ -65,7 +65,7 @@
   구매 취소 요청
 
 * **URI**
-  /buyer/traders/{tradeNo}/cancel
+  /buyer/traders/{unicroTradeNo}/cancel
 
 * **Method:**
   `POST`
@@ -107,7 +107,7 @@
   구매자 반품 요청
 
 * **URI**
-  /buyer/traders/{tradeNo}/return/create
+  /buyer/traders/{unicroTradeNo}/return/create
 
 * **Method:**
   `POST`
@@ -118,7 +118,7 @@
   |--                       |--|--|--|
   | buyerUnicroUserKey | 구매자 식별키 (유니크로 사용자 식별키로 유니크로 가입후 전달 한 구매자의 unicroUserKey 값입니다.) | String | O |
   | partnerTradeNo          | 제휴사 거래고유식별번호 | String | O |
-  | returnDeliveryPayType   | 반품 배송비 부담 (CASH_ON_DELIVERY:착불(판매자부담), PRE_PAYMENT:선불(구매자부담)) | String | X |
+  | returndeliveryPayCd   | 반품 배송비 부담 (CASH_ON_DELIVERY:착불(판매자부담), PRE_PAYMENT:선불(구매자부담)) | String | X |
   | returnCd                | 반품 사유코드 | String | X |
   | returnMemo              | 반품 사유(직접입력) | String | X |
 
@@ -149,7 +149,7 @@
   구매자 반품 배송정보 기입
 
 * **URI**  
-  /buyer/traders/{tradeNo}/return/delivery
+  /buyer/traders/{unicroTradeNo}/return/delivery
 
 * **Method:**
   `POST`
@@ -191,7 +191,7 @@
   거래 완료
 
 * **URI**  
-  /buyer/traders/{tradeNo}/done
+  /buyer/traders/{unicroTradeNo}/done
 
 * **Method:**
   `POST`
@@ -233,7 +233,7 @@
   구매자 거래 조회
 
 * **URI**
-  /buyer/traders/{tradeNo}
+  /buyer/traders/{unicroTradeNo}
 
 * **Method:**
   `GET`

@@ -22,7 +22,7 @@
 | itemPrice | 상품가격(3000원이상 상품가격최고가격 내부 협의 필요) | String | O |
 | itemCnt|판매 가능 수량(1~999) | Integer | O |
 | selPayway | 결제가능한 결제수단(CARD: 신용카드, BANK: 계좌이체, VIRTUAL_ACCOUNT: 가상계좌 무통장) | String | O |
-| deliveryPayType | 배송비부담 - 판매자 (CASH_ON_DELIVERY:착불, PRE_PAYMENT:선불(무료배송/택배비포함))| String | O |
+| deliveryPayCd | 배송비부담 - 판매자 (CASH_ON_DELIVERY:착불, PRE_PAYMENT:선불(무료배송/택배비포함))| String | O |
 | imgUrl | 이미지 경로 URI| String | X |
 | aspCateNo|제휴사카테고리번호 | String | X |
 | sellerUnicroUserKey | 유니크로 사용자 식별키로 유니크로 가입후 전달 한 값입니다.(판매자) | String | O |
@@ -89,7 +89,7 @@
 | itemPrice | 상품가격(3000원이상 상품가격최고가격 내부 협의 필요) | String | O |
 | itemCnt|판매 가능 수량(1~999) | Integer | O |
 | selPayway | 결제가능한 결제수단(CARD: 신용카드, BANK: 계좌이체, VIRTUAL_ACCOUNT: 가상계좌 무통장) | String | O |
-| deliveryPayType | 배송비부담 - 판매자 (CASH_ON_DELIVERY:착불, PRE_PAYMENT:선불(무료배송/택배비포함))| String | O |
+| deliveryPayCd | 배송비부담 - 판매자 (CASH_ON_DELIVERY:착불, PRE_PAYMENT:선불(무료배송/택배비포함))| String | O |
 | imgUrl | 이미지 경로 URI| String | X |
 | aspCateNo|제휴사카테고리번호 | String | X |
 | sellerUnicroUserKey | 유니크로 사용자 식별키로 유니크로 가입후 전달 한 값입니다.(판매자) | String | O |

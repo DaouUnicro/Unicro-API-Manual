@@ -54,7 +54,7 @@ description: 제휴사측 개발이 필요한 API
 | -------------- | --------------------------------------------------------- | ------------ | -- |
 | tradeNo        | 유니크로 주문번호                                                 | String       | O  |
 | partnerTradeNo | 제휴사 주문번호                                                  | String       | O  |
-| payType        | 결제수단 (CARD: 신용카드, BANK: 계좌이체, VIRTUAL\_ACCOUNT: 가상계좌 무통장) | String       | O  |
+| payway        | 결제수단 (CARD: 신용카드, BANK: 계좌이체, VIRTUAL\_ACCOUNT: 가상계좌 무통장) | String       | O  |
 | vaDate         | 무통장입금 입금기한(결제일 + 24시간)                                    | String(14자리) | X  |
 | bankName       | 무통장입금 은행명                                                 | String       | X  |
 | accountNo      | 무통장입금 가상계좌번호                                              | String       | X  |
