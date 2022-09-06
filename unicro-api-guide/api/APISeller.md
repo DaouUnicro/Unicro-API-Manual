@@ -100,7 +100,7 @@
 | partnerUserId       | 판매자 제휴사 아이디                                                    | String | O  |
 | partnerTradeNo      | 제휴사 거래고유식별번호                                                   | String | O  |
 | deliveryPayCd       | 판매자 택배 (CASH\_ON\_DELIVERY:착불, PRE\_PAYMENT:선불)                | String | O  |
-| deliveryCompCd      | 택배사 코드                                                         | String | O  |
+| deliveryCompCd      | 택배사 코드 (유니크로 코드표 참고)                                           | String | O  |
 | invoiceNo           | 송장번호                                                           | String | O  |
 | senderName          | 보내는 사람                                                         | String | X  |
 | senderZip           | 보내는 사람 우편번호                                                    | String | X  |
