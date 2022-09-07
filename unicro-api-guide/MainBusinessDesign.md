@@ -6,11 +6,14 @@ description: sequence diagram
 
 ### 회원가입
 
+제휴사 사용자가 유니크로 사용자로 회원가입합니다.
+
 회원가입은 사용자가 유니크로 서비스를 이용하기 위해 반드시 선행되어야 합니다.
 
 ```html
 1. 약관동의와 본인인증이 필수입니다.
-2. 유니크로 화면으로 넘어와서 회원가입을 진행합니다
+2. 유니크로 화면으로 넘어와서 회원가입을 진행합니다.
+3. DI 당 1개의 계정만 생성 가능합니다.
 ```
 
 <figure><img src="https://mermaid.ink/img/pako:eNqVlM9OwkAQxl9ls2d4gR5IJPXgzcRrLwtdlEiLlvZgCAkIJkSIcpAEFAgmIppwQCnGg75Qd_sOTmlBWsq_puk22_l-33R2dvM4mZUpFnCOXhpUTVIxTU41okgqMfSsaigJqkkqgosk9ayGrOmIDV94r-FOuk_e79gdk1-PUDQWQ7zTZ7WqXRqx5w6y2w_s3URCYPaxzp8a1rjIezfIvmvxrsmHRQQDu297zBCKQ18k4DCbv5ZZBAnvtrwYV_wftCGhJfHulmzyzbuz-7W7t-WyeHdLf7H2tHTFsEJNNjEREFh_sMF6BXRwfBSkhMghCpS-KTEeyBwGdjtAvFyyy45hE-oQghLj0SAK6DuwkPU5tiY_LjKhUXLu17CvKrx5GgcLGrsZ6EVee7Hrb2v-MJhXoMhhPmtL7VZ6sW-EsDSWvofvEarK4amuNoQYX3jMe6EPVoPQFdjSBz6Ar-yreWzrzPmCziCArLDaaFt_rq1a5cOaTDdUDUewQjWFpGU48PKOjYT1M6pQCQvwKtMUMTK6hCW1AKHGhUx0eiin4dzDQopkcjSCnVPx5EpNYkHXDDoP8g5NL6rwB3bG5eA" alt=""><figcaption><p>회원가입 프로세스</p></figcaption></figure>
@@ -28,17 +31,16 @@ description: sequence diagram
 
 ### 상품 등록
 
-판매자가 상품을 등록합니다.
+제휴사 상품을 유니크로에 등록합니다.
 
 ```html
 1. 상품등록시 제휴사의 상품고유식별번호를 유니크로측으로 전달합니다.
-2. 유니크로 상품고유식별번호를 파라미터로 넘길 시 상품수정 / 없으면 상품등록 됩니다.
-3. 수정이 가능한 경우 
-    3.1 해당 상품에서 발생한 거래가 없는 경우
-    3.2 상품명과 가격은 수정 불가하며 변경되었을 경
+2. 제휴사에 등록된 상품을 구매자가 결제 시도 직전 유니크로 상품 등록합니다.
+3. 수량은 1개로 고정입니다.
+4. 결제 직전 상품이 등록되고, 등록 후 바로 결제가 되므로 상품수정은 존재하지 않습니다.
 ```
 
-<figure><img src="https://mermaid.ink/img/pako:eNqVVEFP4kAY_Stf5qQJNrK4uNsYEg0e9rbJXnsZ6bgSpbilPRhjsq4eGuFAdiFxSTGQaPSgCQIHTdw_xMz8h52hpZTaovTUTt573_u-93WOUaGsE6SiCvlhE6NA8kX83cQlzQDx4IJVNoHX6vT2ml3VvcPgcyWXYx2Xu0P2616FtALs7JT_doD-eaTdNrBWg_UfPE6Akxy3Q6sOP72nXRc2v34BFT7Ec2EpqMU6TToYpnyY97Xsa0f0oiXyWypklKntscaZC_xvk7WfYjTyWysxNlVYSxSBUb83Grx4WjsmwfshJH0-F34F3udIPcHhTRc2dsxcpPHqNa_dJTQWHjhIP2llTp3o5AV7Cpbs11MPFSeGHm5nxovHGg064pRV23RwTvsOv3wa9X4Cu3LoRUMM5B9r9d4f0MfAC-v2eKu2QCzZCHUmjKCNt02AlIpu8bt9jNmvJhq28lacWSUzl54UZFZZm0Pz40tITFrxSLQ-yZW1hzJFAU7J_QTmXIq9EtnSixu5tItFKwyuKzO_rS-4yGQ_xSosNN3P0y2JISfNNr06jyaWC6VQiZglXNTFHXosjzVk7ZES0ZAqXnWyi-0DS0OacSKg9qGOLbKtF8W1itRdfFAhKYRtq_ztyCgg1TJtMgH597CPOvkPH6jshg" alt=""><figcaption><p>상품 등록 프로세스</p></figcaption></figure>
+<figure><img src="https://mermaid.ink/img/pako:eNq9VMtOwkAU_ZXJrDSBH2gMiQQX7kzcdjO0gxLpoEO7MIREhAWGLojKQlMMGBJYYFRggQlf1Jn5B6e2PCwPUaNdNJ3Jedx7bnPzUMvqGCowh88sTDScSKMjigyVIMvMEstIYqoSIB-kmVkKhF1jnTZ_qPmX02M0FuNNRzhDftlTAC8VxXUFsJtX1moAfn_L-08-YQryCE6TVSui2GMtB-we7IPlRLA1deHNOhsMIwHMP20HwiGxsH4irsyqBcy-cEcV3pHvK3dQ5o82EHd13hgtEUvEo0uK_YZakmJ0sh7Onkd-z9wZewaSK-oO2EnSWCiSalvY3RUtzw8BKBs6foRZcsLjkVoz_sJg5qrARP_JBHzX36T-SQG4_Rd3MF4R-FtZ_isSH3D-IuGQxX_EGdbZOMWFAubD-6rnNczNup1QYAQamBoorcv1k_ckVGgeYwOrUJGfOk4hK2OqUCUFCbVOdWTiPT0ttxBUUiiTwxHo7ajDc6JBxaQWnoCCFRagCu9yeJtp" alt=""><figcaption></figcaption></figure>
 
 ### 배송 등록
 
@@ -61,4 +63,4 @@ description: sequence diagram
 2. PG의 처리의 실패시 제휴사에 전달하는 에러코드는 구분하여 전달합니다
 ```
 
-<figure><img src="https://mermaid.ink/img/pako:eNqtlVFr01AUx7_K4T5t0AWzza7eh4GjIr4NfM1LbO60uKaaJQ8yBqvbpNA-iKy4jbRE3JyDCnWrY4KfKPfe7-C9SdrEcsPitE_N6f_8zj3_nJ67jWpNiyCMtshrj9g1Uq2bzx2zYdggPmbNbToQ_hjS81M2eB8Hp48Lq6ss8Lk_Zm-HGHQNwsuRCAA7OWSX32LxVCDFfkA7bd4a0k8-PFx_AhgWJ0lxDsyF30d0cMSCHr0al9JSkwDba_EP7fhpPqkwQ50tVF3DsKSBOAI7uRAoYP0b9qUP_F3AW6OIuOcDP-6JuIJYXVtQHB3DckGk7C-8-pVz1qyFIKF6Ppaed-nnbvGm72upf3dus5wL-aOxZw4xX2aU9Oe-eElCn-RInsjhPX86JJ1T3v1azJaytCUfPjtpIjsVy-xFTVWV2FZxM1e0ZPbu7GRFTVDYmMjiHuh1Oxzt_hcbK9F05cJvsbHyrzby40N6McbwQIP1x_JECYx3--zjgYIRJwhMJBcb5t4kM5sSRWbOqusqZXZxxb8KZbqBoqUCbHBAg7MsOq8PfWnqR_wOhXf7tDPM70S9A_XlwhzlcEqE_K9nNqcg7LLBWeHplIiyEvFX60tfUXcCc6lKVuNHN-zan79l4PSKmoZKqEGchlm3xLW1LSEGcl-QBjEQFl8tsmF6m66BDHtHSL1XlumSR1Zd3GQIb5ibW6SETM9tPn1j1xB2HY9MRMnVl6h2fgMp_7Zk" alt=""><figcaption><p>결제 프로세스</p></figcaption></figure>
+<figure><img src="https://mermaid.ink/img/pako:eNqtVc1qwkAQfpVlTwr6AjkIFUvpTeg1l2jWVmpiG5NDEUGrgmAPpVRqSxQLSluwYNWKhT5RdvMO3WRj_Nu0UszF7Ob7mZ2dGYswnZcRFGABXRpITaNEVjrVJEVUAX0kQ8-rhpJCmrdO63kNWJ9D_NIn3Vu26S-jsRjpmbY5JddDAVjjEV0B8nRPxu8M6X91kGYPNxt2ZYifTWA_3uO3KViQGAeErI8R7rZJr4Un08jSZ7FBqhX7rsFWYc9hW3XT6yB5vG8jKrnpkogLSx1XoOoE1CKdOUcgEY9ywgxUcKK3Jt9MKKUh6XwFib9qNFKK9ziOGOXYLdO_kmbfvnkNOEfw1QQ6BKeeii1pAs8fqfLuCWX38O9s8uicVHowFjieNaxRec-pDHbYfyr9JkgeuW3p_gD7pkMe6gzu7mzIb6NWu5x99ZvI7QtAunXcG6xK8s_vx84yT4dCDTeHvx48sH__1OAWkkNfaXjKLpPuYOdC4tPXColbCovhFxA9CC0RjovdnpOZGd6cnPw6WFOCEaggTZGyMp3rRUdAhPoZUpAIBfoqo4xk5HQRimqJQo0LWdLRoZylox0KGSlXQBHoDP6TKzUNBV0z0ALk_Td4qNIPk3RgZg" alt=""><figcaption><p>결제 프로세스</p></figcaption></figure>
