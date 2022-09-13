@@ -15,3 +15,5 @@
     * [결제 상태](unicro-api-guide/code-table/TradeStausCd.md)
     * [택배사 코드](unicro-api-guide/code-table/DeliveryCompCd.md)
     * [은행 코드](unicro-api-guide/code-table/BankCd.md)
+    * [상품 코드](unicroapiguide/code-table/undefined.md)
+    * [취소 사유 코드](unicroapiguide/code-table/undefined-1.md)
