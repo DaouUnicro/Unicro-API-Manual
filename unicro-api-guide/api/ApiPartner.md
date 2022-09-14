@@ -2,31 +2,26 @@
 description: 제휴사측 개발이 필요한 API
 ---
 
-# 5. 제휴사 API
+# 제휴사 개발 API
 
 ### 5.1. 토큰발급
 
 ***
 
-유니크로 토큰 발급 요청 후 제휴사측 토큰 발급 API를 요청하여 이중 체크를 하기 위한 API입니다. 
+유니크로 토큰 발급 요청 후 제휴사측 토큰 발급 API를 요청하여 이중 체크를 하기 위한 API입니다.
 
-* **기능** 
- 제휴사 토큰 발급
-
+* **기능** 제휴사 토큰 발급
 * **URI**
-* **Method:** 
- `POST`
+* **Method:** `POST`
 * **URL Params**
 
-
-| 파라메터 | 설명 | 타입 | 필수 |
-|--|--|--|--|
-| unicroUserKey|유니크로 사용자 식별키로 유니크로 가입 후 전달한 값입니다. | String | O |
-| partnerUserId|유니크로 아이디| String (6~75 byte 영문소문자, 숫자,  만 가능(공백불가)) | O |
-
+| 파라메터          | 설명                                | 타입                                        | 필수 |
+| ------------- | --------------------------------- | ----------------------------------------- | -- |
+| unicroUserKey | 유니크로 사용자 식별키로 유니크로 가입 후 전달한 값입니다. | String                                    | O  |
+| partnerUserId | 유니크로 아이디                          | String (6\~75 byte 영문소문자, 숫자, 만 가능(공백불가)) | O  |
 
 * **응답:**
- 
+
 ```json
 {
   "result": "SUCCESS",
@@ -36,14 +31,13 @@ description: 제휴사측 개발이 필요한 API
     "unicroToken": "ABCDEFG"
   }
 }
-
 ```
 
 ### 5.2. 결제 완료 후 성공시 전달
 
 ***
 
-결제 완료 후 성공시 전달 받을 API 입니다. 
+결제 완료 후 성공시 전달 받을 API 입니다.
 
 * **기능** 구매자 결제 결과 전달 (성공시)
 * **URI**
@@ -52,9 +46,9 @@ description: 제휴사측 개발이 필요한 API
 
 | 파라메터           | 설명                                                        | 타입           | 필수 |
 | -------------- | --------------------------------------------------------- | ------------ | -- |
-| tradeNo        | 유니크로 주문번호                                                 | String       | O  |
+| unicroTradeNo  | 유니크로 주문번호                                                 | String       | O  |
 | partnerTradeNo | 제휴사 주문번호                                                  | String       | O  |
-| payway        | 결제수단 (CARD: 신용카드, BANK: 계좌이체, VIRTUAL\_ACCOUNT: 가상계좌 무통장) | String       | O  |
+| payway         | 결제수단 (CARD: 신용카드, BANK: 계좌이체, VIRTUAL\_ACCOUNT: 가상계좌 무통장) | String       | O  |
 | vaDate         | 무통장입금 입금기한(결제일 + 24시간)                                    | String(14자리) | X  |
 | bankName       | 무통장입금 은행명                                                 | String       | X  |
 | accountNo      | 무통장입금 가상계좌번호                                              | String       | X  |
@@ -69,7 +63,7 @@ description: 제휴사측 개발이 필요한 API
 
 ***
 
-결제 완료 후 성공시 전달 받을 API 입니다. 
+결제 완료 후 성공시 전달 받을 API 입니다.
 
 * **기능** 구매자 결제 결과 전달 (실패시)
 * **URI**
@@ -78,7 +72,7 @@ description: 제휴사측 개발이 필요한 API
 
 | 파라메터           | 설명        | 타입     | 필수 |
 | -------------- | --------- | ------ | -- |
-| tradeNo        | 유니크로 주문번호 | String | O  |
+| unicroTradeNo  | 유니크로 주문번호 | String | O  |
 | partnerTradeNo | 제휴사 주문번호  | String | O  |
 | msg            | 결제실패 사유   | String | O  |
 
@@ -98,7 +92,7 @@ description: 제휴사측 개발이 필요한 API
 
 | 파라메터           | 설명        | 타입     | 필수 |
 | -------------- | --------- | ------ | -- |
-| tradeNo        | 유니크로 주문번호 | String | O  |
+| unicroTradeNo  | 유니크로 주문번호 | String | O  |
 | partnerTradeNo | 제휴사 주문번호  | String | O  |
 | msg            | 결제실패 사유   | String | O  |
 
@@ -118,7 +112,7 @@ description: 제휴사측 개발이 필요한 API
 
 | 파라메터                | 설명        | 타입     | 필수 |
 | ------------------- | --------- | ------ | -- |
-| tradeNo             | 유니크로 주문번호 | String | O  |
+| unicroTradeNo       | 유니크로 주문번호 | String | O  |
 | partnerTradeNo      | 제휴사 주문번호  | String | O  |
 | saleReservationDate | 판매대금예정일   | String | O  |
 | saleCompleteDate    | 판매대금완료일   | String | O  |
@@ -139,7 +133,7 @@ description: 제휴사측 개발이 필요한 API
 
 | 파라메터           | 설명        | 타입     | 필수 |
 | -------------- | --------- | ------ | -- |
-| tradeNo        | 유니크로 주문번호 | String | O  |
+| unicroTradeNo  | 유니크로 주문번호 | String | O  |
 | partnerTradeNo | 제휴사 주문번호  | String | O  |
 | returnCd       | 취소코드      | String | O  |
 | returnMemo     | 취소사유      | String | O  |
@@ -160,10 +154,10 @@ description: 제휴사측 개발이 필요한 API
 
 | 파라메터             | 설명         | 타입     | 필수 |
 | ---------------- | ---------- | ------ | -- |
-| tradeNo          | 유니크로 주문번호  | String | O  |
+| unicroTradeNo    | 유니크로 주문번호  | String | O  |
 | partnerTradeNo   | 제휴사 주문번호   | String | O  |
 | senderEmail      | 보내는 사람 이메일 | String | O  |
-| receiverNam      | 받는사람 이름    | String | O  |
+| receiverName     | 받는사람 이름    | String | O  |
 | receiverZip      | 받는사람 우편번호  | String | O  |
 | receiverAddress1 | 받는사람 주소    | String | O  |
 | receiverAddress2 | 받는사람 주소    | String | O  |
