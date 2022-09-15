@@ -10,7 +10,7 @@ description: 제휴사측 개발이 필요한 API
 
 유니크로 회원가입 후 unicroUserKey(유니크로 사용자 식별키)를 전달하기 위해 호출하는 API입니다.
 
-* **기능 unicroUserKey 전**
+* **기능** unicroUserKey 전달
 * **URI**
 * **Method:** `POST`
 * **URL Params**
