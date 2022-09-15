@@ -9,7 +9,7 @@
 API 호출시 헤더에 필수값인 사용자 인증 토큰 발급을 위해 사용하는 API입니다.
 
 * **기능** 사용자 인증 토큰 발급
-* **URI** /api/v1/auth
+* **URI** _/api/v1/auth_
 * **Method:** `POST`
 
 ```
@@ -39,21 +39,21 @@ Host: stg-api.unicro.co.kr:14147
 
 **Request Fields**
 
-| 필드명              | 타입     | 설명           | 필수값  | 제한 |
-| ---------------- | ------ | ------------ | ---- | -- |
-| unicroPartnerKey | String | 유니크로 제휴사 발급키 | true |    |
-| partnerUserId    | String | 제휴사 사용자 아이디  | true |    |
+| 필드명              | 타입     | 설명                               | 필수값  | 제한                                        |
+| ---------------- | ------ | -------------------------------- | ---- | ----------------------------------------- |
+| unicroPartnerKey | String | 유니크로 제휴사 발급키                     | true |                                           |
+| partnerUserId    | String | 제휴사 사용자 아이디 (유니크로 회원가입시 전달한 이메일) | true | 6\~75 byte, 영문소문자, 숫자, 특수문자 @,.만 가능, 공백불가 |
 
 **응답**
 
 ```
 HTTP/1.1 200 OK
 Content-Type: application/json
-Content-Length: 163
+Content-Length: 180
 
 {
   "result" : "SUCCESS",
-  "msg" : "토큰 발급을 성공했습니다.",
+  "msg" : "사용자 인증 토큰 발급에 성공했습니다.",
   "errorCd" : "",
   "data" : {
     "unicroUserKey" : "DQKDFMSEISFMDKSFOES"
@@ -63,12 +63,12 @@ Content-Length: 163
 
 **Response Fields**
 
-| 필드명                | 타입     | 설명                                 |
-| ------------------ | ------ | ---------------------------------- |
-| result             | String | 성공실패 여부 코드 (성공: SUCCESS, 실패: FAIL) |
-| msg                | String | 응답 메시지                             |
-| errorCd            | String | 실패시 에러 코드                          |
-| data.unicroUserKey | String | 유니크로 사용자 식별키(인증 토큰)                |
+| 필드명                | 타입     | 설명                                                                  |
+| ------------------ | ------ | ------------------------------------------------------------------- |
+| result             | String | 성공실패 여부 코드 (성공: SUCCESS, 실패: FAIL)                                  |
+| msg                | String | 응답 메시지                                                              |
+| errorCd            | String | 실패시 에러 코드 (AUTH\_CREATE\_ERROR: 토큰 발급 실패, VALID\_ERROR: 필수 파라메터 없음) |
+| data.unicroUserKey | String | 유니크로 사용자 식별키(인증 토큰)                                                 |
 
 ### 2. 상품(판매자) <a href="#_2_" id="_2_"></a>
 
@@ -79,7 +79,7 @@ Content-Length: 163
 판매자가 상품등록을 위해 호출하는 API입니다.
 
 * **기능** 상품 등록
-* **URI** /api/v1/items
+* **URI** _/api/v1/items_
 * **Method:** `POST`
 
 ```
@@ -127,7 +127,7 @@ Host: stg-api.unicro.co.kr:14147
 | ------------------- | ------ | --------------------------------------------------------------- | ---- | ------- |
 | sellerUnicroUserKey | String | 판매자 식별키                                                         | true |         |
 | partnerItemNo       | String | 제휴사 상품고유식별번호                                                    | true |         |
-| itemName            | String | 상품명                                                             | true | 200자 이내 |
+| itemName            | String | 상품명                                                             | true | 200자 이하 |
 | itemPrice           | Number | 상품가격                                                            | true | 3000 이상 |
 | selPayway           | Array  | 결제가능한 결제수단 (CARD: 신용카드, BANK: 계좌이체, VIRTUAL\_ACCOUNT: 가상계좌 무통장) | true |         |
 | deliveryPayCd       | String | 배송비부담 (CASH\_ON\_DELIVERY:착불(구매자부담), PRE\_PAYMENT:선불(판매자부담))    | true |         |
@@ -156,14 +156,14 @@ Content-Length: 233
 
 **Response Fields**
 
-| 필드명                | 타입     | 설명                                 |
-| ------------------ | ------ | ---------------------------------- |
-| result             | String | 성공실패 여부 코드 (성공: SUCCESS, 실패: FAIL) |
-| msg                | String | 응답 메시지                             |
-| errorCd            | String | 실패시 에러 코드                          |
-| data.unicroItemNo  | String | 유니크로 상품고유식별번호                      |
-| data.partnerItemNo | String | 제휴사 상품고유식별번호                       |
-| data.statusCd      | String | 상품 상태                              |
+| 필드명                | 타입     | 설명                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| ------------------ | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| result             | String | 성공실패 여부 코드 (성공: SUCCESS, 실패: FAIL)                                                                                                                                                                                                                                                                                                                                                                                                           |
+| msg                | String | 응답 메시지                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| errorCd            | String | 실패시 에러 코드 (AUTH\_ERROR: 토큰 유효성 체크 실패 , AUTH\_ERROR: 판매자인증 실패 , AUTH\_ERROR: 판매자인증 실패 (블랙리스트) , AUTH\_ERROR: 판매자인증 실패 (휴면상태) , VALID\_ERROR: 필수 파라메터 없음 , VALID\_ERROR: 상품정보오류(제휴사상품번호 20자초과) , VALID\_ERROR: 상품정보오류(제휴사카테고리정보 20자초과) , VALID\_ERROR: 상품정보오류(상품명 200자초과) , VALID\_ERROR: 상품정보오류(상품가격 유효범위 초과) , VALID\_ERROR: 상품정보오류(결제수단 오류) , VALID\_ERROR: 상품정보오류(이미지 URI오류) , VALID\_ERROR: 상품정보오류(판매제한 상품명 포함) , CREATE\_ERROR: 상품등록 실패) |
+| data.unicroItemNo  | String | 유니크로 상품고유식별번호                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| data.partnerItemNo | String | 제휴사 상품고유식별번호                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| data.statusCd      | String | 상품 상태                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 
 ### 3. 거래(제휴사) <a href="#_3_" id="_3_"></a>
 
@@ -174,17 +174,17 @@ Content-Length: 233
 제휴사 거래번호로 거래를 조회하는 API입니다.
 
 * **기능** 제휴사 거래번호로 거래 조회
-* **URI** /api/v1/traders/partner/{partnerTradeNo}
+* **URI** _/api/v1/trades/partner/{partnerTradeNo}_
 * **Method:** `GET`
 
 ```
-$ curl 'https://stg-api.unicro.co.kr:14147/api/v1/traders/partner/2022045465' -i -X GET
+$ curl 'https://stg-api.unicro.co.kr:14147/api/v1/trades/partner/2022045465' -i -X GET
 ```
 
 **요청**
 
 ```
-GET /api/v1/traders/partner/2022045465 HTTP/1.1
+GET /api/v1/trades/partner/2022045465 HTTP/1.1
 Host: stg-api.unicro.co.kr:14147
 ```
 
@@ -225,17 +225,17 @@ Content-Length: 192
 유니크로 거래번호로 거래를 조회하는 API입니다.
 
 * **기능** 유니크로 거래번호로 거래 조회
-* **URI** /api/v1/traders/{unicroTradeNo}
+* **URI** _/api/v1/trades/{unicroTradeNo}_
 * **Method:** `GET`
 
 ```
-$ curl 'https://stg-api.unicro.co.kr:14147/api/v1/traders/202204546555' -i -X GET
+$ curl 'https://stg-api.unicro.co.kr:14147/api/v1/trades/202204546555' -i -X GET
 ```
 
 **요청**
 
 ```
-GET /api/v1/traders/202204546555 HTTP/1.1
+GET /api/v1/trades/202204546555 HTTP/1.1
 Host: stg-api.unicro.co.kr:14147
 ```
 
@@ -273,7 +273,8 @@ Content-Length: 194
 
 ***
 
-제휴사 관리자가 수동으로 배송완료 처리하는 API입니다. 수동 배송완료 처리시 배송에 대한 책임은 제휴사에 있습니다.
+제휴사 관리자가 수동으로 배송완료 처리하는 API입니다.\
+수동 배송완료 처리시 배송에 대한 책임은 제휴사에 있습니다.
 
 **배송완료 처리가 가능한 거래상태**
 
@@ -283,17 +284,17 @@ Content-Length: 194
 | DELIVERY\_ING | 요청 후 DELIVERY\_DONE로 변경됨 |
 
 * **기능** 제휴사 관리자 배송완료 처리
-* **URI** /api/v1/traders/{unicroTradeNo}/delivery/done
+* **URI** _/api/v1/trades/{unicroTradeNo}/delivery/done_
 * **Method:** `POST`
 
 ```
-$ curl 'https://stg-api.unicro.co.kr:14147/api/v1/traders/202209050000/delivery/done' -i -X POST
+$ curl 'https://stg-api.unicro.co.kr:14147/api/v1/trades/202209050000/delivery/done' -i -X POST
 ```
 
 **요청**
 
 ```
-POST /api/v1/traders/202209050000/delivery/done HTTP/1.1
+POST /api/v1/trades/202209050000/delivery/done HTTP/1.1
 Host: stg-api.unicro.co.kr:14147
 ```
 
@@ -343,11 +344,11 @@ Content-Length: 230
 | PAY\_APPROVED | 요청 후 CANCEL\_REQ로 변경됨 (판매자가 취소요청을 승인하여야 거래취소 되는 상태로 변경됨) |
 
 * **기능** 구매 취소 요청
-* **URI** /api/v1/buyer/traders/{unicroTradeNo}/cancel
+* **URI** _/api/v1/buyer/trades/{unicroTradeNo}/cancel_
 * **Method:** `POST`
 
 ```
-$ curl 'https://stg-api.unicro.co.kr:14147/api/v1/buyer/traders/202209051745/cancel' -i -X POST \
+$ curl 'https://stg-api.unicro.co.kr:14147/api/v1/buyer/trades/202209051745/cancel' -i -X POST \
     -H 'Content-Type: application/json' \
     -H 'Accept: application/json' \
     -d '{
@@ -360,7 +361,7 @@ $ curl 'https://stg-api.unicro.co.kr:14147/api/v1/buyer/traders/202209051745/can
 **요청**
 
 ```
-POST /api/v1/buyer/traders/202209051745/cancel HTTP/1.1
+POST /api/v1/buyer/trades/202209051745/cancel HTTP/1.1
 Content-Type: application/json
 Accept: application/json
 Content-Length: 106
@@ -375,11 +376,11 @@ Host: stg-api.unicro.co.kr:14147
 
 **Request Fields**
 
-| 필드명                | 타입     | 설명         | 필수값  | 제한 |
-| ------------------ | ------ | ---------- | ---- | -- |
-| buyerUnicroUserKey | String | 구매자 식별키    | true |    |
-| cancelCd           | String | 취소사유코드     | true |    |
-| cancelMemo         | String | 취소사유(직접입력) |      |    |
+| 필드명                | 타입     | 설명          | 필수값  | 제한 |
+| ------------------ | ------ | ----------- | ---- | -- |
+| buyerUnicroUserKey | String | 구매자 식별키     | true |    |
+| cancelCd           | String | 취소 사유코드     | true |    |
+| cancelMemo         | String | 취소 사유(직접입력) |      |    |
 
 **응답**
 
@@ -424,11 +425,11 @@ Content-Length: 224
 | DELIVERY\_ING | 요청 후 RETURN\_REQ로 변경됨 |
 
 * **기능** 구매자 반품 요청
-* **URI** /api/v1/buyer/traders/{unicroTradeNo}/return/create
+* **URI** _/api/v1/buyer/trades/{unicroTradeNo}/return/create_
 * **Method:** `POST`
 
 ```
-$ curl 'https://stg-api.unicro.co.kr:14147/api/v1/buyer/traders/202209051745/return/create' -i -X POST \
+$ curl 'https://stg-api.unicro.co.kr:14147/api/v1/buyer/trades/202209051745/return/create' -i -X POST \
     -H 'Content-Type: application/json' \
     -H 'Accept: application/json' \
     -d '{
@@ -442,7 +443,7 @@ $ curl 'https://stg-api.unicro.co.kr:14147/api/v1/buyer/traders/202209051745/ret
 **요청**
 
 ```
-POST /api/v1/buyer/traders/202209051745/return/create HTTP/1.1
+POST /api/v1/buyer/trades/202209051745/return/create HTTP/1.1
 Content-Type: application/json
 Accept: application/json
 Content-Length: 141
@@ -503,63 +504,48 @@ Content-Length: 226
 
 **구매자 반품 배송정보 기입이 가능한 거래상태**
 
-| 상태            | 설명                    |
-| ------------- | --------------------- |
-| DELIVERY\_AGR | 요청 후 RETURN\_ING로 변경됨 |
+| 상태          | 설명                    |
+| ----------- | --------------------- |
+| RETURN\_AGR | 요청 후 RETURN\_ING로 변경됨 |
 
 * **기능** 구매자 반품 배송정보 기입
-* **URI** /api/v1/buyer/traders/{unicroTradeNo}/return/delivery
+* **URI** _/api/v1/buyer/trades/{unicroTradeNo}/return/delivery_
 * **Method:** `POST`
 
 ```
-$ curl 'https://stg-api.unicro.co.kr:14147/api/v1/buyer/traders/202209051745/return/delivery' -i -X POST \
+$ curl 'https://stg-api.unicro.co.kr:14147/api/v1/buyer/trades/202209051745/return/delivery' -i -X POST \
     -H 'Content-Type: application/json' \
     -H 'Accept: application/json' \
     -d '{
   "buyerUnicroUserKey" : "1234567",
   "deliveryCompCd" : "004",
-  "invoiceNo" : "6044000000000",
-  "returnSenderName" : "김다우",
-  "returnSenderZip" : "16878",
-  "returnSenderAddress1" : "경기 용인시 수지구 디지털벨리로 81 (죽전동, 다우기술)",
-  "returnSenderAddress2" : "6층 플랫폼개발팀",
-  "returnSenderHhpNo" : "01000001111"
+  "invoiceNo" : "6044000000000"
 }'
 ```
 
 **요청**
 
 ```
-POST /api/v1/buyer/traders/202209051745/return/delivery HTTP/1.1
+POST /api/v1/buyer/trades/202209051745/return/delivery HTTP/1.1
 Content-Type: application/json
 Accept: application/json
-Content-Length: 373
+Content-Length: 103
 Host: stg-api.unicro.co.kr:14147
 
 {
   "buyerUnicroUserKey" : "1234567",
   "deliveryCompCd" : "004",
-  "invoiceNo" : "6044000000000",
-  "returnSenderName" : "김다우",
-  "returnSenderZip" : "16878",
-  "returnSenderAddress1" : "경기 용인시 수지구 디지털벨리로 81 (죽전동, 다우기술)",
-  "returnSenderAddress2" : "6층 플랫폼개발팀",
-  "returnSenderHhpNo" : "01000001111"
+  "invoiceNo" : "6044000000000"
 }
 ```
 
 **Request Fields**
 
-| 필드명                  | 타입     | 설명                   | 필수값  | 제한 |
-| -------------------- | ------ | -------------------- | ---- | -- |
-| buyerUnicroUserKey   | String | 구매자 식별키              | true |    |
-| deliveryCompCd       | String | 택배사 코드 (유니크로 코드표 참고) | true |    |
-| invoiceNo            | String | 송장번호                 | true |    |
-| returnSenderName     | String | 구매자명                 |      |    |
-| returnSenderHhpNo    | String | 구매자 연락처              |      |    |
-| returnSenderZip      | String | 구매자 우편번호             |      |    |
-| returnSenderAddress1 | String | 구매자 주소1              |      |    |
-| returnSenderAddress2 | String | 구매자 주소2              |      |    |
+| 필드명                | 타입     | 설명                   | 필수값  | 제한 |
+| ------------------ | ------ | -------------------- | ---- | -- |
+| buyerUnicroUserKey | String | 구매자 식별키              | true |    |
+| deliveryCompCd     | String | 택배사 코드 (유니크로 코드표 참고) | true |    |
+| invoiceNo          | String | 송장번호                 | true |    |
 
 **응답**
 
@@ -605,11 +591,11 @@ Content-Length: 240
 | DELIVERY\_DONE | 요청 후 PAY\_DONE으로 변경됨 |
 
 * **기능** 거래 완료
-* **URI** /api/v1/buyer/traders/{unicroTradeNo}/done
+* **URI** _/api/v1/buyer/trades/{unicroTradeNo}/done_
 * **Method:** `POST`
 
 ```
-$ curl 'https://stg-api.unicro.co.kr:14147/api/v1/buyer/traders/202209051745/done' -i -X POST \
+$ curl 'https://stg-api.unicro.co.kr:14147/api/v1/buyer/trades/202209051745/done' -i -X POST \
     -H 'Content-Type: application/json' \
     -H 'Accept: application/json' \
     -d '{
@@ -620,7 +606,7 @@ $ curl 'https://stg-api.unicro.co.kr:14147/api/v1/buyer/traders/202209051745/don
 **요청**
 
 ```
-POST /api/v1/buyer/traders/202209051745/done HTTP/1.1
+POST /api/v1/buyer/trades/202209051745/done HTTP/1.1
 Content-Type: application/json
 Accept: application/json
 Content-Length: 52
@@ -674,17 +660,17 @@ Content-Length: 218
 구매자가 거래 정보를 조회하는 API입니다.
 
 * **기능** 구매자 거래 상세 조회
-* **URI** /api/v1/buyer/traders/{unicroTradeNo}
+* **URI** _/api/v1/buyer/trades/{unicroTradeNo}_
 * **Method:** `GET`
 
 ```
-$ curl 'https://stg-api.unicro.co.kr:14147/api/v1/buyer/traders/202209050000?buyerUnicroUserKey=UDdSfN5d525sD5FSD51' -i -X GET
+$ curl 'https://stg-api.unicro.co.kr:14147/api/v1/buyer/trades/202209050000?buyerUnicroUserKey=UDdSfN5d525sD5FSD51' -i -X GET
 ```
 
 **요청**
 
 ```
-GET /api/v1/buyer/traders/202209050000?buyerUnicroUserKey=UDdSfN5d525sD5FSD51 HTTP/1.1
+GET /api/v1/buyer/trades/202209050000?buyerUnicroUserKey=UDdSfN5d525sD5FSD51 HTTP/1.1
 Host: stg-api.unicro.co.kr:14147
 ```
 
@@ -697,7 +683,7 @@ Host: stg-api.unicro.co.kr:14147
 ```
 HTTP/1.1 200 OK
 Content-Type: application/json
-Content-Length: 618
+Content-Length: 623
 
 {
   "result" : "SUCCESS",
@@ -708,16 +694,16 @@ Content-Length: 618
     "partnerTradeNo" : "123456789",
     "payway" : "VIRTUAL_ACCOUNT",
     "buyAmt" : 3000,
-    "tradeDate" : "2022-09-14T16:50:46.2300773",
+    "tradeDate" : "2022-09-15T16:12:08.3872472",
     "statusCd" : "SETTLEMENT_DONE",
     "deliveryCompCd" : "",
     "invoiceNo" : "",
     "unicroItemNo" : "20220091300000",
     "partnerItemNo" : "2022009130000A0",
     "bankName" : "신한은행",
-    "account" : "10000000000",
+    "accountNo" : "10000000000",
     "accountName" : "유니크로",
-    "vaDate" : "202209150100000"
+    "vaDueDate" : "202209150100000"
   }
 }
 ```
@@ -741,9 +727,9 @@ Content-Length: 618
 | data.partnerItemNo  | String | 제휴사 상품고유식별번호                       |
 | data.statusCd       | String | 거래 상태                              |
 | data.bankName       | String | 입금정보-은행                            |
-| data.account        | String | 입금정보-계좌번호                          |
+| data.accountNo      | String | 입금정보-계좌번호                          |
 | data.accountName    | String | 예금주                                |
-| data.vaDate         | String | 무통장입금기한                            |
+| data.vaDueDate      | String | 무통장입금기한                            |
 
 ### 5. 거래(판매자) <a href="#_5_" id="_5_"></a>
 
@@ -760,11 +746,11 @@ Content-Length: 618
 | CANCEL\_REQ | 요청 후 CANCEL\_DONE\_BUYER로 변경됨 |
 
 * **기능** 판매자 결제취소 동의
-* **URI** /api/v1/seller/traders/{unicroTradeNo}/cancel/agree
+* **URI** _/api/v1/seller/trades/{unicroTradeNo}/cancel/agree_
 * **Method:** `POST`
 
 ```
-$ curl 'https://stg-api.unicro.co.kr:14147/api/v1/seller/traders/202209050000/cancel/agree' -i -X POST \
+$ curl 'https://stg-api.unicro.co.kr:14147/api/v1/seller/trades/202209050000/cancel/agree' -i -X POST \
     -H 'Content-Type: application/json' \
     -H 'Accept: application/json' \
     -d '{
@@ -775,7 +761,7 @@ $ curl 'https://stg-api.unicro.co.kr:14147/api/v1/seller/traders/202209050000/ca
 **요청**
 
 ```
-POST /api/v1/seller/traders/202209050000/cancel/agree HTTP/1.1
+POST /api/v1/seller/trades/202209050000/cancel/agree HTTP/1.1
 Content-Type: application/json
 Accept: application/json
 Content-Length: 53
@@ -835,11 +821,11 @@ Content-Length: 253
 | PAY\_APPROVED | 요청 후 CANCEL\_DONE\_SELLER로 변경됨 |
 
 * **기능** 판매자 거래 취소
-* **URI** /api/v1/seller/traders/{unicroTradeNo}/cancel/done
+* **URI** _/api/v1/seller/trades/{unicroTradeNo}/cancel/done_
 * **Method:** `POST`
 
 ```
-$ curl 'https://stg-api.unicro.co.kr:14147/api/v1/seller/traders/202209050000/cancel/done' -i -X POST \
+$ curl 'https://stg-api.unicro.co.kr:14147/api/v1/seller/trades/202209050000/cancel/done' -i -X POST \
     -H 'Content-Type: application/json' \
     -H 'Accept: application/json' \
     -d '{
@@ -852,7 +838,7 @@ $ curl 'https://stg-api.unicro.co.kr:14147/api/v1/seller/traders/202209050000/ca
 **요청**
 
 ```
-POST /api/v1/seller/traders/202209050000/cancel/done HTTP/1.1
+POST /api/v1/seller/trades/202209050000/cancel/done HTTP/1.1
 Content-Type: application/json
 Accept: application/json
 Content-Length: 129
@@ -916,11 +902,11 @@ Content-Length: 245
 | PAY\_APPROVED | 요청 후 DELIVERY\_ING로 변경됨 |
 
 * **기능** 판매자 배송정보 기입
-* **URI** /api/v1/seller/traders/{unicroTradeNo}/delivery
+* **URI** _/api/v1/seller/trades/{unicroTradeNo}/delivery_
 * **Method:** `POST`
 
 ```
-$ curl 'https://stg-api.unicro.co.kr:14147/api/v1/seller/traders/202209050000/delivery' -i -X POST \
+$ curl 'https://stg-api.unicro.co.kr:14147/api/v1/seller/trades/202209050000/delivery' -i -X POST \
     -H 'Content-Type: application/json' \
     -H 'Accept: application/json' \
     -d '{
@@ -940,7 +926,7 @@ $ curl 'https://stg-api.unicro.co.kr:14147/api/v1/seller/traders/202209050000/de
 **요청**
 
 ```
-POST /api/v1/seller/traders/202209050000/delivery HTTP/1.1
+POST /api/v1/seller/trades/202209050000/delivery HTTP/1.1
 Content-Type: application/json
 Accept: application/json
 Content-Length: 426
@@ -1018,11 +1004,11 @@ Content-Length: 237
 | RETURN\_REQ | 요청 후 RETURN\_AGR로 변경됨 |
 
 * **기능** 반품 수락
-* **URI** /api/v1/seller/traders/{unicroTradeNo}/return/agree
+* **URI** _/api/v1/seller/trades/{unicroTradeNo}/return/agree_
 * **Method:** `POST`
 
 ```
-$ curl 'https://stg-api.unicro.co.kr:14147/api/v1/seller/traders/202209050000/return/agree' -i -X POST \
+$ curl 'https://stg-api.unicro.co.kr:14147/api/v1/seller/trades/202209050000/return/agree' -i -X POST \
     -H 'Content-Type: application/json' \
     -H 'Accept: application/json' \
     -d '{
@@ -1039,7 +1025,7 @@ $ curl 'https://stg-api.unicro.co.kr:14147/api/v1/seller/traders/202209050000/re
 **요청**
 
 ```
-POST /api/v1/seller/traders/202209050000/return/agree HTTP/1.1
+POST /api/v1/seller/trades/202209050000/return/agree HTTP/1.1
 Content-Type: application/json
 Accept: application/json
 Content-Length: 330
@@ -1108,14 +1094,14 @@ Content-Length: 228
 
 | 상태          | 설명                     |
 | ----------- | ---------------------- |
-| RETURN\_AGR | 요청 후 RETURN\_DONE로 변경됨 |
+| RETURN\_ING | 요청 후 RETURN\_DONE로 변경됨 |
 
 * **기능** 반품 완료
-* **URI** /api/v1/seller/traders/{unicroTradeNo}/return/done
+* **URI** _/api/v1/seller/trades/{unicroTradeNo}/return/done_
 * **Method:** `POST`
 
 ```
-$ curl 'https://stg-api.unicro.co.kr:14147/api/v1/seller/traders/202209050000/return/done' -i -X POST \
+$ curl 'https://stg-api.unicro.co.kr:14147/api/v1/seller/trades/202209050000/return/done' -i -X POST \
     -H 'Content-Type: application/json' \
     -H 'Accept: application/json' \
     -d '{
@@ -1126,7 +1112,7 @@ $ curl 'https://stg-api.unicro.co.kr:14147/api/v1/seller/traders/202209050000/re
 **요청**
 
 ```
-POST /api/v1/seller/traders/202209050000/return/done HTTP/1.1
+POST /api/v1/seller/trades/202209050000/return/done HTTP/1.1
 Content-Type: application/json
 Accept: application/json
 Content-Length: 53
@@ -1180,17 +1166,17 @@ Content-Length: 223
 판매자가 거래 정보를 조회하는 API입니다.
 
 * **기능** 판매자 거래 상세 조회
-* **URI** /api/v1/seller/traders/{unicroTradeNo}
+* **URI** _/api/v1/seller/trades/{unicroTradeNo}_
 * **Method:** `GET`
 
 ```
-$ curl 'https://stg-api.unicro.co.kr:14147/api/v1/seller/traders/202209050000?sellerUnicroUserKey=UDdSfN5d525sD5FSD51' -i -X GET
+$ curl 'https://stg-api.unicro.co.kr:14147/api/v1/seller/trades/202209050000?sellerUnicroUserKey=UDdSfN5d525sD5FSD51' -i -X GET
 ```
 
 **요청**
 
 ```
-GET /api/v1/seller/traders/202209050000?sellerUnicroUserKey=UDdSfN5d525sD5FSD51 HTTP/1.1
+GET /api/v1/seller/trades/202209050000?sellerUnicroUserKey=UDdSfN5d525sD5FSD51 HTTP/1.1
 Host: stg-api.unicro.co.kr:14147
 ```
 
@@ -1203,7 +1189,7 @@ Host: stg-api.unicro.co.kr:14147
 ```
 HTTP/1.1 200 OK
 Content-Type: application/json
-Content-Length: 498
+Content-Length: 497
 
 {
   "result" : "SUCCESS",
@@ -1215,7 +1201,7 @@ Content-Length: 498
     "payway" : "CARD",
     "buyAmt" : 3000,
     "sellerAmt" : 2500,
-    "tradeDate" : "2022-09-14T16:50:47.3187563",
+    "tradeDate" : "2022-09-15T16:12:09.474376",
     "statusCd" : "SETTLEMENT_DONE",
     "deliveryCompCd" : "005",
     "invoiceNo" : "1234567890",
