@@ -4,7 +4,35 @@ description: 제휴사측 개발이 필요한 API
 
 # 제휴사 개발 API
 
-### 5.1. 토큰발급
+### 5.0 unicroUserKey 전달
+
+
+
+유니크로 회원가입 후 unicroUserKey(유니크로 사용자 식별키)를 전달하기 위해 호출하는 API입니다.
+
+* **기능 unicroUserKey 전**
+* **URI**
+* **Method:** `POST`
+* **URL Params**
+
+| 파라메터          | 설명                                       | 타입      |
+| ------------- | ---------------------------------------- | ------- |
+| unicroUserKey | 유니크로 사용자 식별                              |  String |
+| partnerUserId | <p>제휴사 사용자 이메일</p><p>(유니크로 회원가입 아이디)</p> | String  |
+
+* **응답**
+
+```
+{
+  "result": "SUCCESS",
+  "msg": "unicroUserKey 저장 성공했습니다.",
+  "errorCd": ""
+}
+```
+
+****
+
+### 5.1. 토큰 발급
 
 ***
 
@@ -22,16 +50,14 @@ description: 제휴사측 개발이 필요한 API
 
 * **응답:**
 
-```json
-{
-  "result": "SUCCESS",
+<pre class="language-json"><code class="lang-json"><strong>{
+</strong>  "result": "SUCCESS",
   "msg": "토큰 발급을 성공했습니다.",
   "errorCd": "",
   "data": {
     "unicroToken": "ABCDEFG"
   }
-}
-```
+}</code></pre>
 
 ### 5.2. 결제 완료 후 성공시 전달
 
