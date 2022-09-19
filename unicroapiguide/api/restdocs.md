@@ -63,12 +63,12 @@ Content-Length: 180
 
 **Response Fields**
 
-| 필드명                | 타입     | 설명                                                                  |
-| ------------------ | ------ | ------------------------------------------------------------------- |
-| result             | String | 성공실패 여부 코드 (성공: SUCCESS, 실패: FAIL)                                  |
-| msg                | String | 응답 메시지                                                              |
-| errorCd            | String | 실패시 에러 코드 (AUTH\_CREATE\_ERROR: 토큰 발급 실패, VALID\_ERROR: 필수 파라메터 없음) |
-| data.unicroUserKey | String | 유니크로 사용자 식별키(인증 토큰)                                                 |
+| 필드명                  | 타입     | 설명                                                                  |
+| -------------------- | ------ | ------------------------------------------------------------------- |
+| result               | String | 성공실패 여부 코드 (성공: SUCCESS, 실패: FAIL)                                  |
+| msg                  | String | 응답 메시지                                                              |
+| errorCd              | String | 실패시 에러 코드 (AUTH\_CREATE\_ERROR: 토큰 발급 실패, VALID\_ERROR: 필수 파라메터 없음) |
+| data.unicroUserToken | String | 유니크로 사용자 인증 토큰                                                      |
 
 ### 2. 상품(판매자) <a href="#_2_" id="_2_"></a>
 
