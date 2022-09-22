@@ -81,7 +81,7 @@ Content-Length: 361
 유니크로 회원 등록 여부를 확인하는 API입니다.
 
 * **기능** 회원 등록 여부
-* **URI** _/api/v1/users/exist_
+* **URI** _/api/v1/users/{partnerUserId}/exist_
 * **Method:** `GET`
 
 ```
@@ -132,7 +132,7 @@ Content-Length: 132
 제휴사 회원 탈퇴 시 유니크로 회원 탈퇴를 위한 API입니다.
 
 * **기능** 회원 탈퇴
-* **URI** _/api/v1/users/delete_
+* **URI** _/api/v1/users/{partnerUserId}/delete_
 * **Method:** `POST`
 
 ```
@@ -775,7 +775,7 @@ Content-Length: 623
     "partnerTradeNo" : "123456789",
     "payway" : "VIRTUAL_ACCOUNT",
     "buyAmt" : 3000,
-    "tradeDate" : "2022-09-22T19:19:00.2596203",
+    "tradeDate" : "2022-09-22T19:52:20.6623337",
     "statusCd" : "SETTLEMENT_DONE",
     "deliveryCompCd" : "",
     "invoiceNo" : "",
@@ -1235,7 +1235,7 @@ Content-Length: 498
     "payway" : "CARD",
     "buyAmt" : 3000,
     "sellerAmt" : 2500,
-    "tradeDate" : "2022-09-22T19:19:01.8003825",
+    "tradeDate" : "2022-09-22T19:52:22.1580589",
     "statusCd" : "SETTLEMENT_DONE",
     "deliveryCompCd" : "005",
     "invoiceNo" : "1234567890",
