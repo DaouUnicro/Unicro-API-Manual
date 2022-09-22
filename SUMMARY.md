@@ -6,7 +6,7 @@
   * [유니크로 기능 프로세스](unicroapiguide/MainBusinessDesign.md)
   * [유니크로 제휴사 서비스 정책](unicroapiguide/Policy.md)
   * [API](unicroapiguide/api/README.md)
-    * [제휴사 API](unicroapiguide/api/restdocs.md)
+    * [제휴사 API](unicroapiguide/api/api.md)
     * [제휴사 개발 API](unicroapiguide/api/ApiPartner.md)
   * [유니크로 코드표](unicroapiguide/code-table/README.md)
     * [결제 상태](unicroapiguide/code-table/TradeStausCd.md)
