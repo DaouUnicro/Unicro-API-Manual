@@ -132,11 +132,11 @@ Content-Length: 132
 제휴사 회원 탈퇴 시 유니크로 회원 탈퇴를 위한 API입니다.
 
 * **기능** 회원 탈퇴
-* **URI** _/api/v1/users/{partnerUserId}/delete_
+* **URI** _/api/v1/users/{partnerUserId}/withdrawal_
 * **Method:** `POST`
 
 ```
-$ curl 'https://stg-api.unicro.co.kr:14147/api/v1/users/unicro123/delete' -i -X POST \
+$ curl 'https://stg-api.unicro.co.kr:14147/api/v1/users/unicro123/withdrawal' -i -X POST \
     -H 'Partner-Api-Key: unicro' \
     -H 'Unicro_User_Token: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJoZWVzdUBkYW91LmNvLmtyIiwiYXV0aCI6IlJPTEVfVVNFUiIsImV4cCI6MTY2MzcyODY0N30.Y4RYhtzo9yxfekRyQJOwJb9_PvZDz_7_I2ozO4sL31oPdhGkSk1lltskltwrP4hSnsOK6TOJE4BmF_mUQNjeHw' \
     -H 'Unicro_User_Key: 9'
@@ -145,7 +145,7 @@ $ curl 'https://stg-api.unicro.co.kr:14147/api/v1/users/unicro123/delete' -i -X 
 **요청**
 
 ```
-POST /api/v1/users/unicro123/delete HTTP/1.1
+POST /api/v1/users/unicro123/withdrawal HTTP/1.1
 Partner-Api-Key: unicro
 Unicro_User_Token: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJoZWVzdUBkYW91LmNvLmtyIiwiYXV0aCI6IlJPTEVfVVNFUiIsImV4cCI6MTY2MzcyODY0N30.Y4RYhtzo9yxfekRyQJOwJb9_PvZDz_7_I2ozO4sL31oPdhGkSk1lltskltwrP4hSnsOK6TOJE4BmF_mUQNjeHw
 Unicro_User_Key: 9
