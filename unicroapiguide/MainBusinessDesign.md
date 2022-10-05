@@ -20,11 +20,12 @@ description: sequence diagram
 
 ### 인증
 
-인증은 사용자 인증으로 회원가입을 제외한 API 호출시 필수로 포함되어야 합니다. 인증방식은 미정(예시로 JWT로 작성)
+인증은 사용자 인증 토큰 발급으로 회원가입을 제외한 웹 서비스 및 API 호출시 인증 토큰이 헤더에 필수로 포함되어야 합니다.&#x20;
 
 ```html
 1. 최초 API 호출 전 인증토큰을 발급받습니다.
-2. 토큰의 유효시간은 2시간이며 토큰이 만료될 경우 재발급이 필요합니다
+2. 토큰의 유효시간은 2시간 고정으로 연장이 되지 않습니다.
+3. 토큰이 만료될 경우 재발급이 필요합니다.
 ```
 
 <figure><img src="https://mermaid.ink/img/pako:eNqNks9LAkEUx_-Vx5wKVOjXZQ5CYoc6BQVd9jK5r5LctdbdQ4gHfxDFGnhQLBthA4kOBmIRBv1F7pv_oVnUQ7ZBcxqG7_fz3nzfK7Nc0UTGWQkvPbRzmM2LU0dYhg36UCCVfKfaMJlOkwxC_0ZVh-GThO39XeCwloK9o0Og_oSe-6CuA1UdAfXaNH6FFdVr0mNL1Qarc9aSfxmZzXBYT8HMBlSvqroE9dDR9BhANpOM6YnDRjwBpuPR9O1rBjp2UJxD-Nn4oYwQWqk6cvEh8geq-fJH91H1RToQ1dVhxPjQNv8H2IzLMhzJ6eR2aRagnRAzja3U71d1P6EPSb7OoTsI79rUbc3KBI3QH7IEs9CxRN7UC1COyhjMPUMLDcb11cQT4RVcgxl2RUu9C1O4uGPm3aLD-IkolDDBhOcWD67sHOOu4-FCNF-iuaryDSF8KcU" alt=""><figcaption><p>인증 프로세스</p></figcaption></figure>
