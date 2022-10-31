@@ -8,6 +8,22 @@
 | SOLD_OUT              | 판매완료 |
 | STOP_SELLING          | 판매중지 |
 
+### 상품 배송방법 코드
+
+| 상태                    |  설명 |
+|--                     | --|
+| PARCEL_DELIVERY    | 택배배송 |
+| DIRECT_DELIVERY              | 직접배송 |
+| PARTNER_DELIVERY          | 제휴사배송 |
+
+### 배송비 부담코드
+
+| 상태                    |  설명 |
+|--                     | --|
+| CASH_ON_DELIVERY    | 착불(구매자부담) |
+| PRE_PAYMENT              | 선불(판매자부담) |
+
+
 ### 상품 카테고리 코드
 
 | 메인 카테고리 코드  | 메인 카테고리 이름 | 서브 카테고리 코드  | 서브 카테고리 이름 |

@@ -13,13 +13,13 @@ API 호출시 헤더에 필수값인 사용자 인증 토큰 발급을 위해 �
 * **Method:** `POST`
 
 ```
-$ curl 'https://stg-api.unicro.co.kr:14147/api/v1/auth' -i -X POST \
+$ curl 'https://dev-api.unicro.co.kr:14147/api/v1/auth' -i -X POST \
     -H 'Content-Type: application/json' \
-    -H 'Partner-Api-Key: unicro' \
+    -H 'Partner-Api-Key: 80ADFEB2B6F39CCB06B645387B581AE6C4D8CDDCA68CAE8E815B17DE642B3AD1' \
     -H 'Accept: application/json' \
     -d '{
-  "partnerUserId" : "unicro123",
-  "unicroUserKey" : "9"
+  "partnerUserId" : "heesu",
+  "unicroUserKey" : "$2a$10$WrUKHrgLHm3xoax6jGT1i.tAs29CLWTILPMgsZbpO5HyzMH7bQTHq"
 }'
 ```
 
@@ -28,14 +28,14 @@ $ curl 'https://stg-api.unicro.co.kr:14147/api/v1/auth' -i -X POST \
 ```
 POST /api/v1/auth HTTP/1.1
 Content-Type: application/json
-Partner-Api-Key: unicro
+Partner-Api-Key: 80ADFEB2B6F39CCB06B645387B581AE6C4D8CDDCA68CAE8E815B17DE642B3AD1
 Accept: application/json
-Content-Length: 63
-Host: stg-api.unicro.co.kr:14147
+Content-Length: 118
+Host: dev-api.unicro.co.kr:14147
 
 {
-  "partnerUserId" : "unicro123",
-  "unicroUserKey" : "9"
+  "partnerUserId" : "heesu",
+  "unicroUserKey" : "$2a$10$WrUKHrgLHm3xoax6jGT1i.tAs29CLWTILPMgsZbpO5HyzMH7bQTHq"
 }
 ```
 
@@ -51,14 +51,14 @@ Host: stg-api.unicro.co.kr:14147
 ```
 HTTP/1.1 200 OK
 Content-Type: application/json
-Content-Length: 361
+Content-Length: 341
 
 {
   "result" : "SUCCESS",
   "msg" : "사용자 인증 토큰 발급에 성공했습니다.",
   "errorCd" : "",
   "data" : {
-    "unicroUserToken" : "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJoZWVzdUBkYW91LmNvLmtyIiwiYXV0aCI6IlJPTEVfVVNFUiIsImV4cCI6MTY2MzcyODY0N30.Y4RYhtzo9yxfekRyQJOwJb9_PvZDz_7_I2ozO4sL31oPdhGkSk1lltskltwrP4hSnsOK6TOJE4BmF_mUQNjeHw"
+    "unicroUserToken" : "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIzNTgzOTkiLCJhdXRoIjoiUk9MRV9VU0VSIiwiZXhwIjoxNjY3MjE1MDQwfQ.ayiC1hryog-28Z11i40Hwrmrnld76_Z4paVJgaIDZ9PxYtXgOl-Ts-uTqastptvtNoEdA_KJVHAqYJz4LNAHHA"
   }
 }
 ```
@@ -74,31 +74,27 @@ Content-Length: 361
 
 ### 2. 회원 <a href="#_2_" id="_2_"></a>
 
-#### 2.1 회원 등록 여부 <a href="#_2_1_-_-_" id="_2_1_-_-_"></a>
+#### 2.1 회원 상태 조회 <a href="#_2_1_-_-_" id="_2_1_-_-_"></a>
 
 ***
 
-유니크로 회원 등록 여부를 확인하는 API입니다.
+유니크로 회원 상태를 조회하는 API입니다.
 
 * **기능** 회원 등록 여부
-* **URI** _/api/v1/users/{partnerUserId}/exist_
+* **URI** _/api/v1/users/{partnerUserId}/status_
 * **Method:** `GET`
 
 ```
-$ curl 'https://stg-api.unicro.co.kr:14147/api/v1/users/unicro123/exist' -i -X GET \
-    -H 'Partner-Api-Key: unicro' \
-    -H 'Unicro_User_Token: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJoZWVzdUBkYW91LmNvLmtyIiwiYXV0aCI6IlJPTEVfVVNFUiIsImV4cCI6MTY2MzcyODY0N30.Y4RYhtzo9yxfekRyQJOwJb9_PvZDz_7_I2ozO4sL31oPdhGkSk1lltskltwrP4hSnsOK6TOJE4BmF_mUQNjeHw' \
-    -H 'Unicro_User_Key: 9'
+$ curl 'https://dev-api.unicro.co.kr:14147/api/v1/users/unicro123/status' -i -X GET \
+    -H 'Partner-Api-Key: 80ADFEB2B6F39CCB06B645387B581AE6C4D8CDDCA68CAE8E815B17DE642B3AD1'
 ```
 
 **요청**
 
 ```
-GET /api/v1/users/unicro123/exist HTTP/1.1
-Partner-Api-Key: unicro
-Unicro_User_Token: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJoZWVzdUBkYW91LmNvLmtyIiwiYXV0aCI6IlJPTEVfVVNFUiIsImV4cCI6MTY2MzcyODY0N30.Y4RYhtzo9yxfekRyQJOwJb9_PvZDz_7_I2ozO4sL31oPdhGkSk1lltskltwrP4hSnsOK6TOJE4BmF_mUQNjeHw
-Unicro_User_Key: 9
-Host: stg-api.unicro.co.kr:14147
+GET /api/v1/users/unicro123/status HTTP/1.1
+Partner-Api-Key: 80ADFEB2B6F39CCB06B645387B581AE6C4D8CDDCA68CAE8E815B17DE642B3AD1
+Host: dev-api.unicro.co.kr:14147
 ```
 
 **응답**
@@ -112,18 +108,18 @@ Content-Length: 132
   "result" : "SUCCESS",
   "msg" : "회원 등록 여부 조회 성공하였습니다.",
   "errorCd" : "",
-  "data" : "true"
+  "data" : "NONE"
 }
 ```
 
 **Response Fields**
 
-| 필드명     | 타입     | 설명                                  |
-| ------- | ------ | ----------------------------------- |
-| result  | String | 성공실패 여부 코드 (성공: SUCCESS, 실패: FAIL)  |
-| msg     | String | 응답 메시지                              |
-| errorCd | String | 실패시 에러 코드                           |
-| data    | String | 유니크로 회원 등록 여부(회원: true, 비회원: false) |
+| 필드명     | 타입     | 설명                                                       |
+| ------- | ------ | -------------------------------------------------------- |
+| result  | String | 성공실패 여부 코드 (성공: SUCCESS, 실패: FAIL)                       |
+| msg     | String | 응답 메시지                                                   |
+| errorCd | String | 실패시 에러 코드                                                |
+| data    | String | 유니크로 회원 상태(NONE:비회원, NORMAL:정상, SLEEP:휴면, WITHDRAWAL:탈퇴) |
 
 #### 2.2 회원 탈퇴 <a href="#_2_2_-_" id="_2_2_-_"></a>
 
@@ -132,24 +128,24 @@ Content-Length: 132
 제휴사 회원 탈퇴 시 유니크로 회원 탈퇴를 위한 API입니다.
 
 * **기능** 회원 탈퇴
-* **URI** _/api/v1/users/{partnerUserId}/delete_
+* **URI** _/api/v1/users/{partnerUserId}/withdrawal_
 * **Method:** `POST`
 
 ```
-$ curl 'https://stg-api.unicro.co.kr:14147/api/v1/users/unicro123/delete' -i -X POST \
-    -H 'Partner-Api-Key: unicro' \
-    -H 'Unicro_User_Token: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJoZWVzdUBkYW91LmNvLmtyIiwiYXV0aCI6IlJPTEVfVVNFUiIsImV4cCI6MTY2MzcyODY0N30.Y4RYhtzo9yxfekRyQJOwJb9_PvZDz_7_I2ozO4sL31oPdhGkSk1lltskltwrP4hSnsOK6TOJE4BmF_mUQNjeHw' \
-    -H 'Unicro_User_Key: 9'
+$ curl 'https://dev-api.unicro.co.kr:14147/api/v1/users/heesu/withdrawal' -i -X POST \
+    -H 'Partner-Api-Key: 80ADFEB2B6F39CCB06B645387B581AE6C4D8CDDCA68CAE8E815B17DE642B3AD1' \
+    -H 'Unicro_User_Token: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIzNTgzOTkiLCJhdXRoIjoiUk9MRV9VU0VSIiwiZXhwIjoxNjY1MTM3MDYxfQ.o0XDRqP1v4zUaOIkPLU_wIKqK9sA4SLhtGHvr68r0MWbg1iP-LH0fPb8yvXFpQNTOzG4ED2tt5h69T_6KnvOrA' \
+    -H 'Unicro_User_Key: $2a$10$WrUKHrgLHm3xoax6jGT1i.tAs29CLWTILPMgsZbpO5HyzMH7bQTHq'
 ```
 
 **요청**
 
 ```
-POST /api/v1/users/unicro123/delete HTTP/1.1
-Partner-Api-Key: unicro
-Unicro_User_Token: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJoZWVzdUBkYW91LmNvLmtyIiwiYXV0aCI6IlJPTEVfVVNFUiIsImV4cCI6MTY2MzcyODY0N30.Y4RYhtzo9yxfekRyQJOwJb9_PvZDz_7_I2ozO4sL31oPdhGkSk1lltskltwrP4hSnsOK6TOJE4BmF_mUQNjeHw
-Unicro_User_Key: 9
-Host: stg-api.unicro.co.kr:14147
+POST /api/v1/users/heesu/withdrawal HTTP/1.1
+Partner-Api-Key: 80ADFEB2B6F39CCB06B645387B581AE6C4D8CDDCA68CAE8E815B17DE642B3AD1
+Unicro_User_Token: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIzNTgzOTkiLCJhdXRoIjoiUk9MRV9VU0VSIiwiZXhwIjoxNjY1MTM3MDYxfQ.o0XDRqP1v4zUaOIkPLU_wIKqK9sA4SLhtGHvr68r0MWbg1iP-LH0fPb8yvXFpQNTOzG4ED2tt5h69T_6KnvOrA
+Unicro_User_Key: $2a$10$WrUKHrgLHm3xoax6jGT1i.tAs29CLWTILPMgsZbpO5HyzMH7bQTHq
+Host: dev-api.unicro.co.kr:14147
 ```
 
 **응답**
@@ -157,13 +153,13 @@ Host: stg-api.unicro.co.kr:14147
 ```
 HTTP/1.1 200 OK
 Content-Type: application/json
-Content-Length: 114
+Content-Length: 121
 
 {
   "result" : "SUCCESS",
-  "msg" : "회원 탈퇴 성공하였습니다.",
-  "errorCd" : "",
-  "data" : ""
+  "msg" : "회원 탈퇴 실패하였습니다.",
+  "errorCd" : "VALID",
+  "data" : null
 }
 ```
 
@@ -174,7 +170,7 @@ Content-Length: 114
 | result  | String | 성공실패 여부 코드 (성공: SUCCESS, 실패: FAIL) |
 | msg     | String | 응답 메시지                             |
 | errorCd | String | 실패시 에러 코드                          |
-| data    | String |                                    |
+| data    | Null   |                                    |
 
 ### 3. 상품(판매자) <a href="#_3_" id="_3_"></a>
 
@@ -189,8 +185,11 @@ Content-Length: 114
 * **Method:** `POST`
 
 ```
-$ curl 'https://stg-api.unicro.co.kr:14147/api/v1/items' -i -X POST \
+$ curl 'https://dev-api.unicro.co.kr:14147/api/v1/items' -i -X POST \
     -H 'Content-Type: application/json' \
+    -H 'Partner-Api-Key: 80ADFEB2B6F39CCB06B645387B581AE6C4D8CDDCA68CAE8E815B17DE642B3AD1' \
+    -H 'Unicro_User_Token: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIzNTgzOTkiLCJhdXRoIjoiUk9MRV9VU0VSIiwiZXhwIjoxNjY1MTM3MDYxfQ.o0XDRqP1v4zUaOIkPLU_wIKqK9sA4SLhtGHvr68r0MWbg1iP-LH0fPb8yvXFpQNTOzG4ED2tt5h69T_6KnvOrA' \
+    -H 'Unicro_User_Key: $2a$10$WrUKHrgLHm3xoax6jGT1i.tAs29CLWTILPMgsZbpO5HyzMH7bQTHq' \
     -H 'Accept: application/json' \
     -d '{
   "partnerItemNo" : "22090701",
@@ -198,7 +197,8 @@ $ curl 'https://stg-api.unicro.co.kr:14147/api/v1/items' -i -X POST \
   "itemPrice" : 3000,
   "selPayway" : [ "CARD", "BANK", "VIRTUAL_ACCOUNT" ],
   "deliveryPayCd" : "CASH_ON_DELIVERY",
-  "imgUrl" : "https://stg-api.unicro.co.kr:14147/webasp_common/new_images/bi_unicro.gif",
+  "deliveryCd" : "PARTNER_DELIVERY",
+  "imgUrl" : "https://dev-api.unicro.co.kr:14147/webasp_common/new_images/bi_unicro.gif",
   "mainCategoryCd" : "010",
   "subCategoryCd" : "010"
 }'
@@ -209,9 +209,12 @@ $ curl 'https://stg-api.unicro.co.kr:14147/api/v1/items' -i -X POST \
 ```
 POST /api/v1/items HTTP/1.1
 Content-Type: application/json
+Partner-Api-Key: 80ADFEB2B6F39CCB06B645387B581AE6C4D8CDDCA68CAE8E815B17DE642B3AD1
+Unicro_User_Token: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIzNTgzOTkiLCJhdXRoIjoiUk9MRV9VU0VSIiwiZXhwIjoxNjY1MTM3MDYxfQ.o0XDRqP1v4zUaOIkPLU_wIKqK9sA4SLhtGHvr68r0MWbg1iP-LH0fPb8yvXFpQNTOzG4ED2tt5h69T_6KnvOrA
+Unicro_User_Key: $2a$10$WrUKHrgLHm3xoax6jGT1i.tAs29CLWTILPMgsZbpO5HyzMH7bQTHq
 Accept: application/json
-Content-Length: 342
-Host: stg-api.unicro.co.kr:14147
+Content-Length: 380
+Host: dev-api.unicro.co.kr:14147
 
 {
   "partnerItemNo" : "22090701",
@@ -219,7 +222,8 @@ Host: stg-api.unicro.co.kr:14147
   "itemPrice" : 3000,
   "selPayway" : [ "CARD", "BANK", "VIRTUAL_ACCOUNT" ],
   "deliveryPayCd" : "CASH_ON_DELIVERY",
-  "imgUrl" : "https://stg-api.unicro.co.kr:14147/webasp_common/new_images/bi_unicro.gif",
+  "deliveryCd" : "PARTNER_DELIVERY",
+  "imgUrl" : "https://dev-api.unicro.co.kr:14147/webasp_common/new_images/bi_unicro.gif",
   "mainCategoryCd" : "010",
   "subCategoryCd" : "010"
 }
@@ -234,6 +238,7 @@ Host: stg-api.unicro.co.kr:14147
 | itemPrice      | Number | 상품가격                                                            | true | 3000 이상 |
 | selPayway      | Array  | 결제가능한 결제수단 (CARD: 신용카드, BANK: 계좌이체, VIRTUAL\_ACCOUNT: 가상계좌 무통장) | true |         |
 | deliveryPayCd  | String | 배송비부담 (CASH\_ON\_DELIVERY:착불(구매자부담), PRE\_PAYMENT:선불(판매자부담))    | true |         |
+| deliveryCd     | String | 배송방법 (PARCEL\_DELIVERY:택배배송, PARTNER\_DELIVERY:제휴사배송)           | true |         |
 | imgUrl         | String | 이미지 경로 URI                                                      |      |         |
 | mainCategoryCd | String | 메인 카테고리 코드 (상품코드표 참고)                                           |      |         |
 | subCategoryCd  | String | 서브 카테고리 코드 (상품코드표 참고)                                           |      |         |
@@ -243,16 +248,18 @@ Host: stg-api.unicro.co.kr:14147
 ```
 HTTP/1.1 200 OK
 Content-Type: application/json
-Content-Length: 233
+Content-Length: 281
 
 {
   "result" : "SUCCESS",
-  "msg" : "상품이 정상 등록되었습니다.",
+  "msg" : "정상적으로 처리되었습니다.",
   "errorCd" : "",
   "data" : {
-    "unicroItemNo" : "220900609127",
+    "unicroItemNo" : "221000609451",
     "partnerItemNo" : "22090701",
-    "statusCd" : "AVAILABLE_FOR_SALE"
+    "statusCd" : "AVAILABLE_FOR_SALE",
+    "itemName" : null,
+    "itemPrice" : null
   }
 }
 ```
@@ -281,14 +288,20 @@ Content-Length: 233
 * **Method:** `GET`
 
 ```
-$ curl 'https://stg-api.unicro.co.kr:14147/api/v1/trades/partner/2022045465' -i -X GET
+$ curl 'https://dev-api.unicro.co.kr:14147/api/v1/trades/partner/2022045465' -i -X GET \
+    -H 'Partner-Api-Key: 80ADFEB2B6F39CCB06B645387B581AE6C4D8CDDCA68CAE8E815B17DE642B3AD1' \
+    -H 'Unicro_User_Token: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIzNTgzOTkiLCJhdXRoIjoiUk9MRV9VU0VSIiwiZXhwIjoxNjY1MTM3MDYxfQ.o0XDRqP1v4zUaOIkPLU_wIKqK9sA4SLhtGHvr68r0MWbg1iP-LH0fPb8yvXFpQNTOzG4ED2tt5h69T_6KnvOrA' \
+    -H 'Unicro_User_Key: $2a$10$WrUKHrgLHm3xoax6jGT1i.tAs29CLWTILPMgsZbpO5HyzMH7bQTHq'
 ```
 
 **요청**
 
 ```
 GET /api/v1/trades/partner/2022045465 HTTP/1.1
-Host: stg-api.unicro.co.kr:14147
+Partner-Api-Key: 80ADFEB2B6F39CCB06B645387B581AE6C4D8CDDCA68CAE8E815B17DE642B3AD1
+Unicro_User_Token: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIzNTgzOTkiLCJhdXRoIjoiUk9MRV9VU0VSIiwiZXhwIjoxNjY1MTM3MDYxfQ.o0XDRqP1v4zUaOIkPLU_wIKqK9sA4SLhtGHvr68r0MWbg1iP-LH0fPb8yvXFpQNTOzG4ED2tt5h69T_6KnvOrA
+Unicro_User_Key: $2a$10$WrUKHrgLHm3xoax6jGT1i.tAs29CLWTILPMgsZbpO5HyzMH7bQTHq
+Host: dev-api.unicro.co.kr:14147
 ```
 
 **응답**
@@ -296,11 +309,11 @@ Host: stg-api.unicro.co.kr:14147
 ```
 HTTP/1.1 200 OK
 Content-Type: application/json
-Content-Length: 192
+Content-Length: 230
 
 {
   "result" : "SUCCESS",
-  "msg" : "",
+  "msg" : "정상적으로 처리되었습니다.",
   "errorCd" : "",
   "data" : {
     "unicroTradeNo" : "202209011231",
@@ -332,14 +345,20 @@ Content-Length: 192
 * **Method:** `GET`
 
 ```
-$ curl 'https://stg-api.unicro.co.kr:14147/api/v1/trades/202204546555' -i -X GET
+$ curl 'https://dev-api.unicro.co.kr:14147/api/v1/trades/202204546555' -i -X GET \
+    -H 'Partner-Api-Key: 80ADFEB2B6F39CCB06B645387B581AE6C4D8CDDCA68CAE8E815B17DE642B3AD1' \
+    -H 'Unicro_User_Token: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIzNTgzOTkiLCJhdXRoIjoiUk9MRV9VU0VSIiwiZXhwIjoxNjY1MTM3MDYxfQ.o0XDRqP1v4zUaOIkPLU_wIKqK9sA4SLhtGHvr68r0MWbg1iP-LH0fPb8yvXFpQNTOzG4ED2tt5h69T_6KnvOrA' \
+    -H 'Unicro_User_Key: $2a$10$WrUKHrgLHm3xoax6jGT1i.tAs29CLWTILPMgsZbpO5HyzMH7bQTHq'
 ```
 
 **요청**
 
 ```
 GET /api/v1/trades/202204546555 HTTP/1.1
-Host: stg-api.unicro.co.kr:14147
+Partner-Api-Key: 80ADFEB2B6F39CCB06B645387B581AE6C4D8CDDCA68CAE8E815B17DE642B3AD1
+Unicro_User_Token: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIzNTgzOTkiLCJhdXRoIjoiUk9MRV9VU0VSIiwiZXhwIjoxNjY1MTM3MDYxfQ.o0XDRqP1v4zUaOIkPLU_wIKqK9sA4SLhtGHvr68r0MWbg1iP-LH0fPb8yvXFpQNTOzG4ED2tt5h69T_6KnvOrA
+Unicro_User_Key: $2a$10$WrUKHrgLHm3xoax6jGT1i.tAs29CLWTILPMgsZbpO5HyzMH7bQTHq
+Host: dev-api.unicro.co.kr:14147
 ```
 
 **응답**
@@ -347,11 +366,11 @@ Host: stg-api.unicro.co.kr:14147
 ```
 HTTP/1.1 200 OK
 Content-Type: application/json
-Content-Length: 194
+Content-Length: 232
 
 {
   "result" : "SUCCESS",
-  "msg" : "",
+  "msg" : "정상적으로 처리되었습니다.",
   "errorCd" : "",
   "data" : {
     "unicroTradeNo" : "202204546555",
@@ -391,14 +410,20 @@ Content-Length: 194
 * **Method:** `POST`
 
 ```
-$ curl 'https://stg-api.unicro.co.kr:14147/api/v1/trades/202209050000/delivery/done' -i -X POST
+$ curl 'https://dev-api.unicro.co.kr:14147/api/v1/trades/202209050000/delivery/done' -i -X POST \
+    -H 'Partner-Api-Key: 80ADFEB2B6F39CCB06B645387B581AE6C4D8CDDCA68CAE8E815B17DE642B3AD1' \
+    -H 'Unicro_User_Token: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIzNTgzOTkiLCJhdXRoIjoiUk9MRV9VU0VSIiwiZXhwIjoxNjY1MTM3MDYxfQ.o0XDRqP1v4zUaOIkPLU_wIKqK9sA4SLhtGHvr68r0MWbg1iP-LH0fPb8yvXFpQNTOzG4ED2tt5h69T_6KnvOrA' \
+    -H 'Unicro_User_Key: $2a$10$WrUKHrgLHm3xoax6jGT1i.tAs29CLWTILPMgsZbpO5HyzMH7bQTHq'
 ```
 
 **요청**
 
 ```
 POST /api/v1/trades/202209050000/delivery/done HTTP/1.1
-Host: stg-api.unicro.co.kr:14147
+Partner-Api-Key: 80ADFEB2B6F39CCB06B645387B581AE6C4D8CDDCA68CAE8E815B17DE642B3AD1
+Unicro_User_Token: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIzNTgzOTkiLCJhdXRoIjoiUk9MRV9VU0VSIiwiZXhwIjoxNjY1MTM3MDYxfQ.o0XDRqP1v4zUaOIkPLU_wIKqK9sA4SLhtGHvr68r0MWbg1iP-LH0fPb8yvXFpQNTOzG4ED2tt5h69T_6KnvOrA
+Unicro_User_Key: $2a$10$WrUKHrgLHm3xoax6jGT1i.tAs29CLWTILPMgsZbpO5HyzMH7bQTHq
+Host: dev-api.unicro.co.kr:14147
 ```
 
 **응답**
@@ -451,8 +476,11 @@ Content-Length: 230
 * **Method:** `POST`
 
 ```
-$ curl 'https://stg-api.unicro.co.kr:14147/api/v1/buyer/trades/202209051745/cancel' -i -X POST \
+$ curl 'https://dev-api.unicro.co.kr:14147/api/v1/buyer/trades/202209051745/cancel' -i -X POST \
     -H 'Content-Type: application/json' \
+    -H 'Partner-Api-Key: 80ADFEB2B6F39CCB06B645387B581AE6C4D8CDDCA68CAE8E815B17DE642B3AD1' \
+    -H 'Unicro_User_Token: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIzNTgzOTkiLCJhdXRoIjoiUk9MRV9VU0VSIiwiZXhwIjoxNjY1MTM3MDYxfQ.o0XDRqP1v4zUaOIkPLU_wIKqK9sA4SLhtGHvr68r0MWbg1iP-LH0fPb8yvXFpQNTOzG4ED2tt5h69T_6KnvOrA' \
+    -H 'Unicro_User_Key: $2a$10$WrUKHrgLHm3xoax6jGT1i.tAs29CLWTILPMgsZbpO5HyzMH7bQTHq' \
     -H 'Accept: application/json' \
     -d '{
   "cancelCd" : "",
@@ -465,9 +493,12 @@ $ curl 'https://stg-api.unicro.co.kr:14147/api/v1/buyer/trades/202209051745/canc
 ```
 POST /api/v1/buyer/trades/202209051745/cancel HTTP/1.1
 Content-Type: application/json
+Partner-Api-Key: 80ADFEB2B6F39CCB06B645387B581AE6C4D8CDDCA68CAE8E815B17DE642B3AD1
+Unicro_User_Token: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIzNTgzOTkiLCJhdXRoIjoiUk9MRV9VU0VSIiwiZXhwIjoxNjY1MTM3MDYxfQ.o0XDRqP1v4zUaOIkPLU_wIKqK9sA4SLhtGHvr68r0MWbg1iP-LH0fPb8yvXFpQNTOzG4ED2tt5h69T_6KnvOrA
+Unicro_User_Key: $2a$10$WrUKHrgLHm3xoax6jGT1i.tAs29CLWTILPMgsZbpO5HyzMH7bQTHq
 Accept: application/json
 Content-Length: 57
-Host: stg-api.unicro.co.kr:14147
+Host: dev-api.unicro.co.kr:14147
 
 {
   "cancelCd" : "",
@@ -529,8 +560,11 @@ Content-Length: 224
 * **Method:** `POST`
 
 ```
-$ curl 'https://stg-api.unicro.co.kr:14147/api/v1/buyer/trades/202209051745/return/create' -i -X POST \
+$ curl 'https://dev-api.unicro.co.kr:14147/api/v1/buyer/trades/202209051745/return/create' -i -X POST \
     -H 'Content-Type: application/json' \
+    -H 'Partner-Api-Key: 80ADFEB2B6F39CCB06B645387B581AE6C4D8CDDCA68CAE8E815B17DE642B3AD1' \
+    -H 'Unicro_User_Token: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIzNTgzOTkiLCJhdXRoIjoiUk9MRV9VU0VSIiwiZXhwIjoxNjY1MTM3MDYxfQ.o0XDRqP1v4zUaOIkPLU_wIKqK9sA4SLhtGHvr68r0MWbg1iP-LH0fPb8yvXFpQNTOzG4ED2tt5h69T_6KnvOrA' \
+    -H 'Unicro_User_Key: $2a$10$WrUKHrgLHm3xoax6jGT1i.tAs29CLWTILPMgsZbpO5HyzMH7bQTHq' \
     -H 'Accept: application/json' \
     -d '{
   "returnDeliveryPayCd" : "CASH_ON_DELIVERY",
@@ -544,9 +578,12 @@ $ curl 'https://stg-api.unicro.co.kr:14147/api/v1/buyer/trades/202209051745/retu
 ```
 POST /api/v1/buyer/trades/202209051745/return/create HTTP/1.1
 Content-Type: application/json
+Partner-Api-Key: 80ADFEB2B6F39CCB06B645387B581AE6C4D8CDDCA68CAE8E815B17DE642B3AD1
+Unicro_User_Token: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIzNTgzOTkiLCJhdXRoIjoiUk9MRV9VU0VSIiwiZXhwIjoxNjY1MTM3MDYxfQ.o0XDRqP1v4zUaOIkPLU_wIKqK9sA4SLhtGHvr68r0MWbg1iP-LH0fPb8yvXFpQNTOzG4ED2tt5h69T_6KnvOrA
+Unicro_User_Key: $2a$10$WrUKHrgLHm3xoax6jGT1i.tAs29CLWTILPMgsZbpO5HyzMH7bQTHq
 Accept: application/json
 Content-Length: 92
-Host: stg-api.unicro.co.kr:14147
+Host: dev-api.unicro.co.kr:14147
 
 {
   "returnDeliveryPayCd" : "CASH_ON_DELIVERY",
@@ -610,8 +647,11 @@ Content-Length: 226
 * **Method:** `POST`
 
 ```
-$ curl 'https://stg-api.unicro.co.kr:14147/api/v1/buyer/trades/202209051745/return/delivery' -i -X POST \
+$ curl 'https://dev-api.unicro.co.kr:14147/api/v1/buyer/trades/202209051745/return/delivery' -i -X POST \
     -H 'Content-Type: application/json' \
+    -H 'Partner-Api-Key: 80ADFEB2B6F39CCB06B645387B581AE6C4D8CDDCA68CAE8E815B17DE642B3AD1' \
+    -H 'Unicro_User_Token: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIzNTgzOTkiLCJhdXRoIjoiUk9MRV9VU0VSIiwiZXhwIjoxNjY1MTM3MDYxfQ.o0XDRqP1v4zUaOIkPLU_wIKqK9sA4SLhtGHvr68r0MWbg1iP-LH0fPb8yvXFpQNTOzG4ED2tt5h69T_6KnvOrA' \
+    -H 'Unicro_User_Key: $2a$10$WrUKHrgLHm3xoax6jGT1i.tAs29CLWTILPMgsZbpO5HyzMH7bQTHq' \
     -H 'Accept: application/json' \
     -d '{
   "deliveryCompCd" : "004",
@@ -624,9 +664,12 @@ $ curl 'https://stg-api.unicro.co.kr:14147/api/v1/buyer/trades/202209051745/retu
 ```
 POST /api/v1/buyer/trades/202209051745/return/delivery HTTP/1.1
 Content-Type: application/json
+Partner-Api-Key: 80ADFEB2B6F39CCB06B645387B581AE6C4D8CDDCA68CAE8E815B17DE642B3AD1
+Unicro_User_Token: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIzNTgzOTkiLCJhdXRoIjoiUk9MRV9VU0VSIiwiZXhwIjoxNjY1MTM3MDYxfQ.o0XDRqP1v4zUaOIkPLU_wIKqK9sA4SLhtGHvr68r0MWbg1iP-LH0fPb8yvXFpQNTOzG4ED2tt5h69T_6KnvOrA
+Unicro_User_Key: $2a$10$WrUKHrgLHm3xoax6jGT1i.tAs29CLWTILPMgsZbpO5HyzMH7bQTHq
 Accept: application/json
 Content-Length: 66
-Host: stg-api.unicro.co.kr:14147
+Host: dev-api.unicro.co.kr:14147
 
 {
   "deliveryCompCd" : "004",
@@ -694,8 +737,11 @@ Content-Length: 240
 * **Method:** `POST`
 
 ```
-$ curl 'https://stg-api.unicro.co.kr:14147/api/v1/buyer/trades/202209051745/done' -i -X POST \
+$ curl 'https://dev-api.unicro.co.kr:14147/api/v1/buyer/trades/202209051745/done' -i -X POST \
     -H 'Content-Type: application/json' \
+    -H 'Partner-Api-Key: 80ADFEB2B6F39CCB06B645387B581AE6C4D8CDDCA68CAE8E815B17DE642B3AD1' \
+    -H 'Unicro_User_Token: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIzNTgzOTkiLCJhdXRoIjoiUk9MRV9VU0VSIiwiZXhwIjoxNjY1MTM3MDYxfQ.o0XDRqP1v4zUaOIkPLU_wIKqK9sA4SLhtGHvr68r0MWbg1iP-LH0fPb8yvXFpQNTOzG4ED2tt5h69T_6KnvOrA' \
+    -H 'Unicro_User_Key: $2a$10$WrUKHrgLHm3xoax6jGT1i.tAs29CLWTILPMgsZbpO5HyzMH7bQTHq' \
     -H 'Accept: application/json'
 ```
 
@@ -704,8 +750,11 @@ $ curl 'https://stg-api.unicro.co.kr:14147/api/v1/buyer/trades/202209051745/done
 ```
 POST /api/v1/buyer/trades/202209051745/done HTTP/1.1
 Content-Type: application/json
+Partner-Api-Key: 80ADFEB2B6F39CCB06B645387B581AE6C4D8CDDCA68CAE8E815B17DE642B3AD1
+Unicro_User_Token: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIzNTgzOTkiLCJhdXRoIjoiUk9MRV9VU0VSIiwiZXhwIjoxNjY1MTM3MDYxfQ.o0XDRqP1v4zUaOIkPLU_wIKqK9sA4SLhtGHvr68r0MWbg1iP-LH0fPb8yvXFpQNTOzG4ED2tt5h69T_6KnvOrA
+Unicro_User_Key: $2a$10$WrUKHrgLHm3xoax6jGT1i.tAs29CLWTILPMgsZbpO5HyzMH7bQTHq
 Accept: application/json
-Host: stg-api.unicro.co.kr:14147
+Host: dev-api.unicro.co.kr:14147
 ```
 
 **응답**
@@ -749,14 +798,20 @@ Content-Length: 218
 * **Method:** `GET`
 
 ```
-$ curl 'https://stg-api.unicro.co.kr:14147/api/v1/buyer/trades/202209050000' -i -X GET
+$ curl 'https://dev-api.unicro.co.kr:14147/api/v1/buyer/trades/202209050000' -i -X GET \
+    -H 'Partner-Api-Key: 80ADFEB2B6F39CCB06B645387B581AE6C4D8CDDCA68CAE8E815B17DE642B3AD1' \
+    -H 'Unicro_User_Token: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIzNTgzOTkiLCJhdXRoIjoiUk9MRV9VU0VSIiwiZXhwIjoxNjY1MTM3MDYxfQ.o0XDRqP1v4zUaOIkPLU_wIKqK9sA4SLhtGHvr68r0MWbg1iP-LH0fPb8yvXFpQNTOzG4ED2tt5h69T_6KnvOrA' \
+    -H 'Unicro_User_Key: $2a$10$WrUKHrgLHm3xoax6jGT1i.tAs29CLWTILPMgsZbpO5HyzMH7bQTHq'
 ```
 
 **요청**
 
 ```
 GET /api/v1/buyer/trades/202209050000 HTTP/1.1
-Host: stg-api.unicro.co.kr:14147
+Partner-Api-Key: 80ADFEB2B6F39CCB06B645387B581AE6C4D8CDDCA68CAE8E815B17DE642B3AD1
+Unicro_User_Token: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIzNTgzOTkiLCJhdXRoIjoiUk9MRV9VU0VSIiwiZXhwIjoxNjY1MTM3MDYxfQ.o0XDRqP1v4zUaOIkPLU_wIKqK9sA4SLhtGHvr68r0MWbg1iP-LH0fPb8yvXFpQNTOzG4ED2tt5h69T_6KnvOrA
+Unicro_User_Key: $2a$10$WrUKHrgLHm3xoax6jGT1i.tAs29CLWTILPMgsZbpO5HyzMH7bQTHq
+Host: dev-api.unicro.co.kr:14147
 ```
 
 **응답**
@@ -775,7 +830,7 @@ Content-Length: 623
     "partnerTradeNo" : "123456789",
     "payway" : "VIRTUAL_ACCOUNT",
     "buyAmt" : 3000,
-    "tradeDate" : "2022-09-22T19:52:20.6623337",
+    "tradeDate" : "2022-10-31T18:17:21.1479085",
     "statusCd" : "SETTLEMENT_DONE",
     "deliveryCompCd" : "",
     "invoiceNo" : "",
@@ -831,8 +886,11 @@ Content-Length: 623
 * **Method:** `POST`
 
 ```
-$ curl 'https://stg-api.unicro.co.kr:14147/api/v1/seller/trades/202209050000/cancel/agree' -i -X POST \
+$ curl 'https://dev-api.unicro.co.kr:14147/api/v1/seller/trades/202209050000/cancel/agree' -i -X POST \
     -H 'Content-Type: application/json' \
+    -H 'Partner-Api-Key: 80ADFEB2B6F39CCB06B645387B581AE6C4D8CDDCA68CAE8E815B17DE642B3AD1' \
+    -H 'Unicro_User_Token: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIzNTgzOTkiLCJhdXRoIjoiUk9MRV9VU0VSIiwiZXhwIjoxNjY1MTM3MDYxfQ.o0XDRqP1v4zUaOIkPLU_wIKqK9sA4SLhtGHvr68r0MWbg1iP-LH0fPb8yvXFpQNTOzG4ED2tt5h69T_6KnvOrA' \
+    -H 'Unicro_User_Key: $2a$10$WrUKHrgLHm3xoax6jGT1i.tAs29CLWTILPMgsZbpO5HyzMH7bQTHq' \
     -H 'Accept: application/json'
 ```
 
@@ -841,8 +899,11 @@ $ curl 'https://stg-api.unicro.co.kr:14147/api/v1/seller/trades/202209050000/can
 ```
 POST /api/v1/seller/trades/202209050000/cancel/agree HTTP/1.1
 Content-Type: application/json
+Partner-Api-Key: 80ADFEB2B6F39CCB06B645387B581AE6C4D8CDDCA68CAE8E815B17DE642B3AD1
+Unicro_User_Token: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIzNTgzOTkiLCJhdXRoIjoiUk9MRV9VU0VSIiwiZXhwIjoxNjY1MTM3MDYxfQ.o0XDRqP1v4zUaOIkPLU_wIKqK9sA4SLhtGHvr68r0MWbg1iP-LH0fPb8yvXFpQNTOzG4ED2tt5h69T_6KnvOrA
+Unicro_User_Key: $2a$10$WrUKHrgLHm3xoax6jGT1i.tAs29CLWTILPMgsZbpO5HyzMH7bQTHq
 Accept: application/json
-Host: stg-api.unicro.co.kr:14147
+Host: dev-api.unicro.co.kr:14147
 ```
 
 **응답**
@@ -892,8 +953,11 @@ Content-Length: 255
 * **Method:** `POST`
 
 ```
-$ curl 'https://stg-api.unicro.co.kr:14147/api/v1/seller/trades/202209050000/cancel/done' -i -X POST \
+$ curl 'https://dev-api.unicro.co.kr:14147/api/v1/seller/trades/202209050000/cancel/done' -i -X POST \
     -H 'Content-Type: application/json' \
+    -H 'Partner-Api-Key: 80ADFEB2B6F39CCB06B645387B581AE6C4D8CDDCA68CAE8E815B17DE642B3AD1' \
+    -H 'Unicro_User_Token: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIzNTgzOTkiLCJhdXRoIjoiUk9MRV9VU0VSIiwiZXhwIjoxNjY1MTM3MDYxfQ.o0XDRqP1v4zUaOIkPLU_wIKqK9sA4SLhtGHvr68r0MWbg1iP-LH0fPb8yvXFpQNTOzG4ED2tt5h69T_6KnvOrA' \
+    -H 'Unicro_User_Key: $2a$10$WrUKHrgLHm3xoax6jGT1i.tAs29CLWTILPMgsZbpO5HyzMH7bQTHq' \
     -H 'Accept: application/json' \
     -d '{
   "cancelCd" : "39",
@@ -906,9 +970,12 @@ $ curl 'https://stg-api.unicro.co.kr:14147/api/v1/seller/trades/202209050000/can
 ```
 POST /api/v1/seller/trades/202209050000/cancel/done HTTP/1.1
 Content-Type: application/json
+Partner-Api-Key: 80ADFEB2B6F39CCB06B645387B581AE6C4D8CDDCA68CAE8E815B17DE642B3AD1
+Unicro_User_Token: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIzNTgzOTkiLCJhdXRoIjoiUk9MRV9VU0VSIiwiZXhwIjoxNjY1MTM3MDYxfQ.o0XDRqP1v4zUaOIkPLU_wIKqK9sA4SLhtGHvr68r0MWbg1iP-LH0fPb8yvXFpQNTOzG4ED2tt5h69T_6KnvOrA
+Unicro_User_Key: $2a$10$WrUKHrgLHm3xoax6jGT1i.tAs29CLWTILPMgsZbpO5HyzMH7bQTHq
 Accept: application/json
 Content-Length: 79
-Host: stg-api.unicro.co.kr:14147
+Host: dev-api.unicro.co.kr:14147
 
 {
   "cancelCd" : "39",
@@ -970,8 +1037,11 @@ Content-Length: 247
 * **Method:** `POST`
 
 ```
-$ curl 'https://stg-api.unicro.co.kr:14147/api/v1/seller/trades/202209050000/delivery' -i -X POST \
+$ curl 'https://dev-api.unicro.co.kr:14147/api/v1/seller/trades/202209050000/delivery' -i -X POST \
     -H 'Content-Type: application/json' \
+    -H 'Partner-Api-Key: 80ADFEB2B6F39CCB06B645387B581AE6C4D8CDDCA68CAE8E815B17DE642B3AD1' \
+    -H 'Unicro_User_Token: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIzNTgzOTkiLCJhdXRoIjoiUk9MRV9VU0VSIiwiZXhwIjoxNjY1MTM3MDYxfQ.o0XDRqP1v4zUaOIkPLU_wIKqK9sA4SLhtGHvr68r0MWbg1iP-LH0fPb8yvXFpQNTOzG4ED2tt5h69T_6KnvOrA' \
+    -H 'Unicro_User_Key: $2a$10$WrUKHrgLHm3xoax6jGT1i.tAs29CLWTILPMgsZbpO5HyzMH7bQTHq' \
     -H 'Accept: application/json' \
     -d '{
   "deliveryPayCd" : "PRE_PAYMENT",
@@ -990,9 +1060,12 @@ $ curl 'https://stg-api.unicro.co.kr:14147/api/v1/seller/trades/202209050000/del
 ```
 POST /api/v1/seller/trades/202209050000/delivery HTTP/1.1
 Content-Type: application/json
+Partner-Api-Key: 80ADFEB2B6F39CCB06B645387B581AE6C4D8CDDCA68CAE8E815B17DE642B3AD1
+Unicro_User_Token: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIzNTgzOTkiLCJhdXRoIjoiUk9MRV9VU0VSIiwiZXhwIjoxNjY1MTM3MDYxfQ.o0XDRqP1v4zUaOIkPLU_wIKqK9sA4SLhtGHvr68r0MWbg1iP-LH0fPb8yvXFpQNTOzG4ED2tt5h69T_6KnvOrA
+Unicro_User_Key: $2a$10$WrUKHrgLHm3xoax6jGT1i.tAs29CLWTILPMgsZbpO5HyzMH7bQTHq
 Accept: application/json
 Content-Length: 341
-Host: stg-api.unicro.co.kr:14147
+Host: dev-api.unicro.co.kr:14147
 
 {
   "deliveryPayCd" : "PRE_PAYMENT",
@@ -1066,8 +1139,11 @@ Content-Length: 237
 * **Method:** `POST`
 
 ```
-$ curl 'https://stg-api.unicro.co.kr:14147/api/v1/seller/trades/202209050000/return/agree' -i -X POST \
+$ curl 'https://dev-api.unicro.co.kr:14147/api/v1/seller/trades/202209050000/return/agree' -i -X POST \
     -H 'Content-Type: application/json' \
+    -H 'Partner-Api-Key: 80ADFEB2B6F39CCB06B645387B581AE6C4D8CDDCA68CAE8E815B17DE642B3AD1' \
+    -H 'Unicro_User_Token: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIzNTgzOTkiLCJhdXRoIjoiUk9MRV9VU0VSIiwiZXhwIjoxNjY1MTM3MDYxfQ.o0XDRqP1v4zUaOIkPLU_wIKqK9sA4SLhtGHvr68r0MWbg1iP-LH0fPb8yvXFpQNTOzG4ED2tt5h69T_6KnvOrA' \
+    -H 'Unicro_User_Key: $2a$10$WrUKHrgLHm3xoax6jGT1i.tAs29CLWTILPMgsZbpO5HyzMH7bQTHq' \
     -H 'Accept: application/json' \
     -d '{
   "senderName" : "권희수",
@@ -1083,9 +1159,12 @@ $ curl 'https://stg-api.unicro.co.kr:14147/api/v1/seller/trades/202209050000/ret
 ```
 POST /api/v1/seller/trades/202209050000/return/agree HTTP/1.1
 Content-Type: application/json
+Partner-Api-Key: 80ADFEB2B6F39CCB06B645387B581AE6C4D8CDDCA68CAE8E815B17DE642B3AD1
+Unicro_User_Token: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIzNTgzOTkiLCJhdXRoIjoiUk9MRV9VU0VSIiwiZXhwIjoxNjY1MTM3MDYxfQ.o0XDRqP1v4zUaOIkPLU_wIKqK9sA4SLhtGHvr68r0MWbg1iP-LH0fPb8yvXFpQNTOzG4ED2tt5h69T_6KnvOrA
+Unicro_User_Key: $2a$10$WrUKHrgLHm3xoax6jGT1i.tAs29CLWTILPMgsZbpO5HyzMH7bQTHq
 Accept: application/json
 Content-Length: 245
-Host: stg-api.unicro.co.kr:14147
+Host: dev-api.unicro.co.kr:14147
 
 {
   "senderName" : "권희수",
@@ -1153,8 +1232,11 @@ Content-Length: 228
 * **Method:** `POST`
 
 ```
-$ curl 'https://stg-api.unicro.co.kr:14147/api/v1/seller/trades/202209050000/return/done' -i -X POST \
+$ curl 'https://dev-api.unicro.co.kr:14147/api/v1/seller/trades/202209050000/return/done' -i -X POST \
     -H 'Content-Type: application/json' \
+    -H 'Partner-Api-Key: 80ADFEB2B6F39CCB06B645387B581AE6C4D8CDDCA68CAE8E815B17DE642B3AD1' \
+    -H 'Unicro_User_Token: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIzNTgzOTkiLCJhdXRoIjoiUk9MRV9VU0VSIiwiZXhwIjoxNjY1MTM3MDYxfQ.o0XDRqP1v4zUaOIkPLU_wIKqK9sA4SLhtGHvr68r0MWbg1iP-LH0fPb8yvXFpQNTOzG4ED2tt5h69T_6KnvOrA' \
+    -H 'Unicro_User_Key: $2a$10$WrUKHrgLHm3xoax6jGT1i.tAs29CLWTILPMgsZbpO5HyzMH7bQTHq' \
     -H 'Accept: application/json'
 ```
 
@@ -1163,8 +1245,11 @@ $ curl 'https://stg-api.unicro.co.kr:14147/api/v1/seller/trades/202209050000/ret
 ```
 POST /api/v1/seller/trades/202209050000/return/done HTTP/1.1
 Content-Type: application/json
+Partner-Api-Key: 80ADFEB2B6F39CCB06B645387B581AE6C4D8CDDCA68CAE8E815B17DE642B3AD1
+Unicro_User_Token: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIzNTgzOTkiLCJhdXRoIjoiUk9MRV9VU0VSIiwiZXhwIjoxNjY1MTM3MDYxfQ.o0XDRqP1v4zUaOIkPLU_wIKqK9sA4SLhtGHvr68r0MWbg1iP-LH0fPb8yvXFpQNTOzG4ED2tt5h69T_6KnvOrA
+Unicro_User_Key: $2a$10$WrUKHrgLHm3xoax6jGT1i.tAs29CLWTILPMgsZbpO5HyzMH7bQTHq
 Accept: application/json
-Host: stg-api.unicro.co.kr:14147
+Host: dev-api.unicro.co.kr:14147
 ```
 
 **응답**
@@ -1208,14 +1293,20 @@ Content-Length: 225
 * **Method:** `GET`
 
 ```
-$ curl 'https://stg-api.unicro.co.kr:14147/api/v1/seller/trades/202209050000' -i -X GET
+$ curl 'https://dev-api.unicro.co.kr:14147/api/v1/seller/trades/202209050000' -i -X GET \
+    -H 'Partner-Api-Key: 80ADFEB2B6F39CCB06B645387B581AE6C4D8CDDCA68CAE8E815B17DE642B3AD1' \
+    -H 'Unicro_User_Token: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIzNTgzOTkiLCJhdXRoIjoiUk9MRV9VU0VSIiwiZXhwIjoxNjY1MTM3MDYxfQ.o0XDRqP1v4zUaOIkPLU_wIKqK9sA4SLhtGHvr68r0MWbg1iP-LH0fPb8yvXFpQNTOzG4ED2tt5h69T_6KnvOrA' \
+    -H 'Unicro_User_Key: $2a$10$WrUKHrgLHm3xoax6jGT1i.tAs29CLWTILPMgsZbpO5HyzMH7bQTHq'
 ```
 
 **요청**
 
 ```
 GET /api/v1/seller/trades/202209050000 HTTP/1.1
-Host: stg-api.unicro.co.kr:14147
+Partner-Api-Key: 80ADFEB2B6F39CCB06B645387B581AE6C4D8CDDCA68CAE8E815B17DE642B3AD1
+Unicro_User_Token: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIzNTgzOTkiLCJhdXRoIjoiUk9MRV9VU0VSIiwiZXhwIjoxNjY1MTM3MDYxfQ.o0XDRqP1v4zUaOIkPLU_wIKqK9sA4SLhtGHvr68r0MWbg1iP-LH0fPb8yvXFpQNTOzG4ED2tt5h69T_6KnvOrA
+Unicro_User_Key: $2a$10$WrUKHrgLHm3xoax6jGT1i.tAs29CLWTILPMgsZbpO5HyzMH7bQTHq
+Host: dev-api.unicro.co.kr:14147
 ```
 
 **응답**
@@ -1235,7 +1326,7 @@ Content-Length: 498
     "payway" : "CARD",
     "buyAmt" : 3000,
     "sellerAmt" : 2500,
-    "tradeDate" : "2022-09-22T19:52:22.1580589",
+    "tradeDate" : "2022-10-31T18:17:21.8819448",
     "statusCd" : "SETTLEMENT_DONE",
     "deliveryCompCd" : "005",
     "invoiceNo" : "1234567890",
