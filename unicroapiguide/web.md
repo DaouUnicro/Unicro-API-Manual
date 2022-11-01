@@ -21,7 +21,10 @@
 구매자가 상품 구매를 위한 유니크로 결제화면입니다.
 
 * **기능** 결제하기
-* **URI** /buyer/trades
+* **URI**
+*  /trades/web (웹)
+*  /trades/mobile (모바일)
+* 
 * **전달이 필요한 Params**
 
 | 파라메터               | 설명                                                               | 타입     | 필수 |
@@ -33,15 +36,9 @@
 | returnUrl          | 결제 완료 후 URI                                                      | String | O  |
 | deliveryPayCd      | 배송비부담 - 판매자 (CASH_ON_DELIVERY:착불, PRE_PAYMENT:선불(무료배송/택배비포함)) | String | O  |
 | trCodeOpt          | 현금영수증 (PERSON: 개인, BUSINESS: 사업자)                                | String | X  |
-| cashInfo           | 현금영수증 > 휴대폰번호                                                     | String | X  |
-| cashInfo           | 현금영수증 > 사업자번호                                                    | String | X  |
-| buyerName          | 구매자명                                                             | String | X  |
-| buyerEmail         | 구매자이메일                                                           | String | X  |
-| buyerHhpNo         | 구매자휴대번호                                                          | String | X  |
-| deliveryZip        | 배송주소(우편번호)                                                       | String | O  |
-| deliveryAddress1   | 배송주소(주소1)                                                        | String | O  |
-| deliveryAddress2   | 배송주소(주소2)                                                        | String | O  |
-| appUrl             | 앱 URI                                                            | String | X  |
+| cashInfo           | 현금영수증 > 휴대폰번호  OR 현금영수증 > 사업자번호                                                     | String | X  |
+| bankCd             | 은행코드 (가상계좌인 경우)                                                     | String | X  |
+
 
 ### 3. 계좌관리
 ### 4. 마이페이지
