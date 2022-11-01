@@ -29,7 +29,6 @@
 
 | 파라메터               | 설명                                                               | 타입     | 필수 |
 | ------------------ | ---------------------------------------------------------------- | ------ | -- |
-| buyerUnicroUserKey | 구매자 식별키 (유니크로 사용자 식별키로 유니크로 가입 후 전달한 구매자의 unicroUserKey 값입니다.)   | String | O  |
 | unicroItemNo       | 유니크로 상품고유식별번호                                                     | String | O  |
 | partnerTradeNo     | 제휴사 거래고유식별번호                                                     | String | O  |
 | payway             | 결제수단 (CARD: 신용카드, BANK: 계좌이체, VIRTUAL_ACCOUNT: 가상계좌 무통장)        | String | O  |
