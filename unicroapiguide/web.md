@@ -39,6 +39,8 @@
 | trCodeOpt      | 현금영수증 (PERSON: 개인, BUSINESS: 사업자)                                | String | X  |
 | cashInfo       | 현금영수증 > 휴대폰번호 OR 현금영수증 > 사업자번호                                   | String | X  |
 | bankCd         | 은행코드 (가상계좌인 경우)                                                  | String | X  |
+| unicroUserToken |UNICRO_USER_TOKEN                                                    | String | O  |
+| partnerApiKey | PARTNER_API_KEY                                                    | String | O  |
 
 ### 3. 계좌관리
 
