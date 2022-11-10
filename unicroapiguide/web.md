@@ -35,7 +35,6 @@
 | unicroItemNo    | 유니크로 상품고유식별번호                                                    | String | O  |
 | partnerTradeNo  | 제휴사 거래고유식별번호                                                     | String | O  |
 | payway          | 결제수단 (CARD: 신용카드, BANK: 계좌이체, VIRTUAL\_ACCOUNT: 가상계좌 무통장)        | String | O  |
-| returnUrl       | 결제 완료 후 URI                                                      | String | O  |
 | deliveryPayCd   | 배송비부담 - 판매자 (CASH\_ON\_DELIVERY:착불, PRE\_PAYMENT:선불(무료배송/택배비포함)) | String | O  |
 | trCodeOpt       | 현금영수증 (PERSON: 개인, BUSINESS: 사업자)                                | String | X  |
 | cashInfo        | 현금영수증 > 휴대폰번호 OR 현금영수증 > 사업자번호                                   | String | X  |
