@@ -58,7 +58,7 @@ Content-Length: 341
   "msg" : "사용자 인증 토큰 발급에 성공했습니다.",
   "errorCd" : "",
   "data" : {
-    "unicroUserToken" : "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIzNTgzOTkiLCJhdXRoIjoiUk9MRV9VU0VSIiwiZXhwIjoxNjY3NTUwNzAzfQ.dHsbMOeWZKR-Hp7OSALz0x6Prip3UxzdmP01XWBsE1WCTnc6CfwMd6eWwOLxzgsVFlgb4CgXEZu9UzmMmwKDSw"
+    "unicroUserToken" : "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIzNTgzOTkiLCJhdXRoIjoiUk9MRV9VU0VSIiwiZXhwIjoxNjY4MDg0MDMyfQ.HI0w_bA3aSlu6ZutazDXPuJVMA7atAhQHveryGc4xwz6jP2yh_FH0bYR69S1XtDkVyb5ygBTxeWX5lGXaimj0w"
   }
 }
 ```
@@ -151,12 +151,12 @@ Host: dev-api.unicro.co.kr:14147
 ```
 HTTP/1.1 200 OK
 Content-Type: application/json
-Content-Length: 121
+Content-Length: 116
 
 {
   "result" : "SUCCESS",
-  "msg" : "회원 탈퇴 실패하였습니다.",
-  "errorCd" : "VALID",
+  "msg" : "회원 탈퇴 성공하였습니다.",
+  "errorCd" : "",
   "data" : null
 }
 ```
@@ -190,14 +190,14 @@ $ curl 'https://dev-api.unicro.co.kr:14147/api/v1/items' -i -X POST \
     -H 'Accept: application/json' \
     -d '{
   "partnerItemNo" : "22090701",
-  "itemName" : "상품명입니다",
-  "itemPrice" : 3000,
-  "selPayway" : [ "CARD", "BANK", "VIRTUAL_ACCOUNT", "VIRTUAL_ACCOUNT" ],
+  "itemName" : "상품입니다.",
+  "itemPrice" : 6000,
+  "selPayway" : [ "CARD", "BANK", "VIRTUAL_ACCOUNT" ],
   "deliveryPayCd" : "CASH_ON_DELIVERY",
   "deliveryCd" : "PARTNER_DELIVERY",
   "imgUrl" : "https://dev-api.unicro.co.kr:14147/webasp_common/new_images/bi_unicro.gif",
-  "mainCategoryCd" : "130",
-  "subCategoryCd" : "150"
+  "mainCategoryCd" : "010",
+  "subCategoryCd" : "010"
 }'
 ```
 
@@ -209,19 +209,19 @@ Content-Type: application/json
 Partner-Api-Key: 80ADFEB2B6F39CCB06B645387B581AE6C4D8CDDCA68CAE8E815B17DE642B3AD1
 Unicro_User_Token: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIzNTgzOTkiLCJhdXRoIjoiUk9MRV9VU0VSIiwiZXhwIjoxNjY1MTM3MDYxfQ.o0XDRqP1v4zUaOIkPLU_wIKqK9sA4SLhtGHvr68r0MWbg1iP-LH0fPb8yvXFpQNTOzG4ED2tt5h69T_6KnvOrA
 Accept: application/json
-Content-Length: 399
+Content-Length: 378
 Host: dev-api.unicro.co.kr:14147
 
 {
   "partnerItemNo" : "22090701",
-  "itemName" : "상품명입니다",
-  "itemPrice" : 3000,
-  "selPayway" : [ "CARD", "BANK", "VIRTUAL_ACCOUNT", "VIRTUAL_ACCOUNT" ],
+  "itemName" : "상품입니다.",
+  "itemPrice" : 6000,
+  "selPayway" : [ "CARD", "BANK", "VIRTUAL_ACCOUNT" ],
   "deliveryPayCd" : "CASH_ON_DELIVERY",
   "deliveryCd" : "PARTNER_DELIVERY",
   "imgUrl" : "https://dev-api.unicro.co.kr:14147/webasp_common/new_images/bi_unicro.gif",
-  "mainCategoryCd" : "130",
-  "subCategoryCd" : "150"
+  "mainCategoryCd" : "010",
+  "subCategoryCd" : "010"
 }
 ```
 
@@ -251,7 +251,7 @@ Content-Length: 304
   "msg" : "정상적으로 처리되었습니다.",
   "errorCd" : "",
   "data" : {
-    "unicroItemNo" : "221000609451",
+    "unicroItemNo" : "221100609809",
     "partnerItemNo" : "22090701",
     "statusCd" : "AVAILABLE_FOR_SALE",
     "itemName" : null,
@@ -396,14 +396,13 @@ Content-Length: 232
 | 상태            | 설명                       |
 | ------------- | ------------------------ |
 | PAY\_APPROVED | 요청 후 DELIVERY\_DONE로 변경됨 |
-| DELIVERY\_ING | 요청 후 DELIVERY\_DONE로 변경됨 |
 
 * **기능** 제휴사 관리자 배송완료 처리
 * **URI** _/api/v1/trades/{unicroTradeNo}/delivery/done_
 * **Method:** `POST`
 
 ```
-$ curl 'https://dev-api.unicro.co.kr:14147/api/v1/trades/202209050000/delivery/done' -i -X POST \
+$ curl 'https://dev-api.unicro.co.kr:14147/api/v1/trades/221100134515/delivery/done' -i -X POST \
     -H 'Partner-Api-Key: 80ADFEB2B6F39CCB06B645387B581AE6C4D8CDDCA68CAE8E815B17DE642B3AD1' \
     -H 'Unicro_User_Token: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIzNTgzOTkiLCJhdXRoIjoiUk9MRV9VU0VSIiwiZXhwIjoxNjY1MTM3MDYxfQ.o0XDRqP1v4zUaOIkPLU_wIKqK9sA4SLhtGHvr68r0MWbg1iP-LH0fPb8yvXFpQNTOzG4ED2tt5h69T_6KnvOrA'
 ```
@@ -411,7 +410,7 @@ $ curl 'https://dev-api.unicro.co.kr:14147/api/v1/trades/202209050000/delivery/d
 **요청**
 
 ```
-POST /api/v1/trades/202209050000/delivery/done HTTP/1.1
+POST /api/v1/trades/221100134515/delivery/done HTTP/1.1
 Partner-Api-Key: 80ADFEB2B6F39CCB06B645387B581AE6C4D8CDDCA68CAE8E815B17DE642B3AD1
 Unicro_User_Token: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIzNTgzOTkiLCJhdXRoIjoiUk9MRV9VU0VSIiwiZXhwIjoxNjY1MTM3MDYxfQ.o0XDRqP1v4zUaOIkPLU_wIKqK9sA4SLhtGHvr68r0MWbg1iP-LH0fPb8yvXFpQNTOzG4ED2tt5h69T_6KnvOrA
 Host: dev-api.unicro.co.kr:14147
@@ -422,16 +421,16 @@ Host: dev-api.unicro.co.kr:14147
 ```
 HTTP/1.1 200 OK
 Content-Type: application/json
-Content-Length: 230
+Content-Length: 233
 
 {
   "result" : "SUCCESS",
-  "msg" : "배송완료 처리되었습니다.",
+  "msg" : "수동 배송완료 처리되었습니다.",
   "errorCd" : "",
   "data" : {
-    "unicroTradeNo" : "202209050000",
-    "partnerTradeNo" : "202209011241",
-    "statusCd" : "DELIVERY_DONE"
+    "unicroTradeNo" : "221100134515",
+    "partnerTradeNo" : "2209006093132222222",
+    "statusCd" : "32"
   }
 }
 ```
@@ -722,7 +721,7 @@ Content-Length: 240
 * **Method:** `POST`
 
 ```
-$ curl 'https://dev-api.unicro.co.kr:14147/api/v1/buyer/trades/202209051745/done' -i -X POST \
+$ curl 'https://dev-api.unicro.co.kr:14147/api/v1/buyer/trades/221000134218/done' -i -X POST \
     -H 'Content-Type: application/json' \
     -H 'Partner-Api-Key: 80ADFEB2B6F39CCB06B645387B581AE6C4D8CDDCA68CAE8E815B17DE642B3AD1' \
     -H 'Unicro_User_Token: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIzNTgzOTkiLCJhdXRoIjoiUk9MRV9VU0VSIiwiZXhwIjoxNjY1MTM3MDYxfQ.o0XDRqP1v4zUaOIkPLU_wIKqK9sA4SLhtGHvr68r0MWbg1iP-LH0fPb8yvXFpQNTOzG4ED2tt5h69T_6KnvOrA' \
@@ -732,7 +731,7 @@ $ curl 'https://dev-api.unicro.co.kr:14147/api/v1/buyer/trades/202209051745/done
 **요청**
 
 ```
-POST /api/v1/buyer/trades/202209051745/done HTTP/1.1
+POST /api/v1/buyer/trades/221000134218/done HTTP/1.1
 Content-Type: application/json
 Partner-Api-Key: 80ADFEB2B6F39CCB06B645387B581AE6C4D8CDDCA68CAE8E815B17DE642B3AD1
 Unicro_User_Token: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIzNTgzOTkiLCJhdXRoIjoiUk9MRV9VU0VSIiwiZXhwIjoxNjY1MTM3MDYxfQ.o0XDRqP1v4zUaOIkPLU_wIKqK9sA4SLhtGHvr68r0MWbg1iP-LH0fPb8yvXFpQNTOzG4ED2tt5h69T_6KnvOrA
@@ -745,30 +744,32 @@ Host: dev-api.unicro.co.kr:14147
 ```
 HTTP/1.1 200 OK
 Content-Type: application/json
-Content-Length: 218
+Content-Length: 258
 
 {
   "result" : "SUCCESS",
   "msg" : "거래가 완료 되었습니다.",
   "errorCd" : "",
   "data" : {
-    "unicroTradeNo" : "202209051745",
-    "partnerTradeNo" : "1224545",
-    "statusCd" : "PAY_DONE"
+    "unicroTradeNo" : "221000134218",
+    "partnerTradeNo" : "220900609313",
+    "statusCd" : "33",
+    "saleReservationDate" : "20221115"
   }
 }
 ```
 
 **Response Fields**
 
-| 필드명                 | 타입     | 설명                                 |
-| ------------------- | ------ | ---------------------------------- |
-| result              | String | 성공실패 여부 코드 (성공: SUCCESS, 실패: FAIL) |
-| msg                 | String | 응답 메시지                             |
-| errorCd             | String | 실패시 에러 코드                          |
-| data.unicroTradeNo  | String | 유니크로 거래고유식별번호                      |
-| data.partnerTradeNo | String | 제휴사 거래고유식별번호                       |
-| data.statusCd       | String | 거래 상태                              |
+| 필드명                      | 타입     | 설명                                 |
+| ------------------------ | ------ | ---------------------------------- |
+| result                   | String | 성공실패 여부 코드 (성공: SUCCESS, 실패: FAIL) |
+| msg                      | String | 응답 메시지                             |
+| errorCd                  | String | 실패시 에러 코드                          |
+| data.unicroTradeNo       | String | 유니크로 거래고유식별번호                      |
+| data.partnerTradeNo      | String | 제휴사 거래고유식별번호                       |
+| data.saleReservationDate | String | 출금예정일                              |
+| data.statusCd            | String | 거래 상태                              |
 
 #### 5.5 구매자 거래 상세 조회 <a href="#_5_5_-_-_-_" id="_5_5_-_-_-_"></a>
 
@@ -781,7 +782,7 @@ Content-Length: 218
 * **Method:** `GET`
 
 ```
-$ curl 'https://dev-api.unicro.co.kr:14147/api/v1/buyer/trades/202209050000' -i -X GET \
+$ curl 'https://dev-api.unicro.co.kr:14147/api/v1/buyer/trades/221100134382' -i -X GET \
     -H 'Partner-Api-Key: 80ADFEB2B6F39CCB06B645387B581AE6C4D8CDDCA68CAE8E815B17DE642B3AD1' \
     -H 'Unicro_User_Token: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIzNTgzOTkiLCJhdXRoIjoiUk9MRV9VU0VSIiwiZXhwIjoxNjY1MTM3MDYxfQ.o0XDRqP1v4zUaOIkPLU_wIKqK9sA4SLhtGHvr68r0MWbg1iP-LH0fPb8yvXFpQNTOzG4ED2tt5h69T_6KnvOrA'
 ```
@@ -789,7 +790,7 @@ $ curl 'https://dev-api.unicro.co.kr:14147/api/v1/buyer/trades/202209050000' -i 
 **요청**
 
 ```
-GET /api/v1/buyer/trades/202209050000 HTTP/1.1
+GET /api/v1/buyer/trades/221100134382 HTTP/1.1
 Partner-Api-Key: 80ADFEB2B6F39CCB06B645387B581AE6C4D8CDDCA68CAE8E815B17DE642B3AD1
 Unicro_User_Token: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIzNTgzOTkiLCJhdXRoIjoiUk9MRV9VU0VSIiwiZXhwIjoxNjY1MTM3MDYxfQ.o0XDRqP1v4zUaOIkPLU_wIKqK9sA4SLhtGHvr68r0MWbg1iP-LH0fPb8yvXFpQNTOzG4ED2tt5h69T_6KnvOrA
 Host: dev-api.unicro.co.kr:14147
@@ -800,27 +801,27 @@ Host: dev-api.unicro.co.kr:14147
 ```
 HTTP/1.1 200 OK
 Content-Type: application/json
-Content-Length: 623
+Content-Length: 581
 
 {
   "result" : "SUCCESS",
   "msg" : "구매자 거래 조회에 성공했습니다.",
   "errorCd" : "",
   "data" : {
-    "unicroTradeNo" : "202209050000",
-    "partnerTradeNo" : "123456789",
-    "payway" : "VIRTUAL_ACCOUNT",
+    "unicroTradeNo" : "221100134382",
+    "partnerTradeNo" : "jod_20221102_8000006",
+    "payway" : "1",
     "buyAmt" : 3000,
-    "tradeDate" : "2022-11-04T15:31:43.7779158",
-    "statusCd" : "SETTLEMENT_DONE",
-    "deliveryCompCd" : "",
-    "invoiceNo" : "",
-    "unicroItemNo" : "20220091300000",
-    "partnerItemNo" : "2022009130000A0",
-    "bankName" : "신한은행",
-    "accountNo" : "10000000000",
-    "accountName" : "유니크로",
-    "vaDueDate" : "202209150100000"
+    "tradeDate" : "2022-11-02 15:26:17",
+    "statusCd" : "PAY_DONE",
+    "deliveryCompCd" : "005",
+    "invoiceNo" : "93000183710",
+    "unicroItemNo" : "221000609607",
+    "partnerItemNo" : "01032159238",
+    "bankName" : "신한카드",
+    "accountNo" : null,
+    "accountName" : null,
+    "vaDueDate" : null
   }
 }
 ```
@@ -852,14 +853,20 @@ Content-Length: 623
 
 ***
 
-구매자가 주소 정보를 기입하는 API입니다.
+구매자가 주소 정보를 기입하는 API입니다. 6.3 판매자 배송정보 기입 전 구매자 주소 정보가 필수입니다.
+
+**주소 정보 기입이 가능한 거래상태**
+
+| 상태            | 설명       |
+| ------------- | -------- |
+| PAY\_APPROVED | 상태 변경 없음 |
 
 * **기능** 주소 정보 기입
 * **URI** _/api/v1/buyer/trades/{unicroTradeNo}/address_
 * **Method:** `POST`
 
 ```
-$ curl 'https://dev-api.unicro.co.kr:14147/api/v1/buyer/trades/202209050000/address' -i -X POST \
+$ curl 'https://dev-api.unicro.co.kr:14147/api/v1/buyer/trades/221100134440/address' -i -X POST \
     -H 'Content-Type: application/json' \
     -H 'Partner-Api-Key: 80ADFEB2B6F39CCB06B645387B581AE6C4D8CDDCA68CAE8E815B17DE642B3AD1' \
     -H 'Unicro_User_Token: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIzNTgzOTkiLCJhdXRoIjoiUk9MRV9VU0VSIiwiZXhwIjoxNjY1MTM3MDYxfQ.o0XDRqP1v4zUaOIkPLU_wIKqK9sA4SLhtGHvr68r0MWbg1iP-LH0fPb8yvXFpQNTOzG4ED2tt5h69T_6KnvOrA' \
@@ -874,7 +881,7 @@ $ curl 'https://dev-api.unicro.co.kr:14147/api/v1/buyer/trades/202209050000/addr
 **요청**
 
 ```
-POST /api/v1/buyer/trades/202209050000/address HTTP/1.1
+POST /api/v1/buyer/trades/221100134440/address HTTP/1.1
 Content-Type: application/json
 Partner-Api-Key: 80ADFEB2B6F39CCB06B645387B581AE6C4D8CDDCA68CAE8E815B17DE642B3AD1
 Unicro_User_Token: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIzNTgzOTkiLCJhdXRoIjoiUk9MRV9VU0VSIiwiZXhwIjoxNjY1MTM3MDYxfQ.o0XDRqP1v4zUaOIkPLU_wIKqK9sA4SLhtGHvr68r0MWbg1iP-LH0fPb8yvXFpQNTOzG4ED2tt5h69T_6KnvOrA
@@ -889,21 +896,29 @@ Host: dev-api.unicro.co.kr:14147
 }
 ```
 
+**Request Fields**
+
+| 필드명           | 타입     | 설명       | 필수값  | 제한 |
+| ------------- | ------ | -------- | ---- | -- |
+| buyerZip      | String | 구매자 우편번호 | true |    |
+| buyerAddress1 | String | 구매자 주소   | true |    |
+| buyerAddress2 | String | 구매자 상세주소 |      |    |
+
 **응답**
 
 ```
 HTTP/1.1 200 OK
 Content-Type: application/json
-Content-Length: 237
+Content-Length: 238
 
 {
   "result" : "SUCCESS",
   "msg" : "주소정보 기입이 완료 되었습니다.",
   "errorCd" : "",
   "data" : {
-    "unicroTradeNo" : "202209050000",
-    "partnerTradeNo" : "123456789",
-    "statusCd" : "PAY_APPROVED"
+    "unicroTradeNo" : "221100134440",
+    "partnerTradeNo" : "jod_20221103_8000016",
+    "statusCd" : "31"
   }
 }
 ```
@@ -921,19 +936,19 @@ Content-Length: 237
 
 ### 6. 거래(판매자) <a href="#_6_" id="_6_"></a>
 
-#### 6.1 판매자 결제취소 동의 <a href="#_6_1_-_-_" id="_6_1_-_-_"></a>
+#### 6.1 판매자 결제 취소 동의 <a href="#_6_1_-_-_-_" id="_6_1_-_-_-_"></a>
 
 ***
 
-판매자가 구매자 결제취소 요청에 동의하는 API입니다.
+판매자가 구매자 결제 취소 요청에 동의하는 API입니다.
 
-**판매자 결제취소 동의가 가능한 거래상태**
+**판매자 결제 취소 동의가 가능한 거래상태**
 
 | 상태          | 설명                            |
 | ----------- | ----------------------------- |
 | CANCEL\_REQ | 요청 후 CANCEL\_DONE\_BUYER로 변경됨 |
 
-* **기능** 판매자 결제취소 동의
+* **기능** 판매자 결제 취소 동의
 * **URI** _/api/v1/seller/trades/{unicroTradeNo}/cancel/agree_
 * **Method:** `POST`
 
@@ -986,7 +1001,7 @@ Content-Length: 255
 | data.partnerTradeNo | String | 제휴사 거래고유식별번호                       |
 | data.statusCd       | String | 거래 상태                              |
 
-#### 6.2 판매자 거래취소 <a href="#_6_2_-_" id="_6_2_-_"></a>
+#### 6.2 판매자 거래 취소 <a href="#_6_2_-_-_" id="_6_2_-_-_"></a>
 
 ***
 
@@ -1072,7 +1087,7 @@ Content-Length: 247
 
 ***
 
-판매자가 배송정보를 기입하는 API입니다.
+판매자가 배송정보를 기입하는 API입니다. 6.3 판매자 배송정보 기입 전 구매자 주소 정보가 필수입니다.
 
 **판매자 배송정보 기입이 가능한 거래상태**
 
@@ -1085,18 +1100,14 @@ Content-Length: 247
 * **Method:** `POST`
 
 ```
-$ curl 'https://dev-api.unicro.co.kr:14147/api/v1/seller/trades/202209050000/delivery' -i -X POST \
+$ curl 'https://dev-api.unicro.co.kr:14147/api/v1/seller/trades/221100134503/delivery' -i -X POST \
     -H 'Content-Type: application/json' \
     -H 'Partner-Api-Key: 80ADFEB2B6F39CCB06B645387B581AE6C4D8CDDCA68CAE8E815B17DE642B3AD1' \
     -H 'Unicro_User_Token: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIzNTgzOTkiLCJhdXRoIjoiUk9MRV9VU0VSIiwiZXhwIjoxNjY1MTM3MDYxfQ.o0XDRqP1v4zUaOIkPLU_wIKqK9sA4SLhtGHvr68r0MWbg1iP-LH0fPb8yvXFpQNTOzG4ED2tt5h69T_6KnvOrA' \
     -H 'Accept: application/json' \
     -d '{
-  "tradeNo" : null,
-  "deliveryPayCd" : "PRE_PAYMENT",
   "deliveryCompCd" : "005",
   "invoiceNo" : "1234567890",
-  "senderName" : "권희수",
-  "senderHhpNo" : "010-9939-2814",
   "senderZip" : "16878",
   "senderAddress1" : "경기 용인시 수지구 디지털벨리로 81 (죽전동, 다우기술)",
   "senderAddress2" : "6층 플랫폼개발팀"
@@ -1106,21 +1117,17 @@ $ curl 'https://dev-api.unicro.co.kr:14147/api/v1/seller/trades/202209050000/del
 **요청**
 
 ```
-POST /api/v1/seller/trades/202209050000/delivery HTTP/1.1
+POST /api/v1/seller/trades/221100134503/delivery HTTP/1.1
 Content-Type: application/json
 Partner-Api-Key: 80ADFEB2B6F39CCB06B645387B581AE6C4D8CDDCA68CAE8E815B17DE642B3AD1
 Unicro_User_Token: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIzNTgzOTkiLCJhdXRoIjoiUk9MRV9VU0VSIiwiZXhwIjoxNjY1MTM3MDYxfQ.o0XDRqP1v4zUaOIkPLU_wIKqK9sA4SLhtGHvr68r0MWbg1iP-LH0fPb8yvXFpQNTOzG4ED2tt5h69T_6KnvOrA
 Accept: application/json
-Content-Length: 362
+Content-Length: 238
 Host: dev-api.unicro.co.kr:14147
 
 {
-  "tradeNo" : null,
-  "deliveryPayCd" : "PRE_PAYMENT",
   "deliveryCompCd" : "005",
   "invoiceNo" : "1234567890",
-  "senderName" : "권희수",
-  "senderHhpNo" : "010-9939-2814",
   "senderZip" : "16878",
   "senderAddress1" : "경기 용인시 수지구 디지털벨리로 81 (죽전동, 다우기술)",
   "senderAddress2" : "6층 플랫폼개발팀"
@@ -1129,32 +1136,29 @@ Host: dev-api.unicro.co.kr:14147
 
 **Request Fields**
 
-| 필드명            | 타입     | 설명                                              | 필수값  | 제한 |
-| -------------- | ------ | ----------------------------------------------- | ---- | -- |
-| deliveryPayCd  | String | 판매자 택배 (CASH\_ON\_DELIVERY:착불, PRE\_PAYMENT:선불) | true |    |
-| deliveryCompCd | String | 택배사 코드 (유니크로 코드표 참고)                            | true |    |
-| invoiceNo      | String | 송장번호                                            | true |    |
-| senderName     | String | 판매자명                                            |      |    |
-| senderHhpNo    | String | 판매자 연락처                                         |      |    |
-| senderZip      | String | 판매자 우편번호                                        |      |    |
-| senderAddress1 | String | 판매자 주소                                          |      |    |
-| senderAddress2 | String | 판매자 상세주소                                        |      |    |
+| 필드명            | 타입     | 설명                   | 필수값  | 제한 |
+| -------------- | ------ | -------------------- | ---- | -- |
+| deliveryCompCd | String | 택배사 코드 (유니크로 코드표 참고) | true |    |
+| invoiceNo      | String | 송장번호                 | true |    |
+| senderZip      | String | 판매자 우편번호             | true |    |
+| senderAddress1 | String | 판매자 주소               | true |    |
+| senderAddress2 | String | 판매자 상세주소             |      |    |
 
 **응답**
 
 ```
 HTTP/1.1 200 OK
 Content-Type: application/json
-Content-Length: 237
+Content-Length: 238
 
 {
   "result" : "SUCCESS",
   "msg" : "배송정보 기입이 완료 되었습니다.",
   "errorCd" : "",
   "data" : {
-    "unicroTradeNo" : "202209050000",
-    "partnerTradeNo" : "123456789",
-    "statusCd" : "DELIVERY_ING"
+    "unicroTradeNo" : "221100134503",
+    "partnerTradeNo" : "jod_20221109_8000013",
+    "statusCd" : "32"
   }
 }
 ```
@@ -1337,7 +1341,7 @@ Content-Length: 225
 * **Method:** `GET`
 
 ```
-$ curl 'https://dev-api.unicro.co.kr:14147/api/v1/seller/trades/202209050000' -i -X GET \
+$ curl 'https://dev-api.unicro.co.kr:14147/api/v1/seller/trades/221100134395' -i -X GET \
     -H 'Partner-Api-Key: 80ADFEB2B6F39CCB06B645387B581AE6C4D8CDDCA68CAE8E815B17DE642B3AD1' \
     -H 'Unicro_User_Token: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIzNTgzOTkiLCJhdXRoIjoiUk9MRV9VU0VSIiwiZXhwIjoxNjY1MTM3MDYxfQ.o0XDRqP1v4zUaOIkPLU_wIKqK9sA4SLhtGHvr68r0MWbg1iP-LH0fPb8yvXFpQNTOzG4ED2tt5h69T_6KnvOrA'
 ```
@@ -1345,7 +1349,7 @@ $ curl 'https://dev-api.unicro.co.kr:14147/api/v1/seller/trades/202209050000' -i
 **요청**
 
 ```
-GET /api/v1/seller/trades/202209050000 HTTP/1.1
+GET /api/v1/seller/trades/221100134395 HTTP/1.1
 Partner-Api-Key: 80ADFEB2B6F39CCB06B645387B581AE6C4D8CDDCA68CAE8E815B17DE642B3AD1
 Unicro_User_Token: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIzNTgzOTkiLCJhdXRoIjoiUk9MRV9VU0VSIiwiZXhwIjoxNjY1MTM3MDYxfQ.o0XDRqP1v4zUaOIkPLU_wIKqK9sA4SLhtGHvr68r0MWbg1iP-LH0fPb8yvXFpQNTOzG4ED2tt5h69T_6KnvOrA
 Host: dev-api.unicro.co.kr:14147
@@ -1356,24 +1360,26 @@ Host: dev-api.unicro.co.kr:14147
 ```
 HTTP/1.1 200 OK
 Content-Type: application/json
-Content-Length: 497
+Content-Length: 538
 
 {
   "result" : "SUCCESS",
   "msg" : "판매자 거래 조회에 성공했습니다.",
   "errorCd" : "",
   "data" : {
-    "unicroTradeNo" : "202209050000",
-    "partnerTradeNo" : "123456789",
-    "payway" : "CARD",
+    "unicroTradeNo" : "221100134395",
+    "partnerTradeNo" : "220900609313",
+    "payway" : "1",
     "buyAmt" : 3000,
-    "sellerAmt" : 2500,
-    "tradeDate" : "2022-11-04T15:31:44.440445",
-    "statusCd" : "SETTLEMENT_DONE",
-    "deliveryCompCd" : "005",
-    "invoiceNo" : "1234567890",
-    "unicroItemNo" : "220900609127",
-    "partnerItemNo" : "22090611"
+    "sellerAmt" : 1889,
+    "tradeDate" : "2022-11-03 15:55:39",
+    "statusCd" : "CANCEL_DONE_ADMIN",
+    "deliveryCompCd" : null,
+    "invoiceNo" : null,
+    "unicroItemNo" : "221000609607",
+    "partnerItemNo" : "01032159238",
+    "payYmd" : null,
+    "completeCd" : "UNPAID"
   }
 }
 ```
@@ -1394,5 +1400,7 @@ Content-Length: 497
 | data.statusCd       | String | 거래 상태                              |
 | data.deliveryCompCd | String | 택배사 코드                             |
 | data.invoiceNo      | String | 송장번호                               |
+| data.payYmd         | String | 판매대금출금일                            |
+| data.completeCd     | String | 입금완료상태                             |
 | data.unicroItemNo   | String | 유니크로 상품고유식별번호                      |
 | data.partnerItemNo  | String | 제휴사 상품고유식별번호                       |
