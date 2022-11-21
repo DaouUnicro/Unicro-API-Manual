@@ -41,6 +41,8 @@
 | bankCd          | 은행코드 (가상계좌인 경우)                                                  | String | X  |
 | unicroUserToken | UNICRO\_USER\_TOKEN                                              | String | O  |
 | partnerApiKey   | PARTNER\_API\_KEY                                                | String | O  |
+| appUrl   | 앱내 결제시 아이폰 앱 복귀를 위한 앱스킴                                             | String | X  |
+
 
 ### 3. 계좌관리
 
