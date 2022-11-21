@@ -140,6 +140,7 @@ description: 제휴사측 개발이 필요한 API
 | partnerTradeNo      | 제휴사 주문번호  | String | O  |
 | saleReservationDate | 판매대금예정일   | String | O  |
 | saleCompleteDate    | 판매대금완료일   | String | O  |
+| sellerAmt    | 판매대금   | Integer | O  |
 
 * **Success Response:**
 * **Fail Response:**
