@@ -21,10 +21,10 @@ API 사용전에 제휴사 웹 페이지에서 약관동의 및 회원가입이 
 
 ### 웹 호출
 
-* 테스트 : [https://stg-svc.unicro.co.kr:14147](https://stg-svc.unicro.co.kr:14147)
-* 운영 :
+* 테스트 : https://stg-svc.unicro.co.kr:14147
+* 운영 : https://svc.unicro.co.kr
 
 ### API 호출
 
-* 테스트 : [https://stg-api.unicro.co.kr:14147](https://stg-api.unicro.co.kr:14147)
-* 운영 :
+* 테스트 : https://stg-api.unicro.co.kr:14149
+* 운영 : https://api.unicro.co.kr
