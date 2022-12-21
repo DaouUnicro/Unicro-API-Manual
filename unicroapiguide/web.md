@@ -41,9 +41,17 @@
 | bankCd          | 은행코드 (가상계좌인 경우)                                                  | String | X  |
 | unicroUserToken | UNICRO\_USER\_TOKEN                                              | String | O  |
 | partnerApiKey   | PARTNER\_API\_KEY                                                | String | O  |
-| appUrl   | 앱내 결제시 아이폰 앱 복귀를 위한 앱스킴                                             | String | X  |
+| appUrl          | 앱내 결제시 아이폰 앱 복귀를 위한 앱스킴                                          | String | X  |
 
+### 3. 회원정보
 
-### 3. 계좌관리
+사용자의 유니크로 회원정보 조회 및 수정을 위한 유니크로 웹페이지입니다.
 
-### 4. 회원정보
+* **기능** 회원정보 조회 및 수정
+* **URI** /user/myInfo
+* **전달이 필요한 Params**
+
+| 파라메터            | 설명                  | 타입     | 필수 |
+| --------------- | ------------------- | ------ | -- |
+| unicroUserToken | UNICRO\_USER\_TOKEN | String | O  |
+| partnerApiKey   | PARTNER\_API\_KEY   | String | O  |
