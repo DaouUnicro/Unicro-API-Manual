@@ -13,10 +13,10 @@ description: 제휴사측 개발이 필요한 API
 * **Method:** `POST`
 * **URL Params**
 
-| 파라메터          | 설명                                       | 타입      |
-| ------------- |------------------------------------------| ------- |
-| unicroUserKey | 유니크로 사용자 식별키                             |  String |
-| partnerUserId | <p>제휴사 사용자 이메일</p><p>(유니크로 회원가입 아이디)</p> | String  |
+| 파라메터          | 설명                                       | 타입     |
+| ------------- | ---------------------------------------- | ------ |
+| unicroUserKey | 유니크로 사용자 식별키                             | String |
+| partnerUserId | <p>제휴사 사용자 이메일</p><p>(유니크로 회원가입 아이디)</p> | String |
 
 * **응답**
 
@@ -28,7 +28,7 @@ description: 제휴사측 개발이 필요한 API
 }
 ```
 
-****
+***
 
 ### 7.1. 제휴사 토큰 발급
 
@@ -48,14 +48,16 @@ description: 제휴사측 개발이 필요한 API
 
 * **응답:**
 
-<pre class="language-json"><code class="lang-json"><strong>{
-</strong>  "result": "SUCCESS",
+```json
+{
+  "result": "SUCCESS",
   "msg": "토큰 발급을 성공했습니다.",
   "errorCd": "",
   "data": {
     "unicroToken": "ABCDEFG"
   }
-}</code></pre>
+}
+```
 
 ### 7.2. 결제 완료 후 성공시 전달
 
@@ -134,13 +136,13 @@ description: 제휴사측 개발이 필요한 API
 * **Method:** `POST`
 * **URL Params**
 
-| 파라메터                | 설명        | 타입     | 필수 |
-| ------------------- | --------- | ------ | -- |
-| unicroTradeNo       | 유니크로 주문번호 | String | O  |
-| partnerTradeNo      | 제휴사 주문번호  | String | O  |
-| saleReservationDate | 판매대금예정일   | String | O  |
-| saleCompleteDate    | 판매대금완료일   | String | O  |
-| sellerAmt    | 판매대금   | Integer | O  |
+| 파라메터                | 설명        | 타입      | 필수 |
+| ------------------- | --------- | ------- | -- |
+| unicroTradeNo       | 유니크로 주문번호 | String  | O  |
+| partnerTradeNo      | 제휴사 주문번호  | String  | O  |
+| saleReservationDate | 판매대금예정일   | String  | O  |
+| saleCompleteDate    | 판매대금완료일   | String  | O  |
+| sellerAmt           | 판매대금      | Integer | O  |
 
 * **Success Response:**
 * **Fail Response:**
