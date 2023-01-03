@@ -93,7 +93,7 @@ description: 정책관련한 내용은 유니크로 사업팀과 계약시 협�
 
 ## 거래 및 출금상태표
 
-<figure><img src="../.gitbook/assets/그림1.png" alt=""><figcaption><p>거래상태 및 출금상태표 (붉은색 음영 거래종료로 상태변경 불가)</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/그림1 (2).png" alt=""><figcaption><p>거래상태 및 출금상태표 (붉은색 음영 거래종료로 상태변경 불가)</p></figcaption></figure>
 
 ## 거래상태 변경에 따른 알림톡 발송리스트
 
